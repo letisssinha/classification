@@ -1,0 +1,660 @@
+143
+978-1-5386-2101-1/17/$31.00 ©2017 IEEE
+A Combined Process Mining for Improving Business 
+Process 
+ 
+Almir Djedović, Emir Žunić 
+Info Studio Ltd, Sarajevo  
+Sarajevo, Bosnia and Herzegovina 
+almir.djedovic@infostudio.ba 
+emir.zunic@infostudio.ba 
+Almir Karabegović 
+Faculty of Electrical Engineering, University of Sarajevo 
+Sarajevo, Bosnia and Herzegovina 
+akarabegovic@etf.unsa.ba 
+ 
+ 
+Abstract—Organizations use business process management to 
+identify opportunities to reduce costs, increase service or product 
+quality, etc. In this paper, a way to improve businesses processes 
+using process mining techniques and standard methods of 
+businesses process improvement is presented. Process mining has 
+been used to fix the disadvantages of the existing standard 
+methods. The presented approach is tested on a real process. 
+After the process model is acquired using process mining 
+analysis, business process improvement is proposed through a 
+detailed analysis. Also, key performance indicators which are 
+used to measure process performances, and a process model with 
+a new resource allocation, which is improved from the aspect of 
+the predefined key performance indications, is proposed. The 
+experimental results have shown how the process can be 
+improved with a better resource allocation.  
+Keywords—business process improvement; business process 
+analysis; business process modeling; process discovery algorithms 
+I.  INTRODUCTION 
+Business process management (BPM) has become a new 
+concept of management at the end of the previous century. 
+Originally, BPM was accepted as a management discipline 
+dealing with re-engineering and activity optimization in 
+processes. The related economic methods were focused on 
+documenting, modeling, and optimization was observed 
+separately from IT. Today, BPM includes software products 
+which are used by IT for modeling, implementation and 
+execution of business processes. In [1] BPM is defined as: 
+“supporting business processes using methods, techniques and 
+software to design, enact, control and analyze operational 
+processes involving humans, organizations, applications, 
+documents and other sources of information”. These days, 
+business processes are obligated to be globally oriented, as well 
+as being able to meet the needs of the group that uses them, 
+whether it be employees, business partners, customers or 
+management. Systems, as well as the requests, are becoming 
+more complex, and the amount of data is getting increasingly 
+bigger, in accordance with that it is necessary to use enhanced 
+methods for improving business processes. Because of this, this 
+paper presents a method which combines process mining 
+techniques and the standard method for business process 
+improvement. 
+The paper is organized as follows: section II presents a 
+related work, which methods can be used to improve business 
+processes combining similar approaches. Section III describes 
+a method of using the presented approaches in business process 
+improvement from the theoretical aspect. Business process 
+improvement using the presented approach, is demonstrated on 
+a particular process in Section IV. The conclusion of this paper 
+is given in section V. 
+II. RELATED WORK 
+Using process mining techniques for improving business 
+processes, as well as their combining with “traditional” 
+methods of business process improvement is an already known 
+topic. Z. Low and others in the paper [2] have presented how 
+process improvement can be achieved by analyzing the 
+execution history, i.e. by proposing process execution in the 
+future, based on log files which contain detailed information 
+about participants in the process, and about the duration of the 
+steps in the process etc. 
+In her thesis [3], K. Gerke used process mining for 
+managing and continuous process optimization. A procedure 
+for continuous process improvement which detects deviations 
+in process execution from the referenced model is presented. 
+Deviation is detected by continuous monitoring of the 
+execution and comparison to process specifications. Key 
+performance indicators (KPI) indicators for the current (AS-IS) 
+and enhanced (TO-BE) process model, are defined and 
+compared. After that, processes, participants and resources are 
+identified in the system, and the causes for the existing of 
+differences in defined KPI indicators are analyzed. The 
+presented method is tested on multiple processes in the ProM 
+tool.  
+Paper [4] shows how waiting queues in the process can be 
+analyzed using process mining. The authors have proposed the 
+installation of predictors in the waiting queues and the results 
+of the experiment have shown that predictors have a 30-40% 
+higher accuracy in their results compared to the previous 
+techniques.  
+It is possible to acquire hierarchical process models using a 
+set of plug-ins [5]. The authors have implemented the 
+presented approach in the ProM tool. The proposed method 
+enables to reduce the complexity of the process model, to 
+increase comprehensibility, to eliminate unnecessary details 
+and it enables to achieve a better focus on the desired features 
+of the process model. The simplification of the process model 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:50 UTC from IEEE Xplore.  Restrictions apply. 
+144
+ 
+using process mining techniques is presented in the paper [6], 
+and the success of this approach is tested on real event log files. 
+In paper [7] a methodological approach for redesigning 
+processes based on simulation techniques is presented, along 
+with data and process mining tools. The presented 
+methodology is comprised of: the problem description, 
+determining the process set and identification of the 
+participants, gap analysis, defining the project goal, extracting 
+log files, discovering real process models, analyzing process 
+performances, data mining analysis, analysis of key problems 
+in the process, process simulations, improvement of the model, 
+what-if analysis and implementation of the solution. This 
+approach was experimentally tested in a process of acquisition 
+in a private university in the USA.  The combination of process 
+mining techniques with simulation techniques is used in 
+numerous papers [8-13]. 
+III. COMBINING PROCESS MINING WITH CONVENTIONAL 
+METHODS FOR BPM 
+Process mining can be used to discover, analyze and 
+understand business processes based on the run-time behavior 
+recorded in event logs [14]. Business processes can be 
+analyzed from different perspectives using process mining 
+techniques. Those perspectives are: data, organizational, 
+workflow perspective and so on. The three main activities for 
+which process mining is used are: discovery, conformance and 
+enhancement. Using process mining it is possible to acquire a 
+process model from the event log file. It is necessary that the 
+event’s log files are in MXML or XES format. More 
+information about these formats can be found in [14].  
+Different algorithms such as the α algorithm, heuristic 
+miner, genetic miner, are used for acquiring process models. 
+Other than the acquirement of process models from the event’s 
+log files, the organizational structure included in the process 
+can also be found. That way it is possible to analyze the 
+exchange of tasks between the department and user, deploy of 
+tasks, identify the participants that cooperate most in the 
+process and so on.  
+The other way for implementing mining is conformance 
+checking. In this case, an event log file is owned on one hand, 
+and on the other, a process model. Using process mining, the 
+concurrence of the real execution of the process model 
+contained in the event’s log files, and the process model, is 
+tested. This way deviations, in case they exist, can be detected 
+in real models and process models presented on “paper”. 
+The third way of using the process mining is enhancing 
+process models with additional data about the process such as 
+probabilities of branching, duration of task execution, 
+dependency between data and flow in the process and so on. 
+BPM methodologies have two main goals: presenting the 
+execution of the current processes in organizations with 
+activities and other corresponding elements, and presenting 
+new process models in order to compare their performances 
+[15]. 
+Traditional methods of acquiring the current process model 
+are realized through interviews, surveys, and workshops with 
+participants in the process and business process owners. 
+Certain disadvantages of this approach exist. This approach is 
+time consuming and expensive, especially in the case of 
+complex processes in organizations. The biggest problem of 
+this approach is that the process can be executed differently in 
+reality than it is modeled, i.e. the disadvantages of this model 
+are errors and incompleteness of the process. In order to avoid 
+this problem, this paper will use process mining techniques for 
+acquiring process models. The advantage of this approach is 
+that it’s accurate and it enables the acquirement of a process 
+model like it is executed in reality, and it is possible to identify 
+deviations. This approach is faster and cheaper than the 
+traditional. The prerequisite for using this method is that there 
+is information about the execution of the business process 
+recorded in the log files. 
+IV. BUSINESS PROCESS ENHANCEMENT 
+A practical use of the presented approach is given in this 
+section. The approach is tested on a process of managing 
+business processes in a company in Bosnia and Herzegovina. 
+This paper combines process mining techniques and standard 
+methods of business process improvement presented in the 
+previous section. 
+A. Analysis of AS-IS process model 
+As it is described in section III, business processes can be 
+analyzed from different perspectives. In this paper, the process 
+is analyzed from the workflow perspective. The genetic miner 
+algorithm [16] was used for acquiring a process model from 
+log files. Unlike the 𝛼𝛼 algorithm, techniques for the heuristic 
+and fuzzy mining approach, where the process model is 
+acquired in one step and in a deterministic way, evolutionary 
+approaches use the iterative method of finding solutions based 
+on natural evolution. As with every genetic algorithm, there are 
+4 steps: initialization, selection, reproduction and stopping. 
+Genetic process mining is flexible and robust. It can deal with 
+problems of noise and incompleteness, as is the case with the 
+heuristic approach. This approach can be easily adapted and 
+expanded. Adaptaion to a particular problem can be done by 
+setting the fitness function. The ProM tool [17] was used for 
+acquiring the process model (Fig. 1). After applying the 
+algorithm, a business process model like on ProM tool [17] 
+was used for acquiring the process model (Fig. 2. is 
+acquired.The acquired process model is converted to the value 
+chain process model. More information about the value chain 
+ 
+ 
+Fig. 1. Application of the Genetic miner algorithm using the ProM tool. 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:50 UTC from IEEE Xplore.  Restrictions apply. 
+145
+ 
+process model can be found in [18]. The description of the 
+business process steps is given below. 
+1) Process identification. The identification process of the 
+business process starts with an internal initiative (from the 
+company) or an external initiative (outside the company). After 
+being accepted, the request is analyzed. Possibilities of 
+realization with the help of their own resources and the 
+eventual need for the engagement of external resources are 
+considered among other things. Based on the analysis, the 
+process for improvement is chosen and the project task is built. 
+If the project task is not complex then the project task is built. 
+If the issue is complex, an expert team is formed for the 
+production of the project task, then the team develops the 
+suggestion of the project task, which is then sent for revision. If 
+the team's opinions for the revision are positive, then the 
+suggestion for the project task is adopted. If the team's opinions 
+for the revision are negative, then it is sent back for finishing, 
+i.e., a re-production of the project task suggestion. When the 
+Project task is adopted, then, if external collaborators are 
+required, a service is arranged (ensured financial resources are 
+required), and then the expert team's solution suggestion is 
+produced.  
+2) Process modeling and analysis. Analysis and modeling 
+of the business process starts with the verification of the AS-IS 
+process model by the owner of the process. Deficiencies of the 
+verified process model are determined with a simultaneous 
+analysis of the cause of the deficiencies and comparison with 
+the best practices, which results with a series of identified 
+deficiencies of the process, which are then systemized in a 
+document. 
+3) The proposal of the TO BE model process. Based on the 
+document process shortcomings and improvement suggestions 
+a suggestion of measures is produced for process improvement, 
+then an activity operational plan for process improvement, 
+which all together form the study of process improvement 
+suggestion. If it is concluded that a revision is necessary, then 
+the study revises the revision team, then after a positive opinion 
+the study is adopted. If the revision is not necessary, the 
+company's administration adopts the study. 
+4) Implementation. The end result of the process of 
+improving the business process is an implemented, new, 
+improved process which is implemented using the process of 
+implementation. Based on the improvement proposal a way of 
+implementation is chosen, which can be: change of 
+organizational structure, change of the process, change of the 
+documentation or technological change. After the change in 
+the process, the change is documented, and the result is a new, 
+enhanced business process, which is documented. 
+In order to measure the process performances it is 
+necessary to define KPI. KPI present quantitative indicators of 
+process execution. A KPIs are grouped into three units: Cost 
+KPI, Time KPI i Units KPI.  
+Cost KPI 
+These indicators hold information about the cost of process 
+execution, individual activities in the process, as well the cost 
+of the resources engaged in the process. If 𝑐𝑐𝑖𝑖 represents the cost 
+of the i-th resource in the process in which m resources are 
+engaged on n activities, then the total cost of all the resources 
+engaged in the process in a time interval of (𝛼𝛼, 𝛽𝛽) is (1): 
+𝐶𝐶𝑟𝑟𝑟𝑟𝑟𝑟=
+∑𝑐𝑐𝑖𝑖
+𝑖𝑖=1,…,𝑛𝑛
+𝛼𝛼≤𝑡𝑡≤𝛽𝛽
+                                        (1) 
+Also, a process can have work place costs as well as resource 
+costs, such as: cost of workstation, cost of material, etc. If those 
+costs are represented by (𝑐𝑐𝑎𝑎)𝑗𝑗, then the total cost of the process 
+under the assumption that activity n exists in the process is (2): 
+𝐶𝐶=
+∑𝑐𝑐𝑖𝑖
+𝑖𝑖=1,…,𝑛𝑛
+𝛼𝛼≤𝑡𝑡≤𝛽𝛽
++
+∑(𝑐𝑐𝑎𝑎)𝑗𝑗
+𝑗𝑗=1,…,𝑛𝑛
+                     (2) 
+The total cost of activity I in the process is 𝑐𝑐𝑖𝑖+ (𝑐𝑐𝑎𝑎)𝑖𝑖, then 
+the value of the relative cost of the activity is given in relation 
+(3): 
+𝑐𝑐𝑖𝑖+ (𝑐𝑐𝑎𝑎)𝑖𝑖
+∑
+𝑐𝑐𝑖𝑖
+𝑖𝑖=1,…,𝑛𝑛
+𝛼𝛼≤𝑡𝑡≤𝛽𝛽
++ ∑
+(𝑐𝑐𝑎𝑎)𝑗𝑗
+𝑗𝑗=1,…,𝑛𝑛
+                        (3) 
+The goal in the business process improvement, i.e., 
+development of the TO BE process model, is to minimize the 
+value given with relation (2). 
+Time KPI 
+ 
+Time indicators refer to the time of the business process 
+execution (Cycle Time), time of waiting (Waiting Time), a time 
+of working (Working Time). Time of the business process 
+execution 𝑡𝑡𝑐𝑐 is equal to the sum of the waiting time 𝑤𝑤𝑖𝑖 and 
+working time 𝑡𝑡𝑖𝑖 on all activities (4): 
+𝑡𝑡𝑐𝑐=
+∑𝑤𝑤𝑖𝑖
+𝑖𝑖=1,…,𝑛𝑛
++ ∑𝑡𝑡𝑖𝑖
+𝑖𝑖=1,…,𝑛𝑛
+                       (4) 
+The waiting time 𝑤𝑤𝑖𝑖 impacts the user's satisfaction. It is 
+especially necessary to pay attention to this time in the process 
+which serve end users, and it is necessary to be minimized. 
+This time is related to the number of users that are assigned to 
+the activity and it can be written 𝑤𝑤𝑖𝑖= 𝑓𝑓(𝑐𝑐𝑖𝑖). Also, this time is 
+inversely proportional to the number of resources 𝑤𝑤𝑖𝑖~ 1 𝑚𝑚𝑖𝑖
+⁄
+. 
+Units KPI 
+This indicator indicates process instances. The total number 
+of executed process instances 𝑁𝑁, the number of process 
+instances on activities 𝑀𝑀𝑖𝑖, the usage of resources 𝑢𝑢𝑖𝑖. All these 
+parameters are connected to each other and it is impossible to 
+ 
+ 
+Fig. 2. AS IS process model „Managing business processes“. 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:50 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+observe them separately. The change of any of these 
+parameters directly impacts the change of others parameters. 
+These parameters can be measured using relations (5), (6), (7): 
+𝑁𝑁=
+∑𝑀𝑀𝑖𝑖                                   (5)
+𝑖𝑖=1,…,𝑛𝑛
+ 
+𝑀𝑀𝑖𝑖= ⌈𝑡𝑡𝑖𝑖
+𝑎𝑎𝑖𝑖
+⌉                                      (6) 
+𝑢𝑢𝑖𝑖=
+𝑡𝑡𝑖𝑖
+𝛽𝛽−𝛼𝛼                                      (7) 
+where 𝑎𝑎𝑖𝑖 is the average duration time for activity i. 
+Cost KPI is related to time KPI through a number of human 
+resources in the process. The larger the number of engaged 
+human resources is, the larger the Cost KPI is. On the other 
+hand, with a correct allocation of resources the time KPI can be 
+decreased. When the number of resources in the process is 
+smaller, the Cost KPI is smaller as well, but the time KPI is 
+potentially larger. 
+The defined KPI indicators are used for measuring the 
+performances of the AS-IS business process model.  
+B Proposal of the TO-BE process model 
+With the foundation of the process analysis „Managing 
+business processes“ the following weak spots of the process are 
+identified: 
+1) The sub-process „Business Process Governance“ is 
+missing, 
+2) Adopted documents Framework for BPM and BPM 
+politics don't exist, 
+3) Business processes are not mapped on strategic goals 
+of the company, 
+4) There's no IT support for the process „Managing 
+business processes“ on the whole, with a special emphasis on 
+modeling and quantitative business process analysis, 
+5) There is no standard form for a description of the 
+business process, 
+6) There is no defined evaluation methodology for 
+suggestions/initiatives for improvement, 
+7) There is no defined evaluation methodology for 
+suggestions/initiatives for improvement, 
+8) A standard form for proposing improvement initiatives 
+is not identified, 
+9) There is no continuous control and measurement of  
+performances of the business process. 
+The following methods for business process improvement 
+are established. 
+1)  Improvement through process model change 
+The identified improvements which are classified as the 
+business process improvements, refer to the proposal of 
+business process flow or the establishment of a new 
+process/sub-process, because the business process analysis 
+identified redundancies in the process activities, process breaks 
+or shortcomings of the clearly structured activity sequence. 
+2) Improvements through change of organizational 
+structure or business rules 
+Business rules are definitions or restrictions of a certain 
+business part. The rules are business politics excerpts and 
+company practice. One of the applications of business rules is 
+through defining business processes. The goal of the business 
+rule is to controle or impact the performance of the business 
+process, i.e. the business. The fact is that a organization's 
+business changes over time, so it is necessary to change the 
+business rules according to that. The business rule always 
+needs to be set so it is possible to accurately determine its 
+applicability, i.e. it is always clear what it means, what and 
+who it refers to.  
+3) Improvements through digitalization of business 
+processes 
+Process improvements which are directed to digitization of 
+the business process, are focused on improvement through IT 
+process support. The essence of the process doesn't change 
+with this type of change, instead, it improves through increase 
+in efficiency and automatization of certain activities.  
+4) Improvement of resource allocation in the business 
+process 
+This method of improving the business process implies a 
+better allocation of current resources in the business process, as 
+well as the eventual engagement of new human resources in the 
+process.  
+The proposed TO-BE process model is given in Fig. 3 [18]. 
+The changes which are proposed in the TO BE process 
+model are given below. 
+1) Establishing 
+the 
+subprocess 
+„Business 
+Process 
+Governance“. During identification of the AS-IS process it is 
+established that the business process governance with which 
+the mandate to the center of business process excellence is 
+given, to follow and effectively manage business process, and 
+identify and publish process owners. Governing business 
+processes entails defining, making and implementing 
+guidelines, rules, politics, which initiate responsibilities and 
+activities during the entire life cycle of business processes. 
+2) Develop and adopt documents Framewrok for BPM 
+and BPM politics. The main activities in the process 'business 
+process governance' are production and adoption of documents 
+framework for managing business processs, and politics of 
+managing business processes, which, together with the 
+methodology 
+for 
+managing 
+business 
+processes 
+and 
+conventions of modeling, present a mechanism for real 
+business process management. 
+3) Business processes are not mapped on strategic 
+company goals. The company's strategy is executed through 
+the company's business processes, and therefore it is necessary 
+within the 'process business process governance' to map which 
+process impacts the execution of which strategic goal, in order 
+for the execution of the strategy to be as effective as possible. 
+146
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:50 UTC from IEEE Xplore.  Restrictions apply. 
+147
+ 
+Other than that, mapping processes on strategic goals will give 
+an insight to which processes are critical, i.e., key processes 
+for execution of the strategy, and those processes will have a 
+higher priority during the evaluation and selection of 
+initiatives for improvement.  
+4) There's no IT support for the process „Managing 
+business processes“ on the whole. There's no IT support for 
+the process „Business process governance“ on the whole, with 
+a special emphasis on modeling and quantitative business 
+process analysis. This disadvantage is already acknowledged 
+from the company, and it is entailed in the project 
+„Implementation of the software platform for design and 
+managing business processes“, in which this document was 
+made, software for managing business processes was acquired, 
+which are mostly gonna be used in modeling activities, 
+analysis and business process implementation. 
+5) Standardized form. It is necessary to adopt a 
+standardized form for business process description within the 
+methodology of managing business processes. 
+6) Standardization and adoption of the improvement 
+suggestion/initiatives evaluation methodology. Identification, 
+classification 
+and 
+improvement 
+suggestion/initiative 
+methodology adoption is proposed within the methodology for 
+managing business processes.  
+7) Production and adoption of the form for the 
+improvement initiative suggestion. Within the entire business 
+process 
+improvement 
+„Managing 
+business 
+processes“, 
+production and adoption of a standardized form „Initiative for 
+business process improvement“ is proposed, with which a 
+mechanism would be established where all owners can, 
+according to the Sector for managing business processes, 
+direct a suggestion for business process change/improvement.  
+Process controlling and business process measurement 
+introduction. In order for the business process management to 
+be executed based on the business process performances, i.e., 
+real numbers, an integration of the BPM system with 
+transaction systems is proposed, which support the execution 
+of particular processes, in order to be able to follow the 
+process execution in real time and to follow the previously 
+defined KPI indicators. 
+8) Resource allocation in the process [10]. Analysis of the 
+AS-IS process model established that the total number of 
+allocated human resources in the process is 16. Three are 
+allocated on the subprocess Process identification, two are 
+allocated on the Current state analysis, as it is presented in 
+table 1.  
+The proposed number of resources is also presented in table 
+1. For determining the proposed number of resources a 
+simulation model was previously built [12]. For testing model  
+SimEvents library was used from Matlab. The previously 
+defined KPI indicators were measured: price of resources in the 
+process 𝐶𝐶𝑟𝑟𝑟𝑟𝑟𝑟 and the total resource utilization 𝑢𝑢𝑖𝑖. Fig. 4 shows 
+the current share of the resource prices in the process, and it 
+also shows that the largest expense is on sub-processes 
+Implementation and Process modeling and analysis. The 
+expenses are formed taking into account the number of  
+resources, price of resources (work price) as well as the price 
+of the work place. Fig. 4. also shows the share of the resource 
+prices, according to the proposed resource allocation. Resource 
+utilization is analyzed for the proposal of resource 
+improvement in the business process (Fig. 5.) and the current 
+expenses allocation (Fig. 4.). The black bars represent the 
+ 
+ 
+Fig. 3. TO-BE process model „Managing business processes“. 
+ 
+ 
+Fig. 4. The current and proposed allocation of expenses in the process 
+„Managing business processes“. 
+ 
+ 
+Fig. 5. Utilization of resources in the process „Managing business 
+processes“. 
+TABLE I.  
+THE CURRENT AND PROPOSED NUMBER OF RESOURCES ON 
+THE AS-IS PROCESS MODEL 
+Subprocess 
+Current number 
+of resources 
+Proposed number 
+of resources 
+Process identification 
+3 
+2 
+Current state analysis 
+2 
+2 
+Process modeling and analysis 
+3 
+3 
+The proposal of the TO BE model 
+process 
+4 
+3 
+Implementation 
+4 
+3 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:50 UTC from IEEE Xplore.  Restrictions apply. 
+148
+ 
+current utilization of the resources in the business process, and 
+the cyan bars represent the resourse utilization in the proposed 
+resource allocation acquired with the simulation analysis. The 
+figure shows that the proposed resource allocation enables  
+identification, The proposal of the TO BE model process i 
+Implementation. It is especially expressed in the subprocess 
+Implementation. Also, the proposed solution releases three 
+resources which can be used in some other processes in the 
+organization. The results were presented to a company that will 
+further decide about the business process improvement, but the 
+procedure of process changing is slow and long. 
+V. CONCLUSION 
+This paper presents an approach for business process 
+improvement using process mining and standard methods for 
+business process improvement. First, the AS-IS process model 
+is acquired. In order to get the current process model the way it 
+is executed in reality, the genetic miner algorithm from the 
+class of process discovery algorithms is used. KPI indicators, 
+which are used for measuring the current process being 
+executed, are defined. The TO-BE process model which is 
+susceptible to a process flow change, is proposed. Other than 
+the change of the process flow, a way of working on some 
+activities in the process is proposed. Performances of the 
+process are measured from the aspect of resource usage and 
+their cost in the process. A new resource allocation is proposed 
+on the current process in order to ensure better resource usage. 
+For KPI measurement, the simulation model was previously 
+built. 
+REFERENCES 
+[1] 
+W.M.P. Van Der Aalst, A.H.M. Hofstede, and M. Weske, “Business 
+Process Management: A Survey,” Business Process Management, pp. 1-
+12, 2003. 
+[2] 
+W.Z. Low, Journal De Weerdt, M.T. Wynn, A.H.M. Ter Hofstede, 
+W.M.P. Van Der Aalst, and S. Vanden Broucke, “Perturbing event logs 
+to identify cost reduction opportunities: A genetic algorithm-based 
+approach,” in Proc. of the 2014 IEEE Congress on Evolutionary 
+Computation, CEC 2014, 2014, pp. 2428-2435. 
+[3] 
+K. Gerke, “Continual Process Improvement based on Reference Models 
+and Process Mining,” Ph.D. dissertation, Wirtschaftswissenschaftlichen 
+Fakultät, Humboldt-Universität zu Berlin, Germany, 2011. 
+[4] 
+A. Senderovich, M. Weidlich, A. Gal, and A. Mandelbaum, “Queue 
+mining - Predicting delays in service processes,” in Lecture Notes in 
+Computer Science (including subseries Lecture Notes in Artificial 
+Intelligence and Lecture Notes in Bioinformatics), 2014, vol. 8484 
+LNCS, pp. 42-57. 
+[5] 
+R.P.J.C. Bose, E.H.M.W. Verbeek, and W.M.P. Van Der Aalst, 
+“Discovering hierarchical process models using ProM,” in Proc. of the 
+CEUR Workshop, 2011, vol. 734, pp. 33-40. 
+[6] 
+D. Fahland and W.M.P. Van Der Aalst, “Simplifying discovered process 
+models in a controlled manner,” Information Systems, vol. 38, no. 4, pp. 
+585-605, 2013. 
+[7] 
+S. Aguirre, C. Parra, and J. Alvarado, “Combination of Process Mining 
+and Simulation Techniques for Business Process Redesign: A 
+Methodological Approach,” Lecture Notes in Business Information 
+Processing, vol. 162, pp. 24-43, 2013. 
+[8] 
+M. Wibig, “Dynamic Programming and Genetic Algorithm for Business 
+Processes Optimisation,” International Journal of Intelligent Systems 
+and Applications, vol. 5, no. 1, pp. 44-51, 2012. 
+[9] 
+A. Kumar, R.M. Dijkman, and M. Song, “Optimal resource in 
+workflows for maximizing cooperation,” in Lecture Notes in Computer 
+Science, vol. 8094, pp. 235-250, 2013. 
+[10] J. Nakatumba and W.M.P. van der Aalst, “Analyzing resource behavior 
+using process mining,” in Business Process Management Workshops, 
+Lecture Notes in Business Information Processing, vol 43., Berlin, 
+Heidelberg: Springer, pp. 69-80, 2009. 
+[11] F. Szimanski, G. Ralha, G. Wagner, and D.R. Ferreira, “Improving 
+business process models with agent-based simulation and process 
+mining,” Lecture Notes in Business Information Processing, vol. 147 
+LNBIP, pp. 124-138, 2013. 
+[12] N. Martin, B. Depaire, and A. Caris, “The Use of Process Mining in 
+Business Process Simulation Model Construction,” Business and 
+Information Systems Engineering, vol. 58, no. 1, pp. 73-87, 2015. 
+[13] M. Pospísil and V. Mates, “Process Mining in a Manufacturing 
+Company for Predictions and Planning,” International Journal on 
+Advances in Software, vol. 6, no. 3 and 4, pp. 283-297, 2013. 
+[14] W.M.P. van der Aalst, Process Mining: Discovery, Conformance and 
+Enhancement of Business Processes, Verlag, Berlin: Springer, 2011. 
+[15] T.H. Davenport, Process Innovation - Reengineering Work through 
+Information Technology, USA, Harvard, Business School Press, 1993. 
+[16] A.K.A. De Medeiros, A.J.M.M. Weijters, and W.M.P. Van Der Aalst, 
+“Genetic process mining: An experimental evaluation,” Data Mining and 
+Knowledge Discovery, vol. 14, no. 2, pp. 245-304, 2007. 
+[17] Process 
+Mining 
+Workbench 
+[Online]. 
+Available: 
+http://www.promtools.org/doku.php [Accessed: 2017, May 10] 
+[18] C.C. Lee and Journal Yang, “Knowledge value chain,” Journal of 
+Management Development, vol. 19, no. 9, pp. 783-793, 2000. 
+ 
+ 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:50 UTC from IEEE Xplore.  Restrictions apply.
+

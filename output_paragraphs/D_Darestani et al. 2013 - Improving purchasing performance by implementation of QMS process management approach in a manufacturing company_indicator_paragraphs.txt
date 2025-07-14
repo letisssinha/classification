@@ -1,0 +1,18 @@
+Improving purchasing performance by implementation of QMS process management 
+approach in a manufacturing company 
+ 
+ABSTRACT 
+Process oriented approach in quality management system has been introduced with 
+ISO9001:2000. The international standard promotes the adoption of a process approach when 
+developing, implementing and improving the effectiveness of a QMS to enhance customer 
+satisfaction by meeting customer requirement. The advantage of process approach is to link 
+all parties in scope of business of the organization from suppliers, internal departments of 
+organization to gather to make B2B communication and integration. In this paper, the process 
+approach is defined based on QMS requirement. Supply department was proposed for 
+implementation of process. Purchasing process was designed as a linkage between supplier 
+and internal company departments. Performance indicators were developed and measured 
+accordingly. It shows that process management can improve delivery capability, quality and 
+monitor price of supplied parts by suppliers. 
+Keyword: Business process management (BPM); Continual improvement; Key performance 
+indicator (KPI); Purchasing; Quality management system (QMS)
+

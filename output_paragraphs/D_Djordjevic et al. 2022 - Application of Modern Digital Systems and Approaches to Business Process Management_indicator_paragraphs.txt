@@ -1,0 +1,2608 @@
+
+
+Citation: Zahar Djordjevic, M.;
+Djordjevic, A.; Klochkova, E.; Misic,
+M. Application of Modern Digital
+Systems and Approaches to Business
+Process Management. Sustainability
+2022, 14, 1697. https://doi.org/
+10.3390/su14031697
+Academic Editors: Ja-Shen Chen and
+Fabrizio D’Ascenzo
+Received: 26 October 2021
+Accepted: 27 January 2022
+Published: 1 February 2022
+Publisher’s Note: MDPI stays neutral
+with regard to jurisdictional claims in
+published maps and institutional afﬁl-
+iations.
+Copyright:
+© 2022 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed
+under
+the
+terms
+and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+sustainability
+Article
+Application of Modern Digital Systems and Approaches to
+Business Process Management
+Marija Zahar Djordjevic 1,*
+, Aleksandar Djordjevic 1
+, Elena Klochkova 2 and Milan Misic 3
+1
+Faculty of Engineering, University of Kragujevac, 34000 Kragujevac, Serbia; adjordjevic@kg.ac.rs
+2
+Institute of Humanities, Peter the Great St. Petersburg Polytechnic University, 195251 St. Petersburg, Russia;
+samarinne@list.ru
+3
+Higher Technical School of Professional Studies Zveˇcan, 38227 Zveˇcan, Serbia; milan.misic@pr.ac.rs
+*
+Correspondence: marija.zahar@kg.ac.rs
+Abstract: In order to adapt to ever-changing customer needs and satisfy them, good Business
+Process Management (BPM) in Small and Medium-sized Enterprises (SMEs) is crucial. The target
+group of this research is production SMEs whose BPM can be monitored respecting the values
+of key performance indicators (KPIs). This paper shows how improving the performance of the
+observed business processes can improve the level of customer satisfaction. This improvement should
+lead to the sustainability of SMEs in the market. In this paper, evaluation of business processes
+performance is deﬁned as a multi-criteria decision problem. The relative importance of considered
+KPIs and their imprecise values are described by linguistic expressions, which are then modeled by
+triangular intuitionistic fuzzy numbers (TIFNs). Calculation of KPI weights is done by using the
+fuzzy analytic hierarchy process (FAHP). Evaluation of BPM success is conducted respecting the
+obtained KPI weights and KPI values. An optimal solution for BPM success improvement, respecting
+customer satisfaction indicators, is calculated using the Artiﬁcial Neural Network (ANN) and Genetic
+Algorithm (GA) approaches. By applying the proposed model, managers of production SMEs can
+determine the management initiatives that will improve their business and the sustainability of
+their companies.
+Keywords: business process management; SME; customer satisfaction; fuzzy logic; TIFNs; AHP;
+Artiﬁcial Neural Network; Genetic Algorithm
+1. Introduction
+Small and Medium-sized Enterprises (SMEs) present a driving force of economic
+development in many countries. According to [1], SMEs represent 99% of all businesses in
+the EU. In Serbia, this number is 99.8%, employing 2/3 of the total number of employees in
+the non-ﬁnancial sector and participating with 32.8% in the formation of gross domestic
+product (GDP). However, the survival rate of SMEs is not high. In recent years, the number
+of SMEs that have survived the ﬁrst two years of business in Serbia is around 60% [2].
+Production SMEs, which employ a vast number of people and signiﬁcantly affect the
+overall growth of the economy, are especially vulnerable. To ensure their survival in the
+market, SMEs must successfully manage their business processes. It is very important that
+these enterprises continually improve their business processes, which leads to improved
+efﬁciency. The question is, what can help the managers of production SMEs in this situation?
+As SMEs have limited resources, the answer lies in Business Process Management (BPM)
+supporting models and software that would suit their needs. On the other hand, for the
+survival and success of these enterprises in the market, their focus on meeting customer
+needs is vital.
+Until recently, organizations were concentrated only on the processes, focusing on how
+they operate, neglecting that the customer and their interaction to business processes are
+Sustainability 2022, 14, 1697. https://doi.org/10.3390/su14031697
+https://www.mdpi.com/journal/sustainability
+Sustainability 2022, 14, 1697
+2 of 22
+important [3]. However, according to [4], identiﬁcation, analysis, and control of processes
+should be performed in convergence with customer experience, and not be addressed
+independently. These authors suggest that to achieve a great customer experience, excellent
+business processes are required. Convergence between these concepts may lead to many
+beneﬁts: designing of business processes that enable customer expectations fulﬁllment,
+development of products and services that are needed by the customers, rational usage
+of organizational resources, and more. According to [5], BPM is an important factor in
+attaining high levels of customer satisfaction.
+However, customer satisfaction is a complex issue [6]. According to [7], it refers to
+the level of customer satisfaction with products and after-sales services as well as the
+level of customer complaints. According to ISO 9000:2015 standard, customer satisfaction
+is “customer’s perception of the degree to which the customer’s expectations have been
+fulﬁlled” [8].
+According to [9], customer satisfaction leads to their retention, and the transfer of
+satisfaction information leads to the acquisition of new customers. In this way, there is also
+an increase in market share and an increase in proﬁtability because retaining customers is
+drastically more cost-effective than replacing them. Generally, customer satisfaction is one
+of the key indicators of business performance [10]. In a highly volatile market, such as the
+current-day market, with many competing companies offering similar products, customer
+satisfaction and loyalty are often seen as something that sets a company apart from the
+competition and is a critical element of business strategy.
+In the literature, most of the papers dealing with determining customer satisfaction
+are related to service activities [6,11–18]. On the other hand, fewer papers focus on manu-
+facturing companies [19–22], while a signiﬁcant lack of literature has been noted regarding
+the link between the performance of their business processes and customer satisfaction.
+Based on a review of the literature related to BPM, theoretical foundations, and
+empirical research related to the use of Artiﬁcial Neural Network (ANN) and Genetic
+Algorithm (GA), an integrated conceptual model has been developed to guide this research.
+The proposed model is used to ﬁnd out whether it is possible to integrate ANN and GA to
+determine optimal business performance values that would result in improved customer
+satisfaction in certain business conditions.
+ANN presents a powerful tool that can be used to model relationships in data sets
+that are nonlinear and highly correlated. Like real biological neural networks, ANNs are
+composed of interconnected, simple processing elements called artiﬁcial neurons. A neural
+network is a connected set of neurons or nodes. Like biological neurons, each ANN neuron
+receives input information, processes it, and delivers output information. The input can
+be a rough set of data or an output from another neuron, and the output may be the ﬁnal
+result, or it may be the input for another neuron. In biological neurons and synapses,
+there are synaptic connections of different strengths, and these strengths are represented in
+the ANN neurons by the values of the weight coefﬁcients. When processing information,
+artiﬁcial neurons in the ANN perform simultaneously and collectively, with the ability to
+learn, self-organize, and support robustness [23].
+Since organizations always have to meet several different business goals, it is necessary
+to compromise, make optimal decisions, and not jeopardize any of the set goals in such
+situations. These goals can often conﬂict with each other, i.e., by reaching one goal an
+organization may move away from reaching another goal, and vice versa. Examples
+of conﬂicting goals are high quality and low cost, greater efﬁciency, and more excellent
+reliability. Due to the possibility of considering many factors that inﬂuence decision-making,
+a GA is a suitable method for ﬁnding optimal solutions. In the past few years, GA has
+been among the most exciting optimization techniques within artiﬁcial intelligence since
+modern technology has found a way to commercialize its application [24,25]. GA belongs to
+stochastic methods for ﬁnding optimal solutions [26] and is characterized by a signiﬁcantly
+higher speed of ﬁnding solutions than classical methods and ﬁnding approximate optimal
+Sustainability 2022, 14, 1697
+3 of 22
+solutions in situations where classical methods cannot provide the precise optimal solution.
+It is particularly suitable for solving multi-criteria optimization problems [27].
+GAs are well-known methods for the efﬁcient search of complex spaces. Combining
+ANN for prediction and GAs to optimize business performance allows companies to
+improve business process management while reducing costs and increasing customer
+satisfaction. This approach gives SME managers important information regarding process
+parameter values, which are needed under different business conditions and different
+stages of the process to obtain the desired level of customer satisfaction indicators’ values.
+This paper is organized in the following way. The literature review is presented
+in Section 2, and the methodology and proposed algorithm are shown in Section 3. An
+illustrative example is presented in Section 4, and conclusions are given in Section 5.
+2. Literature Review
+This manuscript attempted to show how improving the performance of the observed
+business processes can improve the level of customer satisfaction. According to [28], the
+BPM paradigm could be considered as an integral part of almost all essential quality man-
+agement paradigms (TQM, Standardized Management Systems such as ISO 9001, Lean, Six
+Sigma). These authors state that the integration of BPM into quality management systems
+and tools enables the development of effective and efﬁcient organizations. Since the BPM is
+an integral part of the above-mentioned paradigms, we placed our focus on the connection
+of BPM and one of the key principles of SMS ISO 9001, focus on customers’ satisfaction.
+According to [28], the axis of the BPM philosophy and the implementation of its
+principles is the satisfaction of customers’ needs. BPM assists managers of SMEs in achiev-
+ing business objectives [29]. One of the most important business objectives is customers
+satisfaction. Key performance indicators (KPIs) as measurable values demonstrate how
+effectively a company is achieving key business objectives. Meaning that KPIs have crucial
+importance in the measurement and determination of target values. It is clear that achiev-
+ing the desired target value is not possible without effectively implementing BPM [30].
+Improving business processes performance is possibly be accomplished by monitoring
+and managing the KPIs of these processes [31]. Different studies are focused on business
+process improvement based on KPIs during the BPM [32,33].
+However, determining the relative importance and values of KPIs is a difﬁcult task
+because precise numbers cannot always present these variables. They often depend on the
+experience and opinion of decision-makers, so there are uncertainties in their determination.
+According to [34], uncertain and imprecise variables can be described by linguistic terms.
+Modeling of these linguistic terms can be done by using the theory of fuzzy sets [35,36].
+Many papers deal with the modeling of linguistic variables. While several authors use
+type-1 fuzzy sets [37–40], other authors suggest using type-2 fuzzy sets [41–44] because of
+a higher degree of freedom and ﬂexibility. In the previous research, there are many papers
+using intuitionistic fuzzy sets [45–47]. Although using intuitionistic fuzzy sets requires
+complex calculation, the authors of these papers claim that they present a better way of
+describing uncertainties that occur in modeling linguistic variables.
+Different models for supporting BPM in SMEs have been developed in the previous
+studies based on fuzzy sets. These models allow managers to make decisions more quickly.
+In the paper [48], a fuzzy approach for evaluation of the quality of the purchasing process,
+respecting weights and values of KPIs for deﬁned process’ objectives, is presented. Using
+this approach, managers can identify gaps between existing and target conditions of
+process effectiveness, identify strengths and weaknesses, and improve purchasing process
+performance. In the papers [49,50], fuzzy group decision-making problems for determining
+the weights of identiﬁed quality KPIs for the manufacturing process were considered.
+Ranking of manufacturing sub-processes and their KPIs was done by using a metaheuristic
+approach. These mathematical models enable quality evaluation of a production process,
+ranking, and optimization of KPIs using a GA. This approach enables managers of small
+and medium enterprises to improve successfully the production process quality. The
+Sustainability 2022, 14, 1697
+4 of 22
+authors in [51] used modiﬁed fuzzy analytic hierarchy process (FAHP) to obtain the fuzzy
+rank of business processes of a seaport. The assessment of the relative importance of each
+pair of performances and their KPIs are stated as a fuzzy group decision-making problem.
+The ranking of business processes is based on the overall preference index and the method
+for comparing fuzzy numbers. In [52], the authors were solving the problem of assessment
+and improvement of KPIs in the New Service Development Process. Determination of
+KPIs’ weights was stated as a group decision-making problem. The ranking of KPIs
+was performed by using the GA approach. Determination of the management initiatives
+priority for the improvement of KPIs was based on fuzzy if-then rules and the single-
+objective GA. This model enables identifying weak points in an enterprise and determining
+corrective measures that should lead to the improvement of the process performance.
+In [53], the authors developed a fuzzy model for ranking manufacturing sub-processes
+in the automotive industry, respecting the sub-processes’ KPIs. This model, which uses
+the fuzzy extended ELECTRE III method for ranking considered sub-processes, enables
+improving quality management by assessing manufacturing sub-processes and their KPIs.
+Mathematical models developed in all of these papers use triangular fuzzy numbers
+to deal with uncertainties in the considered problems. On the other hand, according to
+many authors [45,54], intuitionistic fuzzy sets present a better way to model linguistic
+terms characterized by a degree of imprecision. These fuzzy sets [55] represent an extension
+of classical fuzzy set theory. Their fundamental characteristic is the existence of the non-
+membership function and the membership function instead of standard fuzzy sets. One of
+the models for supporting BPM in SMEs, based on intuitionistic fuzzy sets, is shown in [56].
+In that paper MCDM approach was used to rank production SMEs, respecting values
+and weights of KPIs of the production process. Modiﬁed TOPSIS method with triangular
+intuitionistic fuzzy numbers (TIFNs) was used while the benchmarking procedure was
+proposed to identify weaknesses in performance management and to choose appropriate
+improvement strategies. In [57] proposed model was extended to four processes, and a
+software solution for dealing with this problem was shown, which signiﬁcantly shortens
+the time required to obtain a solution. In this paper, modeling of uncertainties is done
+using TIFNs, while modern artiﬁcial intelligence techniques and approaches, like ANN and
+GA, are used to establish a link between business processes performance in manufacturing
+SMEs and customer satisfaction.
+ANNs have proven to be a promising computing system in many forecasting and
+business applications due to their ability to learn from data sets, their nonparametric na-
+ture (i.e., no rigid assumptions), and their ability to generalize [58]. Their application is
+widely used in business performance [59], most recent internet ﬁnancing [60], performance
+management [61], and online education and teaching evaluation system performance pre-
+dictions [62]. The authors in [59] used ANN as the prediction system to predict e-business
+performance for the Chinese service industry. In their study, for the backpropagation (BP)
+ANN model, the inputs are the data of e-business performance measured by a ﬁve-point
+Likert scale, and the expected outputs of training neural network come from cluster analy-
+sis. The results showed that the prediction system is reliable and accurate; and that it can
+be used for evaluating enterprise performance effectively. In [63], authors compared ANN
+and multiple linear regression (MLR) prediction performance on reliability of accounting
+information system as independent variables and business performance as a dependent
+variable prediction model and revealed that in terms of predictive accuracy test, the ANN
+has higher accuracy than regression analysis. In [60], the author presented the application
+of the BP ANN method to analyze the risks of Internet ﬁnance in terms of market, law,
+credit, personal information, and professional knowledge. The same authors stated that
+BP ANN had an excellent prediction effect. According to [62], a combination of GA and
+ANN has given good optimal results for social science research performance evaluation in
+colleges and universities. Similar research was conducted in [61], where authors proposed a
+performance index system for university social science research based on BP ANN and the
+relevant theoretical knowledge. The presented BP ANN models have shown meager error
+Sustainability 2022, 14, 1697
+5 of 22
+value and good generalization abilities, which effectively demonstrates that the training
+sample data can ideally ﬁt the neural network simulation. In the same way, it shows that
+the output value of the BP ANN can be very close to the input vector.
+GA has been applied and provided acceptable optimal results in many problems: pro-
+cess scheduling problems [64], system parameter determination problems [65], data mining
+process optimization [66], and KPI value optimization [49,52]. In [64], authors proposed
+a self-learning GA (SLGA) which adopts GA as the primary optimization method, with
+its key parameters intelligently adjusted based on reinforcement learning (RL). The same
+authors compared the learning effect and performance of SLGA in solving the Flexible Job
+Shop Problem (FJSP) with other algorithms using two groups of benchmark data instances
+with different scales. Their experiment results show that the proposed SLGA signiﬁcantly
+outperforms its competitors in solving FJSP. In [65], the GA-based two-step classiﬁcation
+method is proposed, which allows selecting the signiﬁcant factors and adapting the model
+itself to application in bankruptcy forecasting, improving the advantages and alleviating
+the weaknesses inherent in standard classiﬁers enabling the business decisions to support
+with higher reliability. In [66], new ensemble data mining techniques that involve an
+adaptive neuro-fuzzy inference system (ANGIS) with GA for landslide spatial modeling
+have been presented, showing that the proposed ensemble data mining techniques can
+be applied for land use planning and management of landslide susceptibility and hazard.
+Literature resources show that GA has its application in obtaining optimal values within
+the production process KPIs, the ranking of KPIs, and provides the basis for successful
+improvement of the production process quality [49,67]. Furthermore, the ranking and im-
+provement of the new service development process KPI values problem could be stated as
+a multi-criteria decision-making problem that the GA could solve [52]. It can be concluded
+that GAs has provided scheduling, trend tracking, and ﬁnding optimal performance values
+in various ﬁelds and that they can be used to ﬁnd the optimal solution in many scientiﬁc
+and industrial ﬁelds.
+3. Methodology
+This paper intends to assess optimal improvements for BPM in SMEs, which should
+lead to increasing the level of customer satisfaction. In order to achieve this, KPIs for
+each business process must be deﬁned. Since there are no standards that deﬁne the most
+appropriate KPIs for each business process, it is common practice to determine KPIs based
+on the literature data and the results of good practice. The ﬁrst issue that arises in this
+problem relates to the assessment of the relative importance of KPIs. The second issue
+relates to the determination of the KPIs’ values. The problem is signiﬁcantly more complex
+because the realistic assumption is that the considered variables are not measurable so
+linguistic terms will describe them.
+In this paper, linguistic variables are modeled using the TIFNs that belong to intu-
+itionistic fuzzy sets [55]. Assessments of the relative importance of KPIs for each business
+process are stated by fuzzy pair-wise comparison matrix, an analogy to Analytic Hierarchy
+Process (AHP) method. According to [68], this method is very transparent and easy to under-
+stand. The AHP method [69] has been widely used for various decision-making problems.
+Its extensions have been applied in numerous papers, for example, FAHP with Triangular
+fuzzy numbers, developed in [70] and used in [71,72]; FAHP with Trapezoidal fuzzy numbers
+applied in [73,74]; FAHP with the interval type-2 triangular or trapezoidal fuzzy numbers
+used in [75,76]; FAHP with TIFNs developed in [77] and used in [68,78–81], etc.
+In this paper, to determine the weights of KPIs, decision-makers estimate the relative
+importance of KPIs. Since the calculated weights of KPIs depend on the assessment of
+decision-makers, it is very important that these decision-makers have sufﬁcient knowledge,
+such as quality management auditors, or managers with a lot of experience. They use
+linguistic expressions modeled by TIFNs (Table 1), as shown in [57]. Domains of these
+TIFNs are deﬁned on the interval from 1 to 5. To determine the relative importance of KPIs,
+value ‘one’ means equal importance, and value ‘ﬁve’ means extremely important.
+Sustainability 2022, 14, 1697
+6 of 22
+Table 1. Linguistic expressions for the relative importance of KPIs.
+Relative Importance
+TIFN
+Slightly more important
+eA1 = {(1, 1.5, 2), ( 1, 1.5, 2.3)}
+A bit more important
+eA2 = {(1, 2, 3), ( 1, 2, 3.3)}
+More important
+eA3 = {(2, 3, 4), ( 1.8, 3, 4.2)}
+Strongly more important
+eA4 = {(3, 4, 5), ( 2.7, 4, 5)}
+Absolutely more important
+eA5 = {(4, 5, 5), ( 3.7, 5, 5)}
+According to the conventional AHP method, consistency checking should be per-
+formed, ensuring the entered data’s consistency. Since the problem analyzed in this paper
+is a group decision-making problem, KPI weights are calculated using the fuzzy geometrical
+mean method and then aggregated using the fuzzy averaging operator.
+On the other hand, decision-makers (managers above all) of each SME involved
+in determining optimal values of BPM success estimate KPI values for each business
+process. The imprecisions related to the assessment of KPI values are described by linguistic
+expressions modeled by TIFNs, as shown in Table 2, according to [57]. Domains of TIFNs
+describing these imprecisions are deﬁned on the interval from 1 to 9.
+Table 2. Linguistic expressions for KPIs’ values.
+Value of KPI
+TIFN
+Very low value
+ev1 = {( 1, 1, 2), ( 1, 1, 2.3)}
+Low value
+ev2 = {( 1, 2, 3), ( 1, 2, 3.3)}
+Almost low value
+ev3 = {( 2.5, 3.5, 4.5), (2.3, 3.5, 4.7)}
+Middle value
+ev4 = {(4, 5, 6), ( 3.8, 5, 6.2)}
+Fairly high value
+ev5 = {( 5.5, 6.5, 7.5), ( 5.3, 6.5, 7.7)}
+High value
+ev6 = {( 7, 8, 9), ( 6.7, 8, 9)}
+Very high value
+ev7 = {(8, 9, 9), ( 7.7, 9, 9)}
+Based on the aggregated weights and the estimated values of KPIs, current ratings of
+BPM success at the level of each business process are calculated, as shown in Section 3.1.
+When it comes to monitoring customer satisfaction, speciﬁc indicators also must be
+deﬁned, and in this paper, it is assumed that their importance is equal. This allows these
+indicators to be observed and improved at once. In case the observed company has a desire
+to observe and improve only one indicator, for example, which it considers to be the most
+important at the moment, the input data for ANN and GA will contain only data for that
+indicator. Their values are also estimated by decision-makers of each involved SME and
+described by linguistic terms shown in Table 2.
+Based on the calculated BPM success ratings, an ANN model is then developed
+to predict the values of satisfaction indicators in a speciﬁc SME. A GA then uses the
+trained ANN model to determine the BPM parameter values that would result in optimal
+satisfaction indicator values obtained in various operating conditions.
+GA optimizes goals using objective functions and constraints to ﬁnd the optimal
+solution in the domain of possible solutions. Objective functions and deﬁned constraints
+are usually in conﬂict, so solutions have acceptable values instead of optimal values for
+all goals. Unlike the optimization of one objective function (single-criteria optimization),
+with usually only one obtained optimal solution, in multi-criteria optimization, with more
+target functions to be satisﬁed, the number of resulting solutions is signiﬁcantly higher
+(trade-offs). Multicriteria optimization consists of two phases. In the ﬁrst phase, the given
+target functions are optimized, and solutions are obtained in the form of a Pareto front
+(set), while in the second phase, a decision is made on the speciﬁc solution to be selected
+from the Pareto set. The Pareto set is a set of mutually non-dominant solutions, so the ﬁnal
+decision is up to the decision-maker. For Pareto solutions, the property is that they are
+harmonized based on dominance. Dominance refers to the fact that some solution A is
+Sustainability 2022, 14, 1697
+7 of 22
+dominant over solution B, if it has a more optimal value concerning solution B for at least
+one objective function, and it does not have a higher value for other objective functions.
+Using the fuzzy algebra rules [82,83], ANN and GA approaches, the links between
+BPM success and customer satisfaction indicators can be found. Based on that, the optimal
+values for BPM parameters are determined while maximizing the values of customer
+satisfaction indicators. Since ANN and GA are used in the proposed algorithm, the obtained
+results largely depend on the number of observed SMEs and entered values. By determining
+the gaps between current and optimal values of BPM success, the management team of
+each SME can conclude which business process requires performance improvement.
+3.1. The Proposed Algorithm
+This section presents the 17-step procedure for evaluating optimal BPM improvements
+in SMEs, respecting the values and weights of KPIs. The presented algorithm intends
+to provide theoretical background for the development of software solutions. Using this
+solution, SMEs could have tools for fast and efﬁcient insight on their process as well as a
+tool that will detect the major gaps between existing situations and optimal situations. This
+will provide a useful tool to SMEs that was available, until now, only for the large systems.
+Step 1. The fuzzy pair-wise comparison matrix of the relative importance of KPIs i, i’
+on the level of each business process p are stated, based on the assessments of each expert q:
+h
+ewqp
+ii′
+i
+; i, i′ = 1, . . . , I; p = 1, . . . , P; q = 1, . . . , Q
+(1)
+Step 2. In order to check consistency, the defuzziﬁcation procedure is temporarily
+applied [84]:
+de f uzz
+
+ewqp
+ii′
+
+=
+
+ewqp
+ii′1 + 2 ∗ewqp
+ii′2 + ewqp′
+ii′3
+
++
+
+ewqp′
+ii′1 + 2 ∗ewqp
+ii′2 + ewqp
+ii′3′
+
+8
+(2)
+Step 3. Consistency is performed according to the procedure presented in [69]. If the
+consistency index of each given matrix is <10%, it is considered that the matrix is consistent,
+and no corrections are necessary.
+Step 4. Weights of each KPI i, at the level of each expert q and at the level of each
+business process p are calculated using the methodology shown in [68]:
+ewqp
+i
+=
+emqp
+i
+∑I
+i=1 emqp
+i
+(3)
+where emqp
+i
+is calculated as geometric mean:
+emqp
+i
+=
+Iq
+ewqp
+i1 · . . . · ewqp
+iI ; i = 1, . . . , I; p = 1, . . . , P; q = 1, . . . , Q;
+(4)
+Step 5. By using the fuzzy averaging operator, aggregated values of the weights of
+each KPI i, at the level of each business process p, are determined:
+ewp
+i = 1
+Q·
+Q
+∑
+q=1
+ewqp
+i ; i = 1, . . . , I; p = 1, . . . , P; q = 1, . . . , Q;
+(5)
+Figure 1 shows the steps of the proposed algorithm.
+Sustainability 2022, 14, 1697
+8 of 22
+Figure 1. Steps of the proposed algorithm.
+Step 6. Using predeﬁned linguistic statements, decision-makers within each enterprise
+e estimate the fuzzy ratings of KPIs’ values for each process p, evep
+i .
+Step 7. Fuzzy ratings of values of KPIs are normalized using the linear normalization
+procedure [85], for beneﬁt-type and cost-type of KPIs, respectively:
+erep
+i
+=
+( 
+vep
+i1
+v+
+3
+, vep
+i2
+v+
+3
+, vep
+i3
+v+
+3
+!
+,
+ 
+vep
+i1
+′
+v+
+3
+, vep
+i2
+v+
+3
+, vep
+i3
+′
+v+
+3
+!)
+(6)
+erep
+i
+=
+( 
+v−
+1
+vep
+i3
+, v−
+1
+vep
+i2
+, v−
+1
+vep
+i1
+!
+,
+ 
+v−
+1
+vep
+i3
+′ , v−
+1
+vep
+i2
+, v−
+1
+vep
+i1
+′
+!)
+(7)
+where: v+
+3 = max
+n
+vep
+i3
+o
+, v−
+1 = min
+n
+vep
+i1
+o
+, i = 1, ..., I; e = 1, ..., E; p = 1, ..., P.
+Step 8. The weighted normalized fuzzy KPIs’ values, within the enterprise e, for each
+process p, are calculated as:
+edep
+i
+= ewp
+i ·erep
+i ; i = 1, . . . , I; e = 1, . . . , E; p = 1, . . . , P
+(8)
+Sustainability 2022, 14, 1697
+9 of 22
+Step 9. Fuzzy ratings of BPM success at the level of each business process p, for each
+enterprise e, are calculated as:
+eOep = ∑I
+i=1 edep
+i
+I
+; i = 1, . . . , I; e = 1, . . . , E; p = 1, . . . , P
+(9)
+Step 10. By using the defuzziﬁcation procedure (step 2 of the algorithm), scalar ratings
+of BPM success (RBPMS) for each process within each enterprise are obtained:
+RBPMSep = de f uzz
+
+eOep
+(10)
+Step 11. Using predeﬁned linguistic statements, decision-makers within each enter-
+prise e estimate the fuzzy ratings of the indicators of customer satisfaction (ICS): eve
+i ; i = 1, ...,
+I; e = 1, ..., E.
+Step 12. By using the linear normalization procedure (step 7 of the algorithm), these
+ratings become comparable: ere
+i ; i = 1, ..., I; e = 1, ..., E.
+Step 13. By using the defuzziﬁcation procedure (step 2 of the algorithm), scalar ratings
+of ICS, for each enterprise e, are obtained: RICSe
+i ; i = 1, ..., I; e = 1, ..., E.
+Step 14. Applying neural network to obtain optimization equations based on the scalar
+ratings of the observed indicators’ values (RICS) as dependent variables and scalar ratings
+of BPM success (RBPMS) as independent variables:
+f ([RICS]IxE) = pureline
+h
+LW2,1i
+Ix10x
+
+tansig
+
+[IW1,1]10xI
+h
+RBPMS1i
+IxE + [b1]10x1
+
++
+h
+b2i
+Ix1
+
+(11)
+where E represents the overall number of considered enterprises, I is the overall number of
+ICS, while IW1,1, LW2,1, b1 and b2 present matrixes of the weights vectors and biases in the
+two-layered neural network, respectively.
+Step 15. Applying GA to obtain optimal RBPMS based on the equations derived from
+the previous step and the desired level of observed customer satisfaction indicators:
+max( f ([RICS∗]IxM)) = pureline
+h
+LW2,1i
+Ix10x
+
+tansig
+
+[IW1,1]10xI
+h
+RBPMS1∗i
+IxM + [b1]10x1
+
++
+h
+b2i
+Ix1
+
+(12)
+where
+
+RBPMS1∗
+IxM present the proposed optimal values in order to achieve desired
+levels of [RICS∗]IxM and M presents the overall number of obtained optimal solutions.
+Step 16. Determining the gaps between current and optimal RBPMS for each process
+within the observed enterprise.
+Step 17. Proposing optimal improvements for observed enterprise, based on the
+ranking of gaps.
+4. Illustrative Example
+As well as in other countries of the world, manufacturing SMEs operating in Serbia
+gain a signiﬁcant role in the country’s economy. This is why the proposed algorithm’s
+application is tested on data given from 30 manufacturing SMEs operating in this country.
+These companies belong to the sector of the metal processing industry, which is very
+important for the development of Serbia. In accordance with [57], four key business
+processes for manufacturing SMEs which are observed in this paper are: (1) purchasing
+process, (2) production process, (3) marketing and sales process, and (4) after-sales service
+process. In compliance with the existing literature and the results of good practice, KPIs for
+each of these processes (Table 3) were determined.
+Sustainability 2022, 14, 1697
+10 of 22
+Table 3. KPIs of observed business processes [57]. Sources from the one of the author’s dissertation.
+Purchasing
+Production
+Marketing and Sales
+After-Sales
+Service Process
+i = 1
+% of complete orders
+Number of complaints
+due to
+non-compliance/total
+number of complaints
+(in %)
+% of realization of sales
+plan (quantity)
+% of complaints resolved
+in time
+i = 2
+% of late purchases
+% of product
+incompetence
+% of offers completed
+% of complaints approved
+i = 3
+% inconsistent quality
+% of production plan
+realization (quantity)
+% of late deliveries
+% of recurring complaints
+i = 4
+Non-compliance
+costs/total procurement
+costs (in %)
+% of the cost of scrap
+% of marketing
+campaigns that did not
+start in time
+% of phone calls
+answered in time
+i = 5
+Time from procurement
+request to contract signing
+Time of unplanned
+delays/total production
+cycle time
+Completeness of market
+research information
+i = 6
+Market research
+costs/total marketing and
+sales costs
+On the other hand, the observed indicators of customer satisfaction, determined in the
+same way, are: (1) degree of fulﬁllment of customer requirements, (2) customer satisfaction
+with quality, (3) customer loyalty, and (4) customer satisfaction with the implementation of
+the contract. Customer requirements are the desired characteristics of products that should
+be met in order that the customer will decide to purchase the product. Satisfaction with
+product quality refers to products’ technical and functional characteristics that are subject to
+complaints [86]. Customer loyalty represents the degree of customers retention [87], while
+satisfaction with the implementation of the contract refers to all the elements speciﬁed in
+the sales contract, which the company is obliged to fulﬁll. It is assumed that the importance
+of these indicators is equal.
+Data collection was performed by collecting ﬁlled-up questionnaires, as shown in [57].
+In order to determine the weights of KPIs, for each process, six experts q were engaged.
+Their fuzzy assessments of the relative importance of KPIs are shown in [57]. Furthermore,
+in the mentioned work, input data for the KPIs’ values are given, based on the assessments
+of managers from each of 30 SMEs. These assessments are presented in Appendix A. In
+order to evaluate the values of indicators of customer satisfaction, data in Appendix B were
+collected, also based on the assessments of managers.
+Based on the collected data, the proposed algorithm is tested.
+Demonstration of the Algorithm
+Figure 2 presents the fuzzy pair-wise comparison matrix of the relative importance of
+KPIs for the purchasing process, assessed by expert q = 4. He gave his statement based on
+his knowledge and experience (Step 1 of the Algorithm). Here, the decision-maker used
+ﬁve predeﬁned linguistic expressions which were modeled by TIFNs.
+Sustainability 2022, 14, 1697
+11 of 22
+Figure 2. Fuzzy pair-wise comparison matrix for the purchasing process.
+After that, for each element of the stated fuzzy pair-wise comparison matrices, de-
+fuzziﬁcation was performed to check the consistency of the entered data (Step 2 of the
+Algorithm). The defuzziﬁcation method is illustrated in an example of the TIFN
+~
+A3.
+de f uzz
+ ~
+A3
+
+= (2 + 2 ∗3 + 4) + ( 1.8 + 2 ∗3 + 4.2)
+8
+= 3
+In the same way, scalar values of other elements of the fuzzy pair-wise comparison
+matrices were calculated. An example of obtained pair-wise comparison matrix with scalar
+values is given in Figure 3.
+Figure 3. Pair-wise comparison matrix for the purchasing process.
+Using the existing procedure Consistency Index was calculated (Step 2 of the Algo-
+rithm). Its value is 0.05, so this matrix may be considered consistent, and it is not necessary
+to re-evaluate the relative importance of KPIs. In the same way, the consistency of other
+pair-wise comparison matrices was checked.
+By using Step 4 of the Algorithm, the weight of KPI i = 1 of the purchasing process
+(p = 1), at the level of expert q = 4, was calculated as:
+ew41
+1 =
+em41
+1
+∑5
+i=1 em41
+i
+= {(0.087, 0.1758, 0.369), (0.0805, 0.1758, 0.3993)}
+where em41
+1 = {(0.6444, 1, 1.5519), (0.6203, 1, 1.6122)}.
+In the same way, weights of the rest considered KPIs, obtained by each expert, are
+calculated at each business process level.
+By applying Step 5 of the proposed Algorithm, aggregated weights of each KPI at
+the level of each business process are obtained (Appendix C). In accordance with this, the
+weight of KPI i = 1 for process p = 1 is calculated as:
+ew1
+1 = {(0.1720, 0.3274, 0.5771), (0.1581, 0.3274, 0.6328)}
+In Step 6, fuzzy assessments of the KPIs’ values, at the level of each business process,
+were estimated by decision-makers of each enterprise using seven predeﬁned linguistic
+expressions which were modeled by TIFNs (Appendix A).
+The application of Step 7 of the proposed Algorithm is illustrated by the example: let
+the value of KPI (i = 1) at the level of business process p = 1 in enterprise e = 1 be described
+by TIFN:
+ev11
+1 = {( 7, 8, 9), ( 6.7, 8, 9)}
+Sustainability 2022, 14, 1697
+12 of 22
+The normalized value of this beneﬁt-type KPI is calculated as:
+er1
+1 =
+7
+9, 8
+9, 9
+9
+
+,
+6.7
+9 , 8
+9, 9
+9
+
+= {(0.7778, 0.8889, 1), ( 0.7444, 0.8889, 1)}
+In the same way, normalized values of all KPIs for all business processes in each
+enterprise were calculated.
+Using Step 8 of the Algorithm, the weighted normalized values of all KPIs for each
+business process in each enterprise were calculated. An example illustrates this for KPI
+i = 1 of process p = 1 in enterprise e = 1:
+ed11
+1 = ew1
+1·er11
+1 =
+{(0.1720, 0.3274, 0.5771), (0.1581, 0.3274, 0.6328)}
+·{{(0.7778, 0.8889, 1), ( 0.7444, 0.8889, 1)}}
+= {(0.1338, 0.2910, 0.5771), ( 0.1177, 0.2910, 0.0.6328)}
+In the same way, the weighted normalized values of all other KPIs are calculated.
+After that, fuzzy ratings of BPM success at each enterprise’s level of each business
+process are calculated using Step 9 of the Algorithm. Obtained fuzzy rating for process
+p = 1 in enterprise e = 1 is:
+eO11 = {(0.0631, 0.1826, 0.3599), ( 0.0528, 0.1826, 0.3916)}
+Finally, using the defuzziﬁcation procedure (Step 10) representative scalar of this
+rating is obtained:
+RBPMS11 = 0.1997
+In the same way, scalar ratings of BPM success at the level of each business process
+for each enterprise are calculated. These ratings are later used as input data to obtain
+optimization equations (Appendix B).
+In Step 11 decision-makers assess ICS, using predeﬁned linguistic statements, which
+are then modeled by TIFNs. Let the ﬁrst ICS i = 1, in the enterprise e = 1, be described by
+the linguistic expression “High value”. This expression is then modeled as TIFN:
+ev1
+1 = {( 7, 8, 9), ( 6.7, 8, 9)}
+In Step 12 of the Algorithm, this value is normalized and calculated as shown in Step 7,
+so the obtained result is:
+er1
+1 = {(0.7778, 0.8889, 1), ( 0.7444, 0.8889, 1)}
+By using the defuzziﬁcation procedure in Step 13 scalar rating of ICS i = 1, for enter-
+prise e = 1, is calculated:
+RICS1
+1 = 0.8847
+In the same way, the RICS of all indicators in all enterprises are calculated, and they
+also present input data for obtaining the optimization equations (Appendix B).
+In Step 14, ANN is used to obtain optimization equations based on the RICSe
+i as
+dependent variables, and RBPMSep as independent variables, i = 1, ..., I; e = 1, ..., E; p = 1,
+. . . P. A backpropagation ANN with two layers is used, and appropriate weights and
+biases are calculated, as shown in Appendix C.
+In Step 15 of the Algorithm, the limits of all RICS values are set to be 0.97, as it is the
+maximum value of RICS. The goal is to achieve the optimal scores for all RICS at once,
+which is as close as possible to the value of 0.97. By using the GA, optimal RBPMS for each
+process are obtained (Appendix D). It can be seen that there are nine solutions, and in this
+example, the ﬁnal solution (see Table 4) was chosen as optimal because it has the highest
+scores of all RICS observed.
+Sustainability 2022, 14, 1697
+13 of 22
+Table 4. Chosen solution.
+Optimal RBPMS
+RICS
+p = 1
+p = 2
+p = 3
+p = 4
+i = 1
+i = 2
+i = 3
+i = 4
+0.4976
+0.1451
+0.3559
+0.9864
+0.857691
+0.948955
+0.78133
+0.899164
+Based on the results obtained, each enterprise can identify gaps between current and
+optimal RBPMS values for each process (Step 16). The results for the enterprise e = 23 are
+shown in Figure 4. n the same way, scalar values of other el
+Figure 4. Results for enterprise e = 23.
+Based on Figure 4, managers of SME e = 23 can see that the highest gap between the
+current and optimal values is for processes p = 4, i.e., after-sales service process, and this
+means that this process needs the greatest improvements. On the other hand, it is seen that
+the production process (p = 2) does not need improvement. According to the enterprise’s
+strategy, managers of this SME should decide which methods of the business processes
+improvement will be applied (Step 17 of the Algorithm). There are different possibilities,
+depending on their opinions and available resources.
+In order to improve the process with the highest gap, managers of this SME can be
+focused on the calculated weights of KPIs for the after-sales service process, obtained in
+Step 5 of the Algorithm. The most important KPI is “% of complaints resolved in time”,
+which is a beneﬁt type KPI. It means that corrective actions may ﬁrstly be aimed to increase
+the value of that KPI. In order to improve this indicator, business managers of the observed
+SME should consider whether it is necessary to increase the number of employees involved
+in resolving complaints or perhaps to carry out their additional training. After that, the
+manager may focus on the improvements of other KPIs. These improvements can be
+realized through better communication with customers and proper execution of complaints,
+respecting all customer requirements, their advice, and suggestions in accordance with
+service recovery practice.
+After that, the decision-makers of SME e = 23 can decide to implement strategies
+that should improve the purchasing process. In this process, the most important KPI is
+“% of complete orders”, a beneﬁt type KPI the value of which should be increased. This
+can be achieved by choosing suppliers who have a better reputation and who are more
+responsible towards their associates. Managers can also focus their attention on other KPIs,
+but since those KPIs refer to the quality and time for which the suppliers are responsible,
+the best way for the KPIs improvement is to carry out the process of evaluation, ranking,
+and selection of appropriate suppliers correctly.
+In the end, looking at the obtained results, it can be seen that KPI with the most
+signiﬁcant importance for the marketing and sales process is “% of realization of sales
+Sustainability 2022, 14, 1697
+14 of 22
+plan (quantitative)”. It means that corrective actions may ﬁrst be aimed to increase the
+value of this KPI. This can be done by aligning the sales plan with realistic possibilities,
+improving marketing activities, and using new forms of promotion. Other ways to improve
+this process are more careful planning of marketing activities, including determining the
+promoter, the order in which promotions are performed, the number of funds required,
+improving product delivery time, etc.
+5. Conclusions
+In order to develop their business and survive in the market, production SMEs must
+constantly satisfy the customers of their products. Increasing customer satisfaction may
+lead to increased proﬁts, which is important for the sustainability of SMEs.
+The paper contributes to creating a BPM management model that improves the art’s
+current state on methodological and substantive bases with two contributions: integrating
+new information and using artiﬁcial intelligence techniques. The proposed model is used
+to ﬁnd out whether it is possible to determine the link between the BPM success, which
+depends on the KPIs of business processes, and customer satisfaction. Therefore, on the
+basis of calculated weights and values of KPIs, RBMPS ratings for each process within each
+enterprise are obtained. On the other hand, there are ratings of the indicators of customer
+satisfaction (RICS), within each enterprise. Using ANN and GA the links between these
+two types of ratings are discovered and optimal solutions of RBMPS are proposed while
+maximizing the RICS values. So, by improving the values of KPIs, RBMPS ratings will be
+improved, which should lead to the improvement of RICS values, i.e., customer satisfaction.
+The results provide evidence on how to separate the different performance dimensions
+to identify a direction for improvement of customer satisfaction. There were two primary
+scientiﬁc objectives. The ﬁrst objective was to develop a model for assessing the process
+KPIs and customer satisfaction RICS indices from various aspects. The second objective
+was to develop an optimization model to support the decision-making process and to
+make optimal decisions to improve individual process KPIs based on RICS desired levels.
+Accordingly, a mathematical model with an accompanying 17-step algorithm was proposed.
+The ﬁrst part of the algorithm refers to determining ratings of BPM success and RICS
+values. This is done by a fuzzy mathematical model where existing uncertainties and im-
+precisions are modeled by TIFNs. These numbers are used in the proposed model because
+they present a good way of modeling human thinking. Since the issue of determining the
+weights of KPIs is stated as a multi-criteria decision-making problem, fuzzy AHP approach
+and fuzzy averaging operator are used. Aggregated weights and normalized fuzzy ratings
+of KPIs are used to obtain ratings of BPM success for each process in each SME. On the other
+hand, fuzzy ratings of ICS values in each enterprise were normalized and then defuzziﬁed
+using the fuzzy algebra rules.
+The second part of the algorithm uses ANN and GA approaches to determine the
+optimal scalar ratings of BPM success for each process within an SME. A two-layered BP
+ANN is used to calculate appropriate weights and biases. They are then used in GA in
+order to determine the optimal RBPMS for each process. The goal is to achieve the highest
+possible scores for all RICS at once. Based on these results, it is possible to determine the
+gaps between current and optimal ratings and to propose optimal improvements for each
+SME. This is very important for SMEs operating in today’s changing environment.
+The algorithm was tested on the data from 30 manufacturing SMEs operating in Serbia.
+It has been shown that there is a signiﬁcant relationship between the observed business
+processes and ICSs. This allows the determination of the optimal level of improvements
+of business processes in an exact manner. Based on the obtained results, some of the
+methods for the business processes improvement are explained, which should lead to the
+improvement of customer satisfaction.
+The proposed algorithm is very ﬂexible. It allows the observation of a large number
+of SMEs, their business processes, KPIs, and ICS simultaneously. This is very important
+to obtain the most accurate results since they largely depend on the number of observed
+Sustainability 2022, 14, 1697
+15 of 22
+SMEs and entered values. Additionally, having data from different companies enables
+benchmarking, meaning that each company could compare their results with the results of
+other companies.
+The practical implications include determining a decision support system that will
+enable the adoption of optimal decisions by the SMEs management team to improve the
+values of the process KPIs and customer satisfaction. The presented system may enable
+benchmarking, simulation, and veriﬁcation of different scenarios to improve the process
+KPIs’ and customer satisfaction RICS values of the SMEs.
+The originality of the research lies in the presented two-part model that can be made
+available to SMEs and serve as a basis for determining future strategic directions.
+However, collecting data from companies is not always an easy task, as they are not
+always willing to provide information. Furthermore, as in many genuine problems, the
+main disadvantage of the proposed model is obtaining input data of maximal accuracy
+because they depend strictly on the knowledge and the experience of the decision-makers.
+Besides, there is also a risk of their subjectivity when ﬁlling in the data.
+Future works could test the developed methodology in other industrial branches, with
+other KPIs or ICS. Additionally, different types of ANN and optimization constraints could
+be applied.
+Author Contributions: Conceptualization, M.Z.D.; A.D. and M.M.; methodology, M.Z.D.; software,
+A.D.; validation, M.Z.D. and A.D.; formal analysis, M.Z.D.; investigation, M.Z.D.; resources, M.Z.D.;
+data curation, M.Z.D.; writing—original draft preparation, M.Z.D.; writing—review and editing,
+M.M.; visualization, M.Z.D.; supervision, E.K.; project administration, E.K.; funding acquisition, E.K.
+All authors have read and agreed to the published version of the manuscript.
+Funding: This research was partially done by Peter the Great St. Petersburg Polytechnic University
+and supported under the strategic academic leadership program ‘Priority 2030’ of the Russian
+Federation (Agreement 075-15-2021-1333 dated 30.09.2021).
+Institutional Review Board Statement: Not applicable.
+Informed Consent Statement: Not applicable.
+Conﬂicts of Interest: The authors declare no conﬂict of interest.
+Appendix A
+Table A1. Assessments of the KPIs’ values for the procurement process.
+e1
+e2
+e3
+e4
+e5
+e6
+e7
+e8
+e9
+e10 e11 e12 e13 e14 e15 e16 e17 e18 e19 e20 e21 e22 e23 e24 e25 e26 e27 e28 e29 e30
+i1
+ev6
+ev6
+ev6
+ev5
+ev5
+ev5
+ev5
+ev6
+ev6
+ev6
+ev6
+ev5
+ev4
+ev3
+ev4
+ev5
+ev3
+ev3
+ev5
+ev4
+ev3
+ev3
+ev4
+ev6
+ev4
+ev4
+ev5
+ev4
+ev4
+ev5
+i2
+ev1
+ev2
+ev2
+ev2
+ev1
+ev1
+ev2
+ev2
+ev2
+ev1
+ev2
+ev3
+ev3
+ev3
+ev3
+ev2
+ev3
+ev4
+ev2
+ev2
+ev3
+ev3
+ev3
+ev1
+ev2
+ev3
+ev3
+ev3
+ev3
+ev3
+i3
+ev1
+ev2
+ev1
+ev2
+ev2
+ev2
+ev2
+ev2
+ev1
+ev1
+ev1
+ev3
+ev3
+ev3
+ev3
+ev2
+ev3
+ev3
+ev2
+ev3
+ev3
+ev3
+ev2
+ev1
+ev2
+ev3
+ev3
+ev2
+ev3
+ev3
+i4
+ev1
+ev2
+ev2
+ev2
+ev1
+ev2
+ev2
+ev2
+ev2
+ev1
+ev1
+ev3
+ev2
+ev2
+ev3
+ev2
+ev3
+ev3
+ev2
+ev2
+ev4
+ev3
+ev3
+ev2
+ev2
+ev3
+ev3
+ev3
+ev3
+ev2
+i5
+ev2
+ev2
+ev2
+ev3
+ev2
+ev3
+ev2
+ev2
+ev1
+ev1
+ev2
+ev2
+ev3
+ev2
+ev2
+ev2
+ev3
+ev3
+ev2
+ev2
+ev3
+ev4
+ev4
+ev2
+ev2
+ev3
+ev2
+ev3
+ev3
+ev2
+Table A2. Assessments of the KPIs’ values for the production process.
+e1
+e2
+e3
+e4
+e5
+e6
+e7
+e8
+e9
+e10 e11 e12 e13 e14 e15 e16 e17 e18 e19 e20 e21 e22 e23 e24 e25 e26 e27 e28 e29 e30
+i1
+ev1
+ev1
+ev1
+ev1
+ev2
+ev1
+ev1
+ev1
+ev1
+ev1
+ev2
+ev2
+ev2
+ev2
+ev2
+ev2
+ev3
+ev3
+ev2
+ev3
+ev2
+ev2
+ev1
+ev1
+ev2
+ev1
+ev1
+ev1
+ev1
+ev3
+i2
+ev1
+ev1
+ev1
+ev2
+ev2
+ev2
+ev1
+ev1
+ev1
+ev1
+ev3
+ev3
+ev2
+ev3
+ev2
+ev3
+ev3
+ev3
+ev2
+ev3
+ev3
+ev3
+ev2
+ev2
+ev2
+ev2
+ev2
+ev1
+ev2
+ev3
+i3
+ev7
+ev6
+ev6
+ev5
+ev5
+ev6
+ev6
+ev6
+ev6
+ev7
+ev5
+ev5
+ev4
+ev4
+ev5
+ev6
+ev4
+ev4
+ev6
+ev5
+ev4
+ev5
+ev5
+ev6
+ev5
+ev4
+ev6
+ev5
+ev5
+ev3
+i4
+ev1
+ev1
+ev2
+ev2
+ev2
+ev2
+ev1
+ev1
+ev1
+ev1
+ev3
+ev3
+ev2
+ev3
+ev2
+ev3
+ev3
+ev3
+ev2
+ev3
+ev3
+ev3
+ev3
+ev2
+ev2
+ev2
+ev2
+ev2
+ev2
+ev3
+i5
+ev1
+ev1
+ev1
+ev2
+ev2
+ev2
+ev1
+ev1
+ev1
+ev1
+ev2
+ev3
+ev3
+ev3
+ev3
+ev3
+ev3
+ev4
+ev2
+ev3
+ev3
+ev3
+ev2
+ev2
+ev2
+ev2
+ev2
+ev2
+ev2
+ev3
+Sustainability 2022, 14, 1697
+16 of 22
+Table A3. Assessments of the KPIs’ values for the marketing and sales process.
+e1
+e2
+e3
+e4
+e5
+e6
+e7
+e8
+e9
+e10 e11 e12 e13 e14 e15 e16 e17 e18 e19 e20 e21 e22 e23 e24 e25 e26 e27 e28 e29 e30
+i1
+ev7
+ev6
+ev5
+ev5
+ev4
+ev4
+ev6
+ev6
+ev6
+ev7
+ev6
+ev6
+ev5
+ev4
+ev5
+ev6
+ev4
+ev4
+ev6
+ev5
+ev5
+ev5
+ev6
+ev7
+ev6
+ev5
+ev6
+ev5
+ev6
+ev4
+i2
+ev5
+ev5
+ev5
+ev4
+ev4
+ev4
+ev5
+ev6
+ev6
+ev7
+ev5
+ev5
+ev4
+ev4
+ev5
+ev6
+ev4
+ev4
+ev5
+ev4
+ev5
+ev4
+ev4
+ev5
+ev4
+ev4
+ev5
+ev4
+ev5
+ev5
+i3
+ev2
+ev2
+ev2
+ev1
+ev2
+ev2
+ev2
+ev2
+ev2
+ev1
+ev2
+ev3
+ev2
+ev3
+ev2
+ev1
+ev2
+ev3
+ev2
+ev2
+ev2
+ev5
+ev1
+ev1
+ev2
+ev3
+ev2
+ev3
+ev1
+ev2
+i4
+ev1
+ev2
+ev2
+ev3
+ev3
+ev3
+ev2
+ev2
+ev2
+ev2
+ev2
+ev3
+ev3
+ev3
+ev2
+ev2
+ev2
+ev2
+ev1
+ev2
+ev3
+ev3
+ev3
+ev2
+ev3
+ev3
+ev2
+ev3
+ev3
+ev3
+i5
+ev6
+ev6
+ev6
+ev5
+ev5
+ev5
+ev6
+ev6
+ev5
+ev7
+ev5
+ev5
+ev4
+ev5
+ev5
+ev6
+ev4
+ev3
+ev5
+ev5
+ev5
+ev5
+ev4
+ev6
+ev5
+ev4
+ev5
+ev5
+ev6
+ev4
+i6
+ev3
+ev2
+ev2
+ev2
+ev2
+ev3
+ev3
+ev3
+ev3
+ev2
+ev2
+ev2
+ev2
+ev2
+ev1
+ev1
+ev3
+ev2
+ev2
+ev2
+ev2
+ev2
+ev1
+ev2
+ev2
+ev1
+ev2
+ev2
+ev2
+ev3
+Table A4. Assessments of the KPIs’ values for the after-sales service process.
+e1
+e2
+e3
+e4
+e5
+e6
+e7
+e8
+e9
+e10 e11 e12 e13 e14 e15 e16 e17 e18 e19 e20 e21 e22 e23 e24 e25 e26 e27 e28 e29 e30
+i1
+ev5
+ev5
+ev4
+ev4
+ev4
+ev4
+ev4
+ev5
+ev4
+ev5
+ev6
+ev5
+ev5
+ev4
+ev5
+ev5
+ev4
+ev4
+ev5
+ev4
+ev2
+ev3
+ev4
+ev5
+ev4
+ev4
+ev5
+ev4
+ev5
+ev3
+i2
+ev3
+ev3
+ev2
+ev2
+ev2
+ev2
+ev3
+ev3
+ev3
+ev3
+ev4
+ev3
+ev3
+ev3
+ev3
+ev3
+ev3
+ev3
+ev4
+ev3
+ev2
+ev4
+ev4
+ev5
+ev3
+ev3
+ev3
+ev3
+ev4
+ev3
+i3
+ev2
+ev2
+ev3
+ev3
+ev3
+ev3
+ev1
+ev2
+ev2
+ev1
+ev1
+ev2
+ev2
+ev3
+ev2
+ev2
+ev3
+ev3
+ev2
+ev3
+ev5
+ev4
+ev3
+ev2
+ev3
+ev3
+ev3
+ev3
+ev3
+ev4
+i4
+ev5
+ev5
+ev4
+ev3
+ev3
+ev3
+ev4
+ev4
+ev4
+ev5
+ev5
+ev4
+ev4
+ev3
+ev4
+ev5
+ev3
+ev3
+ev4
+ev3
+ev2
+ev2
+ev4
+ev5
+ev3
+ev3
+ev4
+ev3
+ev3
+ev2
+Appendix B
+Table A5. Values of indicators of customer satisfaction.
+e1
+e2
+e3
+e4
+e5
+e6
+e7
+e8
+e9
+e10 e11 e12 e13 e14 e15 e16 e17 e18 e19 e20 e21 e22 e23 e24 e25 e26 e27 e28 e29 e30
+ICS1ev6
+ev6
+ev5
+ev5
+ev4
+ev4
+ev6
+ev5
+ev5
+ev6
+ev5
+ev4. ev5
+ev4
+ev5
+ev6
+ev4
+ev4
+ev6
+ev4
+ev4
+ev4
+ev5
+ev6
+ev4
+ev3
+ev4
+ev4
+ev5
+ev4
+ICS2ev6
+ev6
+ev6
+ev5
+ev5
+ev5
+ev6
+ev6
+ev5
+ev6
+ev6
+ev5
+ev6
+ev4
+ev5
+ev6
+ev4
+ev4
+ev6
+ev4
+ev4
+ev5
+ev6
+ev7
+ev4
+ev4
+ev5
+ev4
+ev6
+ev4
+ICS3ev6
+ev5
+ev5
+ev5
+ev5
+ev5
+ev6
+ev6
+ev5
+ev6
+ev5
+ev5
+ev6
+ev4
+ev5
+ev5
+ev4
+ev4
+ev4
+ev4
+ev4
+ev4
+ev5
+ev6
+ev4
+ev4
+ev4
+ev4
+ev5
+ev3
+ICS4ev5
+ev5
+ev5
+ev6
+ev4
+ev4
+ev4
+ev5
+ev5
+ev6
+ev4
+ev4
+ev4
+ev4
+ev6
+ev6
+ev4
+ev4
+ev5
+ev4
+ev4
+ev4
+ev5
+ev6
+ev4. ev4
+ev4
+ev4
+ev6
+ev3.
+Appendix C
+Table A6. Obtained Weights of KPIs for Each Process.
+Obtained Weights of KPIs for Each Process Are:
+∼w
+1
+1 = {(0.1720, 0.3274, 0.5771), ( 0.1581, 0.3274, 0.6328)}
+∼w
+1
+2 = {(0.1205, 0.2275, 0.4179), ( 0.1114, 0.2275, 0.4593)}
+∼w
+1
+3 = {(0.1055, 0.1821, 0.3243), ( 0.0969, 0.1821, 0.3513)}
+∼w
+1
+4 = {(0.0955, 0.1621, 0.2898), ( 0.0878, 0.1621, 0.3113)}
+∼w
+1
+5 = {(0.0628, 0.1008, 0.1904), ( 0.0574, 0.1008, 0.2031)}
+∼w
+2
+1 = {(0.1795, 0.3091, 0.4984), ( 0.1647, 0.3091, 0.5521)}
+∼w
+2
+2 = {(0.1658, 0.2704, 0.4282), ( 0.1508, 0.2704, 0.4701)}
+Sustainability 2022, 14, 1697
+17 of 22
+Table A6. Cont.
+Obtained Weights of KPIs for Each Process Are:
+∼w
+2
+3 = {(0.1229, 0.1928, 0.3151), ( 0.1115, 0.1928, 0.3411)}
+∼w
+2
+4 = {(0.0776, 0.1138, 0.1809), ( 0.0713, 0.1138, 0.1961)}
+∼w
+2
+5 = {(0.0776, 0.1138, 0.1809), ( 0.0713, 0.1138, 0.1961)}
+∼w
+3
+1 = {(0.1499, 0.2893, 0.5054), ( 0.1384, 0.2893, 0.5522)}
+∼w
+3
+2 = {(0.0896, 0.1605, 0.2973), ( 0.0827, 0.1605, 0.3207)}
+∼w
+2
+3 = {(0.1093, 0.2159, 0.3944), ( 0.1030, 0.2159, 0.4310)}
+∼w
+3
+4 = {(0.0807, 0.1349, 0.2406), ( 0.0750, 0.1349, 0.2557)}
+∼w
+3
+5 = {(0.0676, 0.1110, 0.2075), ( 0.0624, 0.1110, 0.2188)}
+∼w
+3
+6 = {(0.0550, 0.0883, 0.1682), ( 0.0504, 0.0883, 0.1784)}
+∼w
+4
+1 = {(0.1958, 0.3924, 0.7042), ( 0.1833, 0.3924, 0.7789)}
+∼w
+4
+2 = {(0.1463, 0.2749, 0.5046), ( 0.1364, 0.2749, 0.5536)}
+∼w
+4
+3 = {(0.1062, 0.1814, 0.3517), ( 0.0961, 0.1814, 0.3720)}
+∼w
+4
+4 = {(0.0915, 0.1512, 0.2967), ( 0.0823, 0.1512, 0.3106)}
+Appendix D
+Table A7. Input data for deﬁning optimization equations using ANN.
+p = 1
+p = 2
+p = 3
+p = 4
+ICS = 1
+ICS = 2
+ICS = 3
+ICS = 4
+e = 1
+0.1997
+0.1994
+0.1497
+0.1833
+0.88
+0.88
+0.88
+0.72
+e = 2
+0.1688
+0.1965
+0.1463
+0.1833
+0.88
+0.88
+0.72
+0.72
+e = 3
+0.1787
+0.1898
+0.1379
+0.1271
+0.72
+0.88
+0.72
+0.72
+e = 4
+0.1492
+0.162
+0.1304
+0.1199
+0.72
+0.72
+0.72
+0.88
+e = 5
+0.1784
+0.146
+0.1121
+0.1159
+0.56
+0.72
+0.72
+0.56
+e = 6
+0.1614
+0.1687
+0.1061
+0.1199
+0.56
+0.72
+0.72
+0.56
+e = 7
+0.1574
+0.1965
+0.1403
+0.1705
+0.88
+0.88
+0.88
+0.56
+e = 8
+0.1688
+0.1965
+0.1451
+0.176
+0.72
+0.88
+0.88
+0.72
+e = 9
+0.1842
+0.1965
+0.1417
+0.1582
+0.72
+0.72
+0.72
+0.72
+e = 10
+0.2052
+0.1994
+0.1673
+0.1955
+0.88
+0.88
+0.88
+0.88
+e = 11
+0.1875
+0.1181
+0.1428
+0.2255
+0.72
+0.88
+0.72
+0.56
+e = 12
+0.1122
+0.1092
+0.1198
+0.176
+0.56
+0.72
+0.72
+0.56
+e = 13
+0.1048
+0.1301
+0.1172
+0.176
+0.72
+0.88
+0.88
+0.56
+e = 14
+0.1095
+0.1023
+0.0978
+0.1323
+0.56
+0.56
+0.56
+0.56
+e = 15
+0.1003
+0.137
+0.1385
+0.176
+0.72
+0.72
+0.72
+0.88
+e = 16
+0.1574
+0.1159
+0.1647
+0.1833
+0.88
+0.88
+0.72
+0.88
+e = 17
+0.0803
+0.0804
+0.1128
+0.1323
+0.56
+0.56
+0.56
+0.56
+e = 18
+0.0745
+0.0775
+0.0995
+0.1323
+0.56
+0.56
+0.56
+0.56
+Sustainability 2022, 14, 1697
+18 of 22
+Table A7. Cont.
+p = 1
+p = 2
+p = 3
+p = 4
+ICS = 1
+ICS = 2
+ICS = 3
+ICS = 4
+e = 19
+0.1574
+0.1527
+0.1489
+0.1888
+0.88
+0.88
+0.56
+0.72
+e = 20
+0.1312
+0.0873
+0.1295
+0.1323
+0.56
+0.56
+0.56
+0.56
+e = 21
+0.0762
+0.1023
+0.1257
+0.0687
+0.56
+0.56
+0.56
+0.56
+e = 22
+0.0777
+0.1092
+0.1207
+0.1141
+0.56
+0.72
+0.56
+0.56
+e = 23
+0.1038
+0.1531
+0.1392
+0.1522
+0.72
+0.88
+0.72
+0.72
+e = 24
+0.1909
+0.1687
+0.1592
+0.2087
+0.88
+0.97
+0.88
+0.88
+e = 25
+0.1455
+0.146
+0.1291
+0.1323
+0.56
+0.56
+0.56
+0.56
+e = 26
+0.0921
+0.1551
+0.1069
+0.1323
+0.39
+0.56
+0.56
+0.56
+e = 27
+0.1122
+0.1687
+0.1428
+0.1574
+0.56
+0.72
+0.56
+0.56
+e = 28
+0.1064
+0.1763
+0.1065
+0.1323
+0.56
+0.56
+0.56
+0.56
+e = 29
+0.0921
+0.162
+0.1472
+0.1629
+0.72
+0.88
+0.72
+0.88
+e = 30
+0.1249
+0.0735
+0.1075
+0.1201
+0.56
+0.56
+0.39
+0.39
+Appendix E
+Table A8. Hidden layer values of the parameters.
+IW
+b1
+1.5007
+−1.6309
+0.86557
+0.99701
+−2.4988
+1.226
+1.3628
+−1.1437
+−1.3141
+−1.9081
+−1.1365
+1.7555
+0.71124
+−1.0712
+1.3724
+1.3059
+−0.29296
+1.4443
+−1.315
+−0.93135
+1.4984
+1.1729
+0.55347
+−1.8375
+−0.67932
+−1.3306
+-1.3533
+0.75435
+1.0208
+−0.72682
+−1.0031
+−0.26165
+1.1011
+1.7896
+−0.35753
+−0.20505
+1.7655
+−0.73274
+−1.0372
+1.6335
+1.3854
+1.0058
+0.21794
+1.5918
+1.8425
+1.1397
+1.1896
+−1.0599
+−1.3549
+2.6502
+Table A9. Output layer values of the parameters.
+LW
+b2
+−0.13908
+−0.7086
+0.49561
+0.23919
+0.3903
+−0.14243
+0.258
+−0.42744
+0.14419
+−0.33634
+−0.00906
+0.061347
+0.11178
+0.35141
+−0.09187
+0.21791
+−0.44646
+0.91944
+−0.21342
+−0.09013
+−0.53321
+0.4686
+0.77751
+−0.31071
+−0.02863
+−0.4486
+0.75258
+0.5476
+−0.01411
+0.45881
+0.45256
+0.022131
+0.12332
+0.41696
+−0.02417
+0.672
+0.45597
+0.051214
+0.28033
+0.26372
+0.11978
+0.20632
+−0.1249
+0.20288
+Sustainability 2022, 14, 1697
+19 of 22
+Appendix F
+Table A10. Optimal results. obtained by GA.
+Purchasing
+Production
+Marketing
+and Sales
+After Sales
+Service
+Process
+Degree of
+Fulﬁllment of
+Customer
+Requirements
+Customer
+Satisfaction
+with Quality
+Customer
+Loyalty
+Customer
+Satisfaction with
+the
+Implementation
+of the Contract
+0.7586
+0.4725
+0.2599
+0.2277
+0.508906
+0.718982
+0.945718
+0.969928
+0.3097
+0.5117
+0.1003
+0.7245
+0.382157
+0.970195
+0.449697
+0.55818
+0.5141
+0.3679
+0.1819
+0.7559
+0.660412
+0.965324
+0.754372
+0.496481
+0.3113
+0.5099
+0.1341
+0.7264
+0.598932
+0.980704
+0.574131
+0.658281
+0.3101
+0.5091
+0.1131
+0.7195
+0.45391
+0.979403
+0.478917
+0.598719
+0.3371
+0.5151
+0.1228
+0.7406
+0.403378
+0.960478
+0.570081
+0.590135
+0.4766
+0.4049
+0.1043
+0.6482
+0.181812
+0.946201
+0.957059
+0.547001
+0.4978
+0.0634
+0.3086
+0.9457
+0.832441
+0.95707
+0.828687
+0.85103
+0.4976
+0.1451
+0.3559
+0.9864
+0.857691
+0.948955
+0.78133
+0.899164
+References
+1.
+Internal Market, Industry, Entrepreneurship and SMEs. Available online: https://ec.europa.eu/growth/smes/sme-deﬁnition_en
+(accessed on 4 December 2021).
+2.
+Ministry of Economy of the Republic of Serbia. Report on Small and Medium Enterprises and Entrepreneurship for 2015 [in Serbian];
+Ministry of Economy of the Republic of Serbia: Belgrade, Serbia, 2016.
+3.
+Davis, R. It’s the customer journey that counts. BPTrends Column. 2011. Available online: https://www.bptrends.com/bpt/wp-
+content/publicationﬁles/12-06-2011-COL-Processes%20in%20Practice-Customer%20Journey-Davis-ﬁnal.pdf (accessed on 5
+October 2021).
+4.
+Pavli´c, D.; ´Cukuši´c, M. Conceptualizing the convergence model of business process management and customer experience
+management. In International Conference on Business Process Management, Business Process Management: Blockchain and Central and
+Eastern Europe Forum, BPM 2019, Lecture Notes in Business Information Processing; Di Ciccio, C., Gabryelczyk, R., Garcia-Banuelos,
+L., Hernaus, T., Hull, R., Indihar Stemberger, M., Ko, A., Staples, M., Eds.; Springer: Cham, Switzerland, 2019; pp. 328–332.
+[CrossRef]
+5.
+Kumar, V.; Smart, P.A.; Maddern, H.; Maull, R.S. Alternative perspectives on service quality and customer satisfaction: The role
+of BPM. Int. J. Serv. Ind. Manag. 2008, 19, 176–187. [CrossRef]
+6.
+Chicu, D.; Pàmies, M.; Ryan, G.; Cross, C. Exploring the inﬂuence of the human factor on customer satisfaction in call centres.
+Bus. Res. Q. 2019, 22, 83–95. [CrossRef]
+7.
+Kafetzopoulos, D.; Psomas, E. Organisational learning, non-technical innovation and customer satisfaction of SMEs. Int. J. Innov.
+Manag. 2016, 20, 1650041. [CrossRef]
+8.
+International Organization for Standardization—ISO. ISO 9000:2015 Quality Management Systems-Fundamentals and Vocabulary.
+2015. Available online: https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en (accessed on 5 October 2021).
+9.
+Kaplan, R.S.; Norton, D.P. Strategy Maps: Converting Intangible Assets into Tangible Outcomes; Harvard Business School Press:
+Boston, MA, USA, 2004.
+10.
+Sawang, S. Key performance indicators for innovation implementation: Perception vs. actual usage. Asia Pac. Manag. Rev. 2011,
+16, 23–29. Available online: https://eprints.qut.edu.au/28486/ (accessed on 5 October 2021).
+11.
+El-Adly, M.I. Modelling the relationship between hotel perceived value, customer satisfaction, and customer loyalty. J. Retail.
+Consum. Serv. 2019, 50, 322–332. [CrossRef]
+12.
+Sitorus, T.; Yustisia, M. The inﬂuence of service quality and customer trust toward customer loyalty: The role of customer
+satisfaction. Int. J. Qual. Res. 2018, 12, 639–654. [CrossRef]
+13.
+Wayessa, Z.; Dabi, O.; Dida, G. Customers’ satisfaction towards services provided by Bule Hora University, Ethiopia. Proc. Eng.
+Sci. 2021, 03, 217–230. [CrossRef]
+14.
+Ðor ¯devi´c, M.Z.; Aleksi´c, A.; Puškari´c, H. Application of Intuitionistic fuzzy numbers to determination of customer satisfaction in
+service enterprises (In Serbian). In Proceedings of the 46th National Conference on Quality, Kragujevac, Serbia, 29 May–1 June
+2019; pp. 79–84. Available online: http://www.cqm.rs/2019/papers_fq/10.pdf (accessed on 6 October 2021).
+15.
+Afthanorhan, A.; Awang, Z.; Rashid, N.; Foziah, H.; Ghazali, P. Assessing the effects of service quality on customer satisfaction.
+Manag. Sci. Lett. 2019, 9, 13–24. [CrossRef]
+Sustainability 2022, 14, 1697
+20 of 22
+16.
+Wu, C.C.; Liao, S.H.; Chen, Y.J.; Hsu, W.L. Service quality, brand image and price fairness impact on the customer satisfaction
+and loyalty. In Proceedings of the 2011 IEEE International Conference on Industrial Engineering and Engineering Management,
+Changchun, China, 3–5 November 2011; pp. 1160–1164. [CrossRef]
+17.
+Anwar, S.; Min, L.; Dastagir, G. Effect of Service Quality, Brand Image, Perceived Value on Customer Satisfaction and Loyalty in the
+Chinese Banking Industry. Int. J. Bus. Econ. Manag. Work. 2019, 6, 24–30. Available online: http://www.ijbemw.com/paper/effect-
+of-service-quality-brand-image-perceived-value-on-customer-satisfaction-and-loyalty-in-the-chinese-banking-industry (ac-
+cessed on 10 October 2021).
+18.
+Jain, E. Quality of services and customer loyalty: A study of private banks in NCT of Delhi through SERVQUAL. Proc. Eng. Sci.
+2020, 2, 361–372. [CrossRef]
+19.
+Anil, A.P.; Satish, K.P. Enhancing customer satisfaction through total quality management practices—An empirical examination.
+Total Qual. Manag. Bus. Excell. 2017, 30, 1528–1548. [CrossRef]
+20.
+Goshime, Y.; Kitaw, D.; Jilcha, K. Lean manufacturing as a vehicle for improving productivity and customer satisfaction: A
+literature review on metals and engineering industries. Int. J. Lean Six Sigma 2019, 10, 691–714. [CrossRef]
+21.
+Anil, A.P.; Satish, K.P. An empirical investigation of the relationship between TQM practices, quality performance, and customer
+satisfaction level. Int. J. Product. Qual. Manag. 2019, 26, 96. [CrossRef]
+22.
+Xu, L.U.; Blankson, C.; Prybutok, V. Relative contributions of product quality and service quality in the automobile industry.
+Qual. Manag. J. 2017, 24, 21–36. [CrossRef]
+23.
+Li, S.; Wunsch, D.C.; O’Hair, E.; Giesselmann, M.G. Comparative analysis of regression and artiﬁcial neural network models for
+wind turbine power curve estimation. J. Sol. Energy Eng. 2001, 123, 327–332. [CrossRef]
+24.
+Zan, X.; Wu, Z.; Guo, C.; Yu, Z. A Pareto-based genetic algorithm for multi-objective scheduling of automated manufacturing
+systems. Adv. Mech. Eng. 2020, 12, 1687814019885294. [CrossRef]
+25.
+Katoch, S.; Chauhan, S.S.; Kumar, V. A review on genetic algorithm: Past, present, and future. Multimed. Tools Appl. 2021, 80,
+8091–8126. [CrossRef]
+26.
+Holland, J.H. Adaptation in Natural and Artiﬁcial Systems: An Introductory Analysis with Applications to Biology, Control, and Artiﬁcial
+Intelligence; MIT Press: Cambridge, MA, USA; London, UK, 1992.
+27.
+Štˇepánek, J.; Št’ovíˇcek, J.; Cimler, R. Application of genetic algorithms in stock market simulation. Procedia-Soc. Behav. Sci. 2012,
+47, 93–97. [CrossRef]
+28.
+Stravinskiene, I.; Seraﬁnas, D. The link between business process management and quality management. J. Risk Financ. Manag.
+2020, 13, 225. [CrossRef]
+29.
+Pereira, J.L.; Freitas, A.P. Towards a characterisation of BPM tools’ simulation support: The case of BPMN process models. Int. J.
+Qual. Res. 2019, 13, 783–796. [CrossRef]
+30.
+Pan, W.; Wei, H. Research on key performance indicator (KPI) of business process. In Proceedings of the 2012 Second International
+Conference on Business Computing and Global Informatization, Shanghai, China, 12–14 October 2012. [CrossRef]
+31.
+Parmenter, D. Key Performance Indicators: Developing, Implementing, and Using Winning KPIs, 3rd ed.; John Wiley & Sons, Inc.:
+Hoboken, NJ, USA, 2015.
+32.
+Wannes, A.; Ghannouchi, S.A. KPI-Based Approach for Business Process Improvement. Procedia Comput. Sci. 2019, 164, 265–270.
+[CrossRef]
+33.
+Weinzierl, S.; Dunzer, S.; Zilker, S.; Matzner, M. Prescriptive business process monitoring for recommending next best actions. In
+International Conference on Business Process Management, Business Process Management Forum, BPM 2020, Lecture Notes in Business
+Information Processing; Fahland, D., Ghidini, C., Becker, J., Dumas, M., Eds.; Springer: Cham, Switzerland, 2020; pp. 193–209.
+[CrossRef]
+34.
+Zadeh, L.A. The concept of a linguistic variable and its application to approximate reasoning—1. Inf. Sci. 1975, 8, 199–249.
+[CrossRef]
+35.
+Dubois, D.; Prade, H. Fuzzy Sets and Systems: Theory and Applications; Academic Press: Boston, MA, USA, 1980.
+36.
+Zimmermann, H.-J. Fuzzy Set Theory—And Its Applications, 4th ed.; Springer Science & Business Media: New York, NY, USA, 2001.
+37.
+Yüksel, I.; Dagdeviren, M. Using the fuzzy analytic network process (ANP) for Balanced Scorecard (BSC): A case study for a
+manufacturing ﬁrm. Expert Syst. Appl. 2010, 37, 1270–1278. [CrossRef]
+38.
+Doži´c, S.; Lutovac, T.; Kali´c, M. Fuzzy AHP approach to passenger aircraft type selection. J. Air Transp. Manag. 2017, 68, 165–175.
+[CrossRef]
+39.
+Metaxas, I.; Koulouriotis, D.; Spartalis, S. A multi-criteria model on calculating the Sustainable Business Excellence Index of a
+ﬁrm with fuzzy AHP and TOPSIS. Benchmarking Int. J. 2016, 23, 1522–1557. [CrossRef]
+40.
+Kustiyahningsih, Y.; Rahmanita, E.; Purnama, J. Integration Balanced Scorecard and Fuzzy Analytic Network Process (FANP) for
+Measuring Performance of Small Medium Enterprise (SME). J. Theor. Appl. Inf. Technol. 2016, 94, 343–352.
+41.
+Görener, A.; Ayvaz, B.; Ku¸sakcı, O.; Altınok, E. A hybrid type-2 fuzzy based supplier performance evaluation methodology: The
+Turkish Airlines technic case. Appl. Soft Comput. 2017, 56, 436–445. [CrossRef]
+42.
+Abdullah, L.; Zulkiﬂi, N. Integration of fuzzy AHP and interval type-2 fuzzy DEMATEL: An application to human resource
+management. Expert Syst. Appl. 2017, 42, 4397–4409. [CrossRef]
+43.
+Mei, Y.; Xie, K. An improved TOPSIS method for metro station evacuation strategy selection in interval type-2 fuzzy environment.
+Clust. Comput. 2019, 22, 2781. [CrossRef]
+Sustainability 2022, 14, 1697
+21 of 22
+44.
+Komatina, N.; Djapan, M.; Risti´c, I.; Aleksi´c, A. Fulﬁlling External Stakeholders’ Demands—Enhancement Workplace Safety
+Using Fuzzy MCDM. Sustainability 2021, 13, 2892. [CrossRef]
+45.
+Saini, N.; Bajaj, R.; Gandotra, N.; Dwivedi, R. Multi-criteria Decision Making with Triangular Intuitionistic Fuzzy Number based
+on Distance Measure & Parametric Entropy Approach. Procedia Comput. Sci. 2018, 125, 34–41. [CrossRef]
+46.
+Velu, L.G.N.; Selvaraj, J.; Ponnialagan, D. A New Ranking Principle for Ordering Trapezoidal Intuitionistic Fuzzy Numbers.
+Complexity 2017, 2017, 3049041. [CrossRef]
+47.
+Prakash, K.A.; Suresh, M.; Vengataasalam, S. A new approach for ranking of intuitionistic fuzzy numbers using a centroid concept.
+Math. Sci. 2016, 10, 177–184. [CrossRef]
+48.
+Nesti´c, S.; Ðor ¯devi´c, A.; Tadi´c, D.; Stefanovi´c, M. A New Fuzzy Model for Evaluation of Key Performance Indicators and
+Purchasing Process Quality. In Proceedings of the 8th International Quality Conference, Kragujevac, Serbia, 23 May 2014;
+pp. 356–378.
+49.
+Nestic, S.; Stefanovic, M.; Djordjevic, A.; Arsovski, S.; Tadic, D. A model of the assessment and optimisation of production process
+quality using the fuzzy sets and genetic algorithm approach. Eur. J. Ind. Eng. 2015, 9, 77–99. [CrossRef]
+50.
+Nestic, S.; Djordjevic, A.; Puskaric, H.; Zahar Djordjevic, M.; Tadic, D.; Stefanovic, M. The evaluation and improvement of process
+quality by using the fuzzy sets theory and genetic algorithm approach. J. Intell. Fuzzy Syst. 2015, 29, 2017–2028. [CrossRef]
+51.
+Tadic, D.; Aleksic, A.; Popovic, P.; Arsovski, S.; Castelli, A.; Joksimovic, D.; Stefanovic, M. The evaluation and enhancement of
+quality, environmental protection and seaport safety by using FAHP. Nat. Hazards Earth Syst. Sci. 2017, 17, 261–275. [CrossRef]
+52.
+Tadi´c, D.; Ðor ¯devi´c, A.; Eri´c, M.; Stefanovi´c, M.; Nesti´c, S. Two-step model for performance evaluation and improvement of New
+Service Development process based on fuzzy logics and genetic algorithm. J. Intell. Fuzzy Syst. 2017, 33, 3959–3970. [CrossRef]
+53.
+Nestic, S.; Lampón, J.F.; Aleksic, A.; Cabanelas, P.; Tadic, D. Ranking manufacturing processes from the quality management
+perspective in the automotive industry. Expert Syst. 2019, 36, e12451. [CrossRef]
+54.
+Boran, F.; Genç, S.; Kurt, M.; Akay, D. A multi-criteria intuitionistic fuzzy group decision making for supplier selection with
+TOPSIS method. Expert Syst. Appl. 2009, 36, 11363–11368. [CrossRef]
+55.
+Atanassov, K.T. Intuitionistic Fuzzy Sets; ITKR’s Scientiﬁc Session: Sophia, Bulgaria, 1983.
+56.
+Djordjevic, M.Z.; Simeunovic, B.; Nestic, S.; Aleksic, A. Study on performance evaluation of the production process-fuzzy MCDM
+approach. J. Intell. Fuzzy Syst. 2020, 39, 4009–4026. [CrossRef]
+57.
+Djordjevic, M.Z. Business Process Performance Management in Small and Medium-Sized Manufacturing Enterprises (in Serbian).
+Ph.D. Thesis; University of Kragujevac: Kragujevac, Serbia, 2020. Available online: https://nardus.mpn.gov.rs/handle/12345678
+9/17541 (accessed on 2 October 2021).
+58.
+Haykin, S.; Haykin, S. Neural Networks and Learning Machines; Prentice Hall/Pearson: New York, NY, USA, 2009.
+59.
+Chi, M.; Zhao, J. Application of BP neural network in evaluating e-business performance for service industry. Int. J. Netw. Virtual
+Organ. 2021, 10, 374–385. Available online: https://ideas.repec.org/a/ids/ijnvor/v10y2012i3-4p374-385.html (accessed on
+7 October 2021). [CrossRef]
+60.
+Qi, S.; Jin, K.; Li, B.; Qian, Y. The exploration of internet ﬁnance by using neural network. J. Comput. Appl. Math.
+2019, 369,
+112630. [CrossRef]
+61.
+Chen, L.; Jagota, V.; Kumar, A. Research on optimisation of scientiﬁc research performance management based on BP neural
+network. Int. J. Syst. Assur. Eng. Manag. 2021, 1–10. [CrossRef]
+62.
+Xu, X.; Liu, F. Optimisation of online education and teaching evaluation system based on GA-BP neural network. Comput. Intell.
+Neurosci. 2021, 2021, 8785127. [CrossRef]
+63.
+Al-Dmour, A.H.; Al-Dmour, R.H. Applying multiple linear regression and neural network to predict business performance using
+the reliability of accounting information system. Int. J. Corp. Financ. Account. 2018, 5, 12–26. [CrossRef]
+64.
+Chen, R.; Yang, B.; Li, S.; Wang, S. A self-learning genetic algorithm based on reinforcement learning for ﬂexible job-shop
+scheduling problem. Comput. Ind. Eng. 2020, 149, 106778. [CrossRef]
+65.
+Zelenkov, Y.; Fedorova, E.; Chekrizov, D. Two-step classiﬁcation method based on genetic algorithm for bankruptcy forecasting.
+Expert Syst. Appl. 2017, 88, 393–401. [CrossRef]
+66.
+Chen, W.; Panahi, M.; Pourghasemi, H.R. Performance evaluation of GIS-based new ensemble data mining techniques of adaptive
+neuro-fuzzy inference system (ANFIS) with genetic algorithm (GA), differential evolution (DE), and particle swarm optimisation
+(PSO) for landslide spatial modelling. Catena 2017, 157, 310–324. [CrossRef]
+67.
+Gacic, M.; Nestic, S.; Zahar Djordjevic, M.; Stefanovic, M. A Model for Ranking and Optimisation of Key Performance Indicators
+of the Strategy Process. Int. J. Ind. Eng. Manag. 2015, 6, 7–14.
+68.
+Kaur, P. Selection of Vendor Based on Intuitionistic Fuzzy Analytical Hierarchy Process. Adv. Oper. Res. 2014, 2014, 987690.
+[CrossRef]
+69.
+Saaty, T. The Analytic Hierarchy Process; McGraw-Hill International Book Co: New York, NY, USA, 1980.
+70.
+Chang, D. Applications of the extent analysis method on fuzzy AHP. Eur. J. Oper. Res. 1996, 95, 649–655. Available online:
+https://www.expertchoice.ir/wp-content/uploads/2017/08/FAHP-Chang-1996.pdf (accessed on 3 October 2021). [CrossRef]
+71.
+Wang, Y.; Luo, Y.; Hua, Z. On the extent analysis method for fuzzy AHP and its applications. Eur. J. Oper. Res. 2008, 186, 735–747.
+Available online: https://ideas.repec.org/a/eee/ejores/v186y2008i2p735-747.html (accessed on 5 October 2021). [CrossRef]
+72.
+Banduka, N.; Tadi´c, D.; Maˇcuži´c, I.; Crnjac, M. Extended process failure mode and effect analysis (PFMEA) for the automotive
+industry: The FSQC-PFMEA. Adv. Prod. Eng. Manag. 2018, 13, 206–215. [CrossRef]
+Sustainability 2022, 14, 1697
+22 of 22
+73.
+Xiaoqiong, W.; Fang, P.; Shihuang, S.; Jianan, F. Trapezoidal Fuzzy AHP for the Comprehensive Evaluation of Highway Network
+Programming Schemes in Yangtze River Delta. In Proceedings of the Fifth World Congress on Intelligent Control and Automation,
+Hangzhou, China, 15–19 June 2004; pp. 5232–5236. [CrossRef]
+74.
+Sadi-Nezhad, S.; Damghani, K.K. Application of a fuzzy TOPSIS method base on modiﬁed preference ratio and fuzzy distance
+measurement in assessment of trafﬁc police centers performance. Appl. Soft Comput. 2010, 10, 1028–1039. [CrossRef]
+75.
+Kahraman, C.; Öztay¸si, B.; Sarı, ˙I.U.; Turano˘glu, E. Fuzzy analytic hierarchy process with interval type-2 fuzzy sets. Knowl.-Based
+Syst. 2014, 59, 48–57. [CrossRef]
+76.
+Tadi´c, D.; Ðor ¯devi´c, A.; Aleksi´c, A.; Nesti´c, S. Selection of recycling centre locations by using the interval type-2 fuzzy sets and
+two-objective genetic algorithm. Waste Manag. Res. 2019, 37, 26–37. [CrossRef]
+77.
+Sadiq, R.; Tesfamariam, S. Environmental decision-making under uncertainty using intuitionistic fuzzy analytic hierarchy process
+(IF-AHP). Stoch. Environ. Res. Risk Assess. 2009, 23, 75–91. [CrossRef]
+78.
+Tavana, M.; Zareinejad, M.; Di Caprio, D.; Kaviani, M. An integrated intuitionistic fuzzy AHP and SWOT method for outsourcing
+reverse logistics. Appl. Soft Comput. 2016, 40, 544–557. [CrossRef]
+79.
+Julie, N.; Uthra, G. Triangular intuitionistic fuzzy ahp and its application to select best product of notebook computer. Int. J. Pure
+Appl. Math. 2017, 113, 253–261.
+80.
+Alipour, M.; Hafezi, R.; Ervural, B.; Kaviani, M.; Kabak, Ö. Long-term policy evaluation: Application of a new robust decision
+framework for Iran’s energy exports security. Energy 2018, 157, 914–931. [CrossRef]
+81.
+Abdullah, L.; Najib, L. Sustainable energy planning decision using the intuitionistic fuzzy analytic hierarchy process: Choosing
+energy technology in Malaysia. Int. J. Sustain. Energy 2015, 35, 360–377. [CrossRef]
+82.
+Atanassov, K.; Pasi, G.; Yager, R. Intuitionistic fuzzy interpretations of multi-criteria multi-person and multi-measurement tool
+decision making. Int. J. Syst. Sci. 2005, 36, 859–868. [CrossRef]
+83.
+Nayagam, V.L.G.; Jeevaraj, S.; Sivaraman, G. Complete Ranking of Intuitionistic Fuzzy Numbers. Fuzzy Inf. Eng. 2016, 8, 237–254.
+[CrossRef]
+84.
+Nagoorgani, A.; Ponnalagu, K. A New Approach on Solving Intuitionistic Fuzzy Linear Programming Problem. Appl. Math. Sci.
+2012, 6, 3467–3474.
+85.
+Li, D.; Nan, J.; Zhang, M. A Ranking Method of Triangular Intuitionistic Fuzzy Numbers and Application to Decision Making.
+Int. J. Comput. Intell. Syst. 2010, 3, 522–530. [CrossRef]
+86.
+Lazic, M. Measurements, Analyses and Improvements (In Serbian); Faculty of Mechanical Engineering, Center for Quality: Kragujevac,
+Serbia, 2008.
+87.
+Larsson, A.; Broström, E. Ensuring customer retention: Insurers’ perception of customer loyalty. Mark. Intell. Plan. 2019, 38,
+151–166. [CrossRef]
+

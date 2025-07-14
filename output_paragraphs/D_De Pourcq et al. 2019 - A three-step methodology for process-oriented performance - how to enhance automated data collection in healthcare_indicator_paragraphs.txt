@@ -1,0 +1,619 @@
+1 
+ 
+A three-step methodology for process-oriented performance: How to 
+enhance automated data collection in healthcare 
+ 
+KAAT DE POURCQ1, PROF. DR. PAUL GEMMEL2, DR. IR. BEN DEVIS3, JAN VAN 
+OOTEGHEM4, TOM DE CALUWÉ4, PROF. DR. JEROEN TRYBOU5 
+1 Department of Innovation, Entrepreneurship and Service management, Ghent University, 
+Tweekerkenstraat 2 9000 Ghent Belgium, Tel. +32 9 264 34 93, Kaat.depourcq@ugent.be 
+(corresponding author) 
+2 Department of Innovation, Entrepreneurship and Service management, Ghent University, 
+Tweekerkenstraat 2 9000 Ghent Belgium, Tel. +32 9 264 35 18 
+3 H.Essers, Transportlaan 4 3600 Genk Belgium Tel. +89 32 32 32 
+4 Amaron, Kapellestraat 13, 8755 Ruiselede, Tel. +32 51 62 73 20  
+5 Department of Public Health, Ghent University, De Pintelaan 183 9000 Ghent Belgium, Tel. 
++32 9 332 83 57 
+ 
+Keywords: Process management, Performance measurement, Hospitals, Quality 
+ 
+Running head: Process-oriented performance in healthcare  
+ 
+ 
+ 
+ 
+ 
+ 
+2 
+ 
+Abstract 
+Background. Healthcare managers often attempt to enhance process-oriented performance. 
+However, this remains a challenge. New approaches aimed at increasing the implementation 
+success of process-oriented performance measurement should be investigated. 
+Methods. This study investigates and discusses a step-by-step methodology to implement an 
+automated and effective process-oriented performance measurement system in a hospital. The 
+methodology is based on a framework for developing dashboards based on three steps: the 
+demand side, supply side, and the fit between the two. An illustrative case of the process of hip 
+surgery in the operating room of two hospitals is used.  
+Results. A methodology is developed to define a reliable set of process-oriented performance 
+metrics, allowing analysis and management of the different flows in healthcare in an integrated 
+way, and by investigating several methods to automatically integrate the data gathered into a 
+reporting infrastructure than can be used to disseminate the results.  
+Conclusion. This step-by-step methodology allows healthcare organizations to develop and 
+implement effective process-oriented performance measurement in an automated way. This 
+allows the alignment of the goals of hospital management and various stakeholders with the 
+more analytical analysis of business process management notation and hospital information 
+system data.  
+ 
+ 
+ 
+ 
+ 
+ 
+3 
+ 
+ 
+Background 
+In the last decade, hospitals have tried to move from functional to more process-oriented 
+organizational forms [1]. The process orientation of organizations results in improvements in 
+process flow, quality, costs, financial performance, and customer satisfaction [2]. To 
+simultaneously increase the efficiency and quality of their operations, hospitals are investing in 
+process management and process optimization [3]. However, there is still an absence of clear 
+process thinking in many hospitals, as well as a lack of knowledge about how to identify and 
+monitor these processes using performance indicators [4]. 
+Following Porter et al. [5], two main types of processes can be identified in hospitals. First, 
+there is the actual “treatment”, with the aim of caring for or curing patients; this includes all 
+medical and clinical activities related to diagnosis, therapy, surgery, and other care. The 
+treatment process is the primary flow and shapes the patient flow. Second, there are 
+“supporting” processes to reinforce the “treatment”, including all nontreatment processes, like 
+logistic flow and information flow. These flows use different resources, like staff, equipment, 
+and materials. Process-orientation within a hospital assumes an integrated view of logistical, 
+information, and patient flows [6]. Current processes in healthcare must be modified to better 
+coordinate, align, and synchronize different flows and resources (e.g., staff, equipment, and 
+materials). Ultimately, this should result in a more efficient patient-centric workflow [7]. The 
+current tendency towards accreditation and certification in the healthcare sector endorses this 
+need and reinforces process management [8].  
+There are some challenges in developing process-oriented performance measurement 
+systems in hospitals. First, most performance measures in hospitals are not process-oriented [4] 
+and cannot assist healthcare systems to synchronize patient, logistical, and information flows. 
+4 
+ 
+Second, different stakeholders have an impact on the performance of different flows in the 
+system [9], resulting in a variety of potential performance indicators. Having a reliable method 
+to define performance metrics that can monitor and steer different healthcare flows is therefore 
+an important challenge. Third, more and more data is available in hospitals [10]. The integration 
+of large amounts of raw healthcare data across several dimensions remains a huge challenge 
+[11]. As the interoperability of systems and data storage is still insufficient [12], it is a challenge 
+to capture and organize data to support and improve decision-making. This creates 
+opportunities to develop process-oriented performance measures based on existing databases. 
+Data can thus be collected in an automated way, making implementation of process-oriented 
+performance management systems more feasible. 
+In this study, we overcome these challenges by proposing a step-by-step methodology for 
+defining a reliable set of process-oriented performance metrics, allowing analysis and 
+management of the different flows in healthcare in an integrated way, and by investigating 
+several methods of automatically integrating data into a reporting infrastructure for 
+dissemination, permitting implementation of process-oriented performance measurement in 
+hospitals. This will help hospital managers to achieve a process orientation while integrating 
+patient, logistical, and information flows. 
+ 
+The three-step methodology 
+Organizations are dealing with an increasing amount of data. It is a therefore a challenge to 
+capture and organize these data to support and improve decision-making. The problem of 
+information overload can be managed using interactive visual information displays to support 
+decision-making by implementing key performance indicators (KPIs) in a dashboard [15]. KPIs 
+are “quantifiable metrics which reflect the performance of an organization in achieving its goals 
+and objectives” [16]. A dashboard brings the organization’s KPIs into a single display and aims 
+5 
+ 
+to visualize them in order to increase understanding of performance [17]. Commonly, only a 
+relatively small number of interconnected key performance metrics and underlying 
+performance drivers reflect both short-term and long-term goals throughout the organization 
+[18].  
+We employ the conceptual framework of Pauwels et al. [19] to develop a dashboard for hip 
+surgery patients in the operating room (OR) of the two hospitals. Pauwels et al. [19] discuss the 
+importance of the relationship between the demand and the supply side of dashboards. Our 
+methodology (Fig. 1) develops practical steps to investigate the demand and supply sides and 
+provides a method for fitting the two.  
+ 
+Insert fig. 1 about here 
+Figure 1. A step-by-step methodology for developing a dashboard 
+ 
+Step one: the demand side of the dashboard 
+In the first step, we investigate and visualize the demand side of the dashboard. The demand 
+side represents the users of the dashboard, including hospital senior management as well as 
+process owners and participants, such as coordinating physicians, department heads, head 
+nurses, physicians, and nurses [20]. It is crucial that managers consider the opinion of these 
+different stakeholders in developing KPIs for the demand side [19, 21]. Different professional 
+groups have their own incentives, and conflicts among these groups can result in the 
+continuation of suboptimal systems. To avoid suboptimal systems, vertical alignment and 
+horizontal integration are aimed for. Vertical alignment means that the key performance metrics 
+must reflect the vision and strategic goals of the hospital [20]. Second, activities across 
+organizational units should be visualized by measuring the performance and interplay of the 
+upstream process of the patient with the downstream supporting processes—i.e., horizontal 
+6 
+ 
+integration [22].  
+ 
+Step two: The supply side of the dashboard 
+It is important to link the process-oriented data from information systems to the KPIs using a 
+bottom-up approach. Process-orientation in hospitals implies that we know how processes are 
+operated in the organization and what process data is available [19, 28]. In our framework, this 
+is represented by the supply side. To obtain this goal, we explored the processes in the OR for 
+the total hip replacement procedure. A detailed business process management study was 
+performed on patient flow and the various supporting logistics and information flows in each 
+hospital.  
+Step three: Fit between demand and supply side 
+The fit between demand and supply is critical for successfully implementing dashboards [30, 
+31]. The type of information provided should match with the decision responsibilities for 
+various users and the metrics in the dashboard should be those that are crucial for hospital 
+management goals (demand side). There are still many technical challenges and difficulties in 
+integrating dashboards with legacy systems and the applications that feed data into them [10]. 
+ 
+Methods 
+This study’s objective is to develop and investigate a step-by-step methodology for 
+implementing a process-oriented performance measurement system in hospitals. We use an 
+illustrative case study [13] from the operating room (OR), which is a key hospital resource, as 
+60%–70% of all hospital admissions are induced by pathologies requiring surgical intervention 
+[14]. Denton et al. [14] state that the OR is the largest cost center and greatest source of revenue 
+for most hospitals. The study was conducted in two hospitals: the first has 822 beds, 2300 
+7 
+ 
+employees, and 220 physicians; the second has 554 beds, 1600 employees, and 170 physicians. 
+The study was approved by the medical ethics committees at the hospitals and at the University 
+Hospital of Brussels. All participants gave informed consent for participation in the research. 
+As the study aims to develop a step-by-step methodology, data collection was conducted in 
+three different steps using diverse methods.  
+Data collection 
+Data collection for the demand side 
+To collect data for the demand side a qualitative study was carried out. First, a systematic 
+literature review was performed to develop a list of indicators for the structured interviews. To 
+do this, we updated the results of the systematic review of Liu [23], who analyzed KPIs in 
+articles published to 2012 in PubMed and PubMed Central. Liu [23] compiled a list of 66 
+indicators.  
+We applied the same selection criteria and searched PubMed from June 2012 to April 2014. 
+Since the focus of this study is the operation room and the hip surgery process, we also included 
+the following terms: “THP or total hip replacement or hip arthroplasty or hip surgery” and 
+“Operating room or Operation room or OR”. Based on the results of our systematic review, 
+seventy-two additional indicators were added. Thereafter, the list was revised by two experts 
+and a pilot interview was carried out with a surgeon. The resulting list contained 138 KPIs. 
+Second, participants were selected by contacting representatives of the hospital 
+management. Sixteen qualitative semi-structured interviews were executed. Yigitbasioglu and 
+Velcu [10] argue that KPIs should be developed and monitored at different levels in the hospital, 
+depending on the goal and needs of specific users. We hence incorporated the views of different 
+users and actors from the multiple disciplines (Table 1) involved in hip surgery cases at the two 
+hospitals.  
+8 
+ 
+ 
+Table 1. Overview of the interviewees 
+Insert table 1 about here 
+The interview contained two phases:  
+Part 1: Semi-structured interview. Questions were asked about which performance indicators 
+were measured in the hospital and the usefulness and importance of these indicators—for 
+example, “Which performance indicators are already measured in your organization?”  
+Part 2: Structured interview. This part was performed by presenting KPIs to the interviewees 
+on cards. The structured part of the interview was fed with a list of 138 KPIs based on the 
+extensive literature review and consisted of three steps:  
+First, participants were asked to select all the indicators they thought important to monitor; they 
+were asked to explain why they found these KPIs important. Next, they were requested to select 
+the 20 KPIs that they perceived to be most important to measure and follow up on. Finally, they 
+were given the task of reducing the list to 10 KPIs.  
+The recorded interviews were transcribed verbatim and analyzed using NVivo 10. The data 
+were content-analyzed for emergent themes using the framework approach of Ritchie and 
+Lewis [24]. We used the content of the interviews and of the three rounds of selection of the 
+KPIs to decide which KPIs should be integrated in the dashboard. The ranking was performed 
+across all interviews. First, we added the number of times a KPI was selected by the participants 
+in each round. Second, we wanted to allocate more value to the final two rounds, considering 
+that participants had to eliminate KPIs in the second and third round. Hence, we multiplied the 
+number of times a KPI was selected by three for the third round, and by two for the second 
+round. We then added up these scores to get an overall mark per KPI. Next, we ranked the KPIs 
+top down and drew up a comparison between the two hospitals. An overall list was thus 
+developed. Considering that the number of indicators monitored by a dashboard needed to be 
+9 
+ 
+manageable, we decided to retain 20 KPIs in the overall list. This is comparable with the 
+healthcare literature, where the number of KPIs ranges from 10 to 30.  
+ 
+Liu and Itoh [25] created a list of 27 outcomes, and 24 KPIs were measured in the research of 
+Harris et al. [26]. However, Shohet [27] used only 11 KPIs.  
+Data collection for the supply side.  
+To analyze the patient flow, we based the exploration of the process on a document analysis 
+focused on existing standards in healthcare: the clinical pathway. Thereafter, three interviews 
+were carried out; two nurses and one nurse practitioner were questioned. Several process steps 
+were explored and, at each step, interviewees were asked which tasks needed to be performed 
+to move to the next step.  
+Twenty-one group interviews were organized at each hospital to outline the supporting 
+flows. The interviewees were employees carrying out surgery or managing resources (such as 
+skills, equipment, and material). The exploration of logistic flows was based on the bifurcation 
+of different types of critical resources identified. The logistic flows can be decomposed using a 
+decomposition list—a check-list of subprocesses that are “common” in most industries. Several 
+questions were asked, like “Which activities are executed in these subprocesses? When and 
+how are these activities executed? How frequent are these activities executed?” For each 
+resource type, a decomposition list was filled out in a textual manner. The decomposition list 
+also allowed identification of information flows.  
+The alignment of the different processes was then investigated. To identify the level of 
+integration for supporting flows (logistics and information) and the patient flow, we linked the 
+upstream patient flow with supporting logistic flows by determining whether the patient flow 
+is steered by the supporting flows. The next step evaluated which data were already available 
+10 
+ 
+in the hospital information system (HIS) to measure the performance of the process-oriented 
+KPIs identified in the demand-side analysis. Data and databases were investigated on the basis 
+of results from the interviews, observations, and document analysis. An information technology 
+(IT) expert was also consulted to explore the interoperability of the systems, though this could 
+be an IT expert from the hospital. 
+Data collection for the fit between demand and supply side.  
+A focus group of several experts was organized to discuss which data and processes could be 
+linked to KPIs. The focus group contained an IT specialist from the industry, three IT 
+researchers, one researcher and one professor in healthcare operations management, one 
+hospital manager and one PhD in logistics management. The goal of the focus group was to  
+bring the demand and supply sides of the framework together.  
+ 
+Results 
+Demand-side 
+The results of the demand-side show discrepancies in the perspectives of the two hospitals. 
+Depending on the different strategic and tactical goals within hospitals, participants selected 
+different indicators and proposed different rankings. Table 2 presents the 29 KPIs chosen by 
+either hospital 1 or hospital 2. Hospital 1 tended to focus more on costs and efficiency, while 
+hospital 2 had more clinical outcomes in their top ten KPIs. Less than 50% of the indicators 
+selected by hospital 2 were also in the ranking of the twenty most important indicators for 
+hospital 1.  
+ 
+Table 2: Ranking and comparison of the most important KPIs for each hospital 
+Insert table 2 about here 
+11 
+ 
+ 
+Using a qualitative research design enabled the researchers to gain a more in-depth view into 
+the reasons for the selection of the KPIs. This enhanced the ranking of KPIs. There are not only 
+differences between hospitals; differences also exist between professional groups. Physicians, 
+head nurses, and the medical OR managers tended to focus dominantly on the patient 
+perspective, contrary to administrative and nursing OR management, who focused more on 
+efficiency. Our analysis shows that participants selected indicators that measure supporting 
+processes, as well as treatment processes. 
+Since there is a difference between these hospitals in the selection and ranking of KPIs, this 
+study suggests that each organization should investigate which KPIs are to be included in the 
+dashboard, depending on the goals of the hospital and stakeholders. Moreover, since different 
+stakeholders within the organization prioritize different KPIs, hospital managers should include 
+the perspectives of different stakeholders and use a methodology, such as that is described in 
+the previous section, to find a consensus. 
+Supply side 
+To collect data for the supply side, the patient flow and various supporting logistics and 
+information flows were mapped. 
+Describe the patient flow.  
+In a first step, we examined the treatment process that shapes patient flow (Fig. 2). The flow of 
+a patient undergoing total hip replacement is determined mainly by the clinical pathway. 
+Clinical pathways are tools for guiding evidence-based healthcare [29]. Gathering data from 
+clinical standards gives insight into several procedures and registration policies in the patient 
+process, like surgical safety checklists, pain protocols, and preoperative interventions. The flow 
+can have various statuses: A patient passes through different statuses during the entire treatment 
+12 
+ 
+process. Several tasks should be performed before the patient can move to the next  
+status. For example, before gaining the “admission” status, the patient should be informed and 
+examined. This status involves several necessary tasks. First, patients receive information from 
+the surgeon, anesthesiologist, physiologist, and social service worker. Second, a preanesthesia 
+investigation is performed: X-ray, ECG, screening of nosocomial infection, and a blood test. 
+Third, an informed consent form and an information brochure are distributed. 
+ 
+Insert fig. 2 about here 
+Figure 2. The patient process 
+ 
+Identify and describe logistic and information flows.  
+We identified thirteen different logistic flows for the delivery of materials from supplier to the 
+OR (Table 3). Other important resources were found to be the nurses, head nurses, and 
+physicians. The OR and sterilized equipment were identified as critical equipment for surgery.  
+ 
+Table 3. Product categories of logistic flows 
+Insert table 3 about here 
+ 
+The unregistered sterile material process is discussed as an example (Fig. 3). First, the 
+logistic flow is described. The supplier delivers unregistered sterile material to an external 
+company’s central distribution point. From there, these are delivered to the OR by different 
+types of processes. Some of these materials are stored in the ORs, others are stored on other 
+locations i.e. storage location outside the OR. The replenishment of these storage locations is 
+based on various information flows. A min–max SAP warehousing management system 
+13 
+ 
+replenishes the platform. The storage location outside the OR is replenished using a Kanban 
+system (empty bins are scanned) [41] and replenishment of the ORs is based on handwritten 
+order lists.  
+ 
+Insert fig. 3 about here 
+Fig. 3 Logistical process of the non-registered sterile products 
+ 
+This also occurs in the twelve other logistic flows. A different number of logistics and 
+information flows exist to supply the OR. For example, sometimes the supplier delivers directly 
+to the OR, as with infusion therapy, prosthesis in consignation and borrowed prosthesis, 
+stitching materials, nonstorage materials, and sterile products (custom packs). General 
+medication, opiates, and registered sterile products go through the pharmacy and the external 
+platform is used as an intermediate storage for sterile unregistered materials and disposables. 
+Automated data collection for supplies, consumption, and storage is limited to two programs in 
+the hospital (Infohos and SAP). SAP is used for processes that pass through the external 
+platform and for the stitching-material and sterile-product (custom-pack) processes. The 
+Infohos database is used when intermediate storage is at the pharmacy. Replenishing the 
+pharmacy and external platform is managed using data on consumed materials and the stock 
+levels. However, SAP can only register processes and costs before products leave the 
+intermediate storage. Replenishment of medication is based on the number of consumed 
+products registered in Infohos. Consumed medication is registered by hand in Infohos directly 
+or in a paper file. The interoperability of these systems remains insufficient. These examples 
+illustrate that supporting flows (information and logistics) in OR are very complex and costly 
+processes that remain unaligned.  
+14 
+ 
+Level of integration of supporting and patient flows.  
+There are only two logistic flows driven by the patient process: OR planning and prosthesis 
+ordering (Fig. 2). Three moments of interaction occur: when the decision is made that surgery  
+is necessary, after informing and examining the patient, and at the moment of surgery. First, 
+the decision to perform surgery is made: the two resources (prosthesis and OR) are released and 
+confirmed. The information flow between the supporting and the patient processes is very 
+important for these two resource types; however, it is neither followed-up nor automated. No 
+other logistic flows are driven by the patient process. The first and only link for the other logistic 
+flows was at the moment of interaction, at the moment resources were released in the 
+preoperative phase. This means that the planning of logistic flows is not linked to patient flow, 
+which should be the “trigger” for these processes. This methodology shows that both the 
+supporting flows and the patient flow should be evaluated to obtain an overall view of the 
+processes, as integration of flows is limited. By automating data collection and enhancing 
+information flow, the alignment of the different flows can be improved.  
+Evaluate available data.  
+The following step evaluated which data were already available in HIS for measuring the 
+performance of the process-oriented KPIs identified in the demand-side analysis. Much patient 
+flow data had already been gathered, like data in patient files, data on clinical pathways, data 
+from the OR planning tool. Generally, data collection was required for clinical reasons and 
+some was done by hand. Employees were not always informed of the goals of data collection, 
+which made it more complicated for them to collect and register the data correctly. Furthermore, 
+most of the data collected in the hospital was not process-oriented and even when there was 
+process data available in the HIS, it was hard to use the data since it was not saved in a structured 
+way.   
+15 
+ 
+Logistical information was also available (e.g., SAP, Infohos), but there was no integration 
+with patient flow data, and most information was still not connected to the hospital-wide 
+information system. The evaluation of the available data shows that much information on 
+supporting flows is scattered over various IT systems and software. Moreover, many procedures 
+in healthcare are still registered on paper—e.g., pain procedures, surgical safety checklists, 
+preoperative checks. 
+ 
+The fit between demand and supply side: Integration of KPIs in the dashboard 
+Automated data collection in dashboards improves compliance with best practices and 
+evidence-based medicine and management [32]. Hence, the goal in this phase was to find a 
+method to enhance automated data collection for process-oriented indicators. Existing 
+techniques and procedures should be adopted to integrate process-oriented data into the 
+dashboard. Two different approaches for such integration can be identified. 
+A first approach is to feed real-time generated data directly into a dashboard. Some KPIs are 
+registered in the HIS and may be linked directly to the dashboard. These are often KPIs that the 
+government requires reports on. Examples include incidence of decubitus, number of 
+readmissions, nosocomial infections, and number of hospitalization days. There are also many 
+KPIs indicated as important by the interviewees which do not need to be reported: number of 
+surgeries performed by a surgeon, duration of surgery per physician, occupancy of the 
+orthopedic department and OR, and sickness absence. Currently, all this data is available in the 
+HIS; however, it is not available in a structured way. Most indicators are followed up on a 
+hospital or department level and are not linked to specific clinical procedures or supporting 
+processes. Consequently, it is hard to track down problems and follow up the performance of 
+treatment processes. Making data more visual on a process level, as illustrated by our 
+methodology, will result in the easier follow-up of process data and will improve outcomes. 
+16 
+ 
+The second approach is to use a business-process management notation application (BPMN) 
+combined with data from the HIS. To our knowledge, this is a new approach to integrating 
+process-oriented performance indicators into healthcare measurement systems. Several 
+process-oriented KPIs, such as the surgical safety checklist, performance evaluation of 
+employees, pain management, correct bills of materials, and correct preoperative screening 
+consist of small tasks that must be performed in the correct order, in the legitimate way, and at 
+the proper moment. Current procedures in hospitals are registered in paper files. The focus 
+group suggested a new approach of importing these data into the HIS. BPMN should be applied 
+to outline these process-oriented KPIs. Thereafter, the new process information allows the 
+representation of clinical procedures or supporting process by KPIs in the dashboard. The 
+surgical safety checklist is a checklist of a procedure that contains several steps that need to be 
+executed before starting the surgery. At the moment this is a list that is filled out by hand. This 
+process could however be simplified by using the HIS. First, each task in the process is 
+delineated and implemented in the HIS using BPMN. Second, important real-time and process 
+data reflecting the quality of data registration is linked to the KPIs.. A BPMN-task can or should 
+be performed per step. Second, several quality indicators can be coupled to the process—like 
+verification (Has the list been checked by somebody else?), completeness (Have all tasks been 
+performed? Has every question on the form been filled out?), and consistency (Are there 
+mistakes in the form?). All this performance information is reflected in one KPI, the surgical 
+safety checklist. However, using the drill-down capabilities of the dashboard, a manager can 
+trace certain underlying irregularities. Drilling down helps to explore the details of a selected 
+KPI to track down problems in a process [33]. Another advantage of this approach is that the 
+tasks—in this case, to answer questions—can be made mandatory. If the surgical safety 
+checklist is coupled to the IT-system in the OR, users can be obliged to fill in certain forms 
+before the next screen is presented. This approach increases the reliability and response rate of 
+17 
+ 
+the surgical safety checklist, leading to fewer mistakes and improved quality of care. Since 
+standardized procedures following evidence-based guidelines like the surgical safety checklist 
+and preoperative procedures are gaining importance in healthcare quality measurement, this 
+solution will assist professionals in executing these guidelines. The direct and indirect costs of 
+surgery and materials can also be outlined using this approach by coupling costs to the different 
+tasks performed in the BPMN tool. Hence, the process cost of each step in the process can be 
+taken into account.  
+An additional function of the dashboard is simulation [34]. Simulation methods make it 
+possible to explore whether process changes will result in a return on investment. The BPMN-
+tool can be applied to design a possible process change. Using simulated data, the impact of the 
+hypothetical process changes can be investigated by analyzing process-oriented KPIs such as 
+waiting time before surgery, duration of surgery, and the occupancy of an OR. Bottlenecks can 
+be tracked down [35] and problems can be discovered and predicted. Consequently, the 
+dashboard becomes a very interesting working tool for the hospital. We can conclude that 
+different approaches should be applied to incorporate KPIs into dashboards.  
+ 
+Discussion 
+As hospitals attempt to shift from functional to process-oriented organizational forms, process-
+oriented performance measurement systems gain importance. This paper contributes to the 
+development of a methodology to improve process-oriented performance measurement using 
+an illustrative case study of hip surgery in the ORs of two hospitals. The methodology (Fig. 1) 
+enhances process-oriented performance measurement in healthcare.  
+First, important KPIs were identified. Different stakeholders were investigated to obtain a 
+consensus on views on performance, studying measures of patient and supporting flows. Our 
+18 
+ 
+analysis shows that participants selected indicators that measure both supporting and patient 
+flows. Discrepancies were shown between the two hospitals and different disciplines. These 
+results are in line with those of Cardinaels and Soderstrom [36], who state that each stakeholder 
+uses a set of diverse criteria and standards to evaluate the legitimacy of the organization [37]. 
+This methodology enables healthcare managers to focus on measurements and goals that are 
+important for their hospital.  
+Second, processes were described and studied to link process-oriented data from information 
+systems to KPIs using a bottom-up approach. This step provides in-depth information on 
+existing processes and process data available within the healthcare setting. We found that most 
+supporting flows were not steered by the patient flow, although poor patient flow management 
+is related to a series of problems that are typically related to support flows, like supply 
+shortages, resource waste, and low productivity level [38]. Mapping the different flows through 
+the hospital gives an in-depth process view and creates possibilities of more process-oriented 
+data collection. 
+Third, the available data and possible approaches were investigated to integrate data from the 
+HIS into the dashboard. This is crucial for the alignment of the demand side with the supply 
+side. In this paper, we outlined different approaches. Besides the more straightforward approach 
+of feeding HIS data into the dashboard, we proposed the use of BPMN as a new approach in a 
+healthcare setting to integrate data into the dashboard. On top of this, we showed the importance 
+of simulation. Using BPMN has several advantages [39]: we were able to link overall business 
+goals with the objectives for each task, process, and subprocess. Automated data-collection 
+using BPMN increases the advantages of implementing a process-oriented dashboard in a 
+hospital setting. However, qualitative data like perceived satisfaction are difficult to incorporate 
+into dashboards. Analyzing the unstructured qualitative data using computational techniques 
+(e.g., natural language processing to extract medical concepts from free-text documents) 
+19 
+ 
+permits finer automated data acquisition. Future research should investigate how to incorporate 
+qualitative data [40].  
+ 
+Limitations 
+Although this methodology improves the development and implementation of a comprehensive 
+process-oriented performance measurement system taking into account patient, logistic, and 
+information flows, it still has some shortcomings. KPIs related to the perception-based 
+measurement of performance, like satisfaction (e.g. employee satisfaction, patient satisfaction, 
+and PROMs), were considered by the focus group as important to include in a dashboard. 
+However, we did not find a method to do this in an automated way. IT implementation is not 
+problematic, but the methodology to gather this kind of information is.  
+Another limitation of the study is that the methodology has been only partly tested. An overall 
+real-time dashboard has not yet been implemented in a hospital setting. However, the 
+methodology has been implemented and partially tested. First, a demonstrator was developed 
+for the project. Second, an IT-integrator implemented the BPMN-procedure for filling in the 
+surgical safety checklist. Third, the alignment between patient flow and supporting flows was 
+optimized for the blood transfusion process at the ER using this methodology, but no dashboard 
+was developed.  
+ 
+Conclusion 
+The major contributions of the proposed methodology are the facts that the goals of hospital 
+management and various stakeholders are linked to the more analytical BPMN and HIS data, 
+and that our three-step methodology enhances process-oriented performance measurement and 
+management. The integration and visualization of the hospital goals with the HIS and process 
+20 
+ 
+data enables hospital managers to implement process-oriented performance measurement. In 
+this way, this work contributes to hospital managers’ quest for more process-oriented decision-
+making.  
+21 
+ 
+Declaration of interest: The authors report no conflict of interest. The authors alone are 
+responsible for the content and writing the paper.  
+ 
+Acknowledgement 
+This paper is a part of the HIPS project, cofunded by iMinds, a digital research institute founded 
+by the Flemish Government. The project partners are AZ Maria Middelares, AZ Nikolaas, 
+Amaron, Auxcis, and H. Essers, and project support was provided by IWT. 
+ 
+References 
+[1]Vera A, Kuntz L. Process-based organization design and hospital efficiency. Health Care 
+Manage R. 2007;32:55–65. 
+[2] Kohlbacher M. The effects of process orientation: A literature review. Bus Process Manag 
+J. 2010;16:135–52. 
+[3] Vissers J, Beech R. Health operations management: basic concepts and approaches. In: 
+Vissers J, Beech R, editors. Health Operations Management: Patient Flow Logistics in Health 
+Care. New York: Routledge; 2005. p 39–51. 
+[4] Gemmel P, Vandaele D, Tambeur W. Hospital Process Orientation (HPO): The 
+development of a measurement tool. Total Qual Manage. 2008;19:1207–17. 
+[5] Porter ME, Pabo EA, Lee TH. Redesigning primary care: A strategic vision to improve 
+value by organizing around patients’ needs. Health Aff. 2013;32:516–25. 
+[6] Villa S, Barbieri M, Lega F. Restructuring patient flow logistics around patient care 
+needs: Implications and practicalities from three critical cases. Health Care Manag Sci. 
+2009;12:155–65. 
+22 
+ 
+[7] Bohmer RMJ. Designing care: Aligning the nature and management of health care. USA: 
+Harvard Business Press; 2009. 
+[8] Smith M, Saunders R, Stuckhardt L, McGinnis M. Best Care at Lower Cost: The Path to 
+Continuously Learning Health Care in America. Washington, D.C.: The National Academies 
+Press; 2013. 
+[9] Moore MH. Managing for value: Organizational strategy in for-profit, nonprofit, and 
+governmental organizations. Nonprof Volunt Sec Q. 2000;29 Suppl 1:183–208. 
+[10] Yigitbasioglu OM, Velcu O. A review of dashboards in performance management: 
+Implications for design and research. IJAIS 2012;13:41–59. 
+[11] Raghupathi W, Raghupathi V. Big data analytics in healthcare: Promise and potential. 
+Health Inf Sci Syst. 2014;2:3. 
+[12] Cresswell K, Sheikh A. Organizational issues in the implementation and adoption of 
+health information technology innovations: An interpretative review. Int J Med Inform. 
+2013;82:73–86. 
+[13] Yin RK. Case Study Research: Design and Methods. 5th ed. Thousand Oaks, Calif: Sage 
+publications; 2013. 
+[14] Denton B, Viapiano J, Vogl A. Optimization of surgery sequencing and scheduling 
+decisions under uncertainty. Health Care Manag Sci. 2007;10:13–24. 
+[15] Chen C. Information visualization. Wiley Interdisciplinary Reviews: Comput Stat Data 
+Anal. 2010;2:387–403. 
+[16] Bauer K. KPIs: The metrics that drive performance management. DM Review. 
+2004;14:63–4. 
+[17] Lapointe P. Timken rolls out a marketing dashboard for industrial bearing group. 
+Marketing NPV. 2005;3:3–6. 
+23 
+ 
+[18] Leeflang PS, Wieringa JE, Bijmolt TH, Pauwels KH. Building models for markets. In: 
+Leeflang PS, Wieringa JE, Bijmolt TH, Pauwels KH, editors. Modeling Markets. New York: 
+Springer; 2015. p. 1–24. 
+[19] Pauwels K, Ambler T, Clark BH, LaPointe P, Reibstein D, Skiera B, et al. Dashboards 
+as a service: Why, what, how, and what research is needed? J Serv Res (US). 2009;12:175–
+89. 
+[20] Dumas M, La Rosa M, Mendling J, Reijers HA. Fundamentals of Business Process 
+Management. Berlin, Heidelberg: Springer; 2013. 
+[21] Paine KD. Using dashboard metrics to track communication. SCM. 2004;8:30–3. 
+[22] Villa S, Prenestini A, Giusepi I. A framework to analyze hospital-wide patient flow 
+logistics: Evidence from an Italian comparative study. Health policy. 2014;115:196–205. 
+[23] Liu HC. A theoretical framework for holistic hospital management in the Japanese 
+healthcare context. Health Policy. 2013;113:160–9. 
+[24] Ritchie J, Lewis JN. Generalising from qualitative research. In: Ritchie J, Lewis JN, 
+McNaughton Nicholls C, Ormston R, editors. Qualitative research practice: A guide for 
+social science students and researchers. London: Sage; 2003. p. 263–287. 
+[25] Liu HC, Itoh K. Conceptual framework for holistic dialysis management based on key 
+performance indicators. Ther Apher Dial. 2013;17:532–50. 
+[26] Harris R, Bridgman C, Ahmad M, Bowes L, Haley R, Saleem S, et al. Introducing care 
+pathway commissioning to primary dental care: Measuring performance. Br Dent J. 
+2011;211:E22. 
+[27] Shohet IM. Key performance indicators for strategic healthcare facilities maintenance. J 
+Constr Eng M. 2006;132:345–352. 
+24 
+ 
+[28] McGee JV. What is Strategic Performance Measurement? Boston, MA: Ernst & Young 
+Center for Business Innovation; 1992.  
+[29] Kinsman L, Rotter T, James E, Snow P, Willis J. What is a clinical pathway? 
+Development of a definition to inform the debate. BMC Medicine. 2010;8:31. 
+[30] Lim KH, Benbasat I. The effect of multimedia on perceived equivocality and perceived 
+usefulness of information systems. MIS Quarterly. 2000;24:449–71. 
+[31] Goodhue DL, Thompson RL. Task-technology fit and individual performance. MIS 
+Quarterly. 1995;19:213–36. 
+[32] Pageler NM, Longhurst CA, Wood M, Cornfield DN, Suermondt J, Sharek PJ, et al. Use 
+of electronic medical record-enhanced checklist and electronic dashboard to decrease 
+CLABSIs. Pediatrics. 2014;133:738–46. 
+[33] Guo D, Chen J, MacEachren AM, Liao K. A visualization system for space-time and 
+multivariate patterns (vis-stamp). TVCG. 2006;12:1461–74. 
+[34] Barnes CD, Quiason JL, Benson C, McGuiness D. Success stories in simulation in health 
+care. Proceedings of the 29th conference on Winter simulation; 1997 Dec 9-13; Atlanta. 
+Washington DC: IEEE Computer Society; 1997. p 1280-85. 
+[35] Webster C EHR Business Process Management: From process mining to process 
+improvement to process usability. Proceedings of the Health Care Systems Process 
+Improvement Conference; 2012 Feb 20; Las Vegas.  
+[36] Cardinaels E, Soderstrom N. Managing in a complex world: Accounting and 
+governance choices in hospitals. EAR. 2013;22:647–84. 
+[37] Ludwig M, Van Merode F, Groot W. Principal agent relationships and the efficiency of 
+hospitals. HEPAC. 2010;11:291–304. 
+25 
+ 
+[38] Villa S, Barbieri M, Lega F. Restructuring patient flow logistics around patient care 
+needs: Implications and practicalities from three critical cases. Health Care Manag Sci. 
+2009;12:155–65. 
+[39] Pourshahid A, Amyot D, Chen P, Weiss M, Forster AJ. Business process monitoring 
+and alignment: An approach based on the user requirements notation and business 
+intelligence tools. WER. 2007; 80–91. 
+[40] Murdoch TB, Detsky AS. The inevitable application of big data to health care. JAMA. 
+2013;309:1351–2. 
+[41] Krajewski LJ, King BE, Ritzman LP, Wong DS. Kanban, MRP, and shaping the 
+manufacturing environment. Management science. 1987;33:39-57.
+

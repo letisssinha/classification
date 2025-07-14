@@ -1,0 +1,1050 @@
+26
+Zdrav Vestn  |  januar 2015  |  Letnik 84
+Izvirni članek/Original article
+Healthcare
+analysis an
+improveme
+Faculty of Information 
+studies, Novo Mesto, 
+Slovenia
+Faculty of Economics, 
+University of Ljubljana, 
+Slovenia
+University Medical 
+Centre, University of 
+Ljubljana, Slovenia
+Korespondenca/
+Correspondence:
+Talib Damij,  
+e: tdamij@gmail.com
+Ključne besede:
+management poslovnih 
+procesov; metodologija 
+TAD; tehnika simulacije; 
+management znanja; 
+mere učikovitosti procesa
+Key words:
+business process 
+management; TAD 
+methodology; simulation 
+technique; knowledge 
+management; process 
+performance measures
+Citirajte kot/Cite as:
+Zdrav Vestn 2015;  
+84: 26–37
+Prispelo: 2. jan. 2014, 
+Sprejeto: 7. jul. 2014
+Healthcare process analysis and 
+improvement at the department of 
+abdominal surgery, University medical  
+centre Ljubljana
+Analiza in izboljšanje zdravstvenega procesa v oddelku za 
+abdominalno kirurgijo Univerzitetnega kliničnega centra Ljubljana
+Nadja Damij, Talib Damij, Franc Jelenc 
+Izvleček
+Izhodišča: V zdravstvenih procesih v bolnišni-
+cah, kot tudi v procesih v podjetjih ali v državnih 
+organizacijah, se lahko s časom nakopičjo pro-
+blemi in ovire, ki povzročajo, da procesi posta-
+nejo neučinkoviti. Business Process Management 
+(BPM) je postopek za modeliranje, izboljšanje in 
+avtomatizacijo procesov, ki se uporablja z veli-
+kim uspehom za izboljšanje procesov.
+Metode: Namen tega raziskovalnega dela je pre-
+učiti možnosti izvedbe izboljšanja zdravstvenega 
+procesa z uporabo BPM. Za uporabo ideje po-
+stopka BPM je bilo potrebno razviti nov koncept 
+metodologije Tabular Application Development 
+(TAD).To predstavlja pomemben prispevek na 
+področju managementa procesov v teoriji in 
+praksi. V članku so predstavljene prve tri faze 
+metodologije TAD tako, da je vsak korak teh faz 
+obrazložen in nato izpeljan. Prva faza se ukvar-
+ja z identifikacijo procesov, druga razvija model 
+“kot-je” z uporabo tehnike tabele aktivnosti, tre-
+tja faza pa obravnava izboljšanje procesa z razvo-
+jem modela “naj-bo”.
+Rezultati: Ugotovili smo: (a) postopek “izvedba 
+operacije” je učinkovit in dobro organiziran; (b) 
+možno je skrajšati čas okrevanja bolnikov, ven-
+dar zaradi človeških in socialnih razlogov vod-
+stvo raje pusti čas okrevanja, kot je; (c) proces je 
+povezan z nekaterimi zamudnimi aktivnostmi, 
+ki se izvajajo v drugih oddelkih in predstavljajo 
+ozko grlo procesa.
+Sklepi: Ugotovljeno je bilo: (a) BPM je prime-
+ren postopek za izvedbo izboljšanja zdravstvenih 
+procesov; (b) prenovljena metodologija TAD 
+se je pokazala kot učinkovita pri izvedbi iden-
+tifikacije, modeliranju in izboljšanju procesov; 
+(c) proces “Izvedba operacije” je učinkovit in ne 
+potrebuje izboljšanj; (d) glede zamudnih aktiv-
+nosti se je vodstvo klinike odločilo obravnavati 
+ta problem z vodstvi oddelkov, kjer se aktivnosti 
+izvajajo.
+Abstract
+Background: Healthcare processes in hospitals, 
+likewise processes in companies or governmen-
+tal organizations, may accumulate problems and 
+obstacles over time, which consequently cause 
+the processes to become ineffective. BPM (Busi-
+ness Process Management) is an approach to pro-
+cess modeling, improvement and automating, 
+which has been used with great success for pro-
+cess improvement.
+Methods: This work was to examine the possi-
+bility of improving healthcare process by using 
+BPM. To implement BPM ideas, a revised TAD 
+(Tabular Application Development) methodology 
+was developed, representing an important con-
+tribution to BPM. The first three phases of the 
+TAD methodology were introduced in a step-by-
+step approach. The first phase deals with process 
+identification, the second develops the “as-is” 
+model, and the third phase discusses process im-
+provement by developing a “to-be” model.
+Results: We found that (a) the Surgery process 
+is efficient and well organized; (b) patient stay in 
+the Department could be shortened; however for 
+humane and social reasons the leadership prefers 
+to leave the residence time as it is; (c) the pro-
+cess is associated with some time-consuming ac-
+tivities that are performed by other departments 
+and represent the bottleneck of the process.
+Conclusions: (a) BPM proved to be a suitable 
+approach to implementing healthcare process 
+improvement; (b) the revised TAD methodol-
+ogy was found to be consistent and efficient in 
+performing BPM approach; (c) the Surgery pro-
+cess was found to be effective and no changes or 
+improvements are needed; (d) concerning time-
+Zdrav Vestn  |  Healthcare process analysis and improvement
+27
+Izvirni članek/Original article
+e process 
+nd 
+ent
+consuming activities, the leadership decided to 
+discuss this problem with the management of 
+the departments where the activities are carried 
+out.
+1  Introduction
+Throughout the last years, the field of 
+BPM has been gaining recognition and 
+acceptance. This field includes process mo-
+deling, improvement and automating. BPM 
+is the discipline of modeling, automating, 
+managing and optimizing business proces-
+ses throughout their lifecycle to increase 
+profitability.1 BPM is based on the fact that 
+a business process is the key element of the 
+organization.
+The process is comprehended as a trans-
+formation of inputs to outputs.2 We are fo-
+cusing on processes regardless of the organi-
+zational form of the research institutions.3-5 
+It is the business processes that are the key 
+element when integrating an enterprise.6
+The aim of this paper is to show the 
+possibility of using the BPM approach to 
+improve healthcare processes in hospitals. 
+The paper focuses on modeling and impro-
+vement of a healthcare process using the 
+revised TAD methodology. Evaluation of a 
+patient’s health status is an essential part of 
+the healthcare process.7
+The paper is divided into 4 sections. In 
+Section 2, TAD methodology is discussed. 
+Section 3 represents the results of this work. 
+Section 4 introduces some conclusions. 
+Throughout the paper, the healthcare pro-
+cess of carrying out surgery in the Depart-
+ment of Abdominal Surgery of the Univer-
+sity Medical Centre Ljubljana, Slovenia, is 
+illustrated.
+2  TAD Methodology
+TAD methodology consists of five pha-
+ses;8 these are process identification, process 
+modeling, process improvement and in-
+novation, system development, and system 
+maintenance. Due to space limitations, the 
+last two phases that deal with process mana-
+gement system, are not considered.
+2.1 Phase 1 – Process identification
+The first phase of TAD methodology de-
+als with identifying the organization’s pro-
+cesses starting with core processes, where we 
+do not differentiate between profit or non-
+-profit organizations. The expected number 
+of core or major processes that pass through 
+different functional areas of an organization 
+may be between 10 and 20.9
+These are horizontal processes that link 
+together the various functional activities 
+that deliver the output of the enterprise.10 
+Business process is a collection of activities 
+that takes one or more kinds of input and 
+creates an output that is of value to the cu-
+stomer.11
+In this phase, a number of interviews are 
+organized with the management at the stra-
+tegic, business and operational levels. The 
+purpose of the interviews with strategic ma-
+nagement is to understand to gain informa-
+tion about the strategic goals of the manage-
+ment and information about the structure of 
+the organization.
+Interviews are continued with manage-
+ment at the business level. The purpose of 
+these interviews is to identify the processes 
+of the organization. The result of these in-
+terviews is a list of processes, information 
+about the departments through which each 
+process passes and plan of interviews with 
+responsible people at departmental level.
+The aim of organizing interviews at ope-
+rational level is to define the flow of each 
+process identified through various functio-
+nal areas (departments).
+Surgery Process: During interviews with 
+the management of the Department of Ab-
+dominal Surgery one process was selected, 
+i.e. Surgery. This process is carried out in the 
+following three departments: the Outpatient 
+Service, the Emergency Unit and the De-
+partment of Abdominal Surgery.
+28
+Zdrav Vestn  |  januar 2015  |  Letnik 84
+Izvirni članek/Original article
+2.2 Phase 2 – Process modeling
+The second phase of TAD methodology 
+deals with developing a process model for 
+each process selected in the previous phase.
+Conceptual modeling of business pro-
+cesses is deployed on a large scale to faci-
+litate the development of software that su-
+pports the business processes, and to permit 
+the analysis and re-engineering or improve-
+ment of them.12 Furthermore, business pro-
+cess modeling is one of the requirements of 
+ISO 9000 international standard for quality 
+management and assurance.13
+To sufficiently define a process, firstly the 
+process activities and their resources need 
+to be identified, and then the sequence order 
+of the identified activities needs to be esta-
+blished. A process model is a logical repre-
+sentation of a real process that describes its 
+functioning and interactions with its enviro-
+nment. A process model consists of a set of 
+activities and execution constraints between 
+them.14
+Developing a successful process model 
+depends on appropriate selection of availa-
+ble modeling techniques. For this purpose, 
+in this work a special modeling technique 
+called the “Activity Table” is used.
+In order to develop a process model that 
+represents a true likeness of the existing re-
+ality of the process, the state of the art of the 
+process should be first discovered and un-
+derstood.
+In this phase, the Activity Table, which 
+represents process model, is developed. This 
+table consists of two parts. The second part 
+provides information about each activity of 
+the process.
+2.2.1 Activity Table Development – Part 1
+The first part of the table is a tabular-
+-graphical representation of the process di-
+scussed. To develop the activity table, infor-
+mation about process functioning should be 
+gained during interviews that are organized 
+with experienced employees in different de-
+partments. The activity table of the process 
+selected represents its “as-is” model. This 
+sub-phase has three steps.
+First Step
+In this step, the name of the process is 
+written in the first column of the first part of 
+the Activity Table, see Table 1. If the process 
+is large and complex, then it may be partiti-
+oned into a set of sub-processes, which are 
+in this case listed in the second column of 
+the table.
+Second Step
+Each business process consists of a num-
+ber of work processes. Therefore, in the 
+“Work Process” column of the table (usually 
+the second column), all work processes of 
+the process are indicated.
+For each work process listed, in the first 
+row of the table, the name of the department 
+to which the work process belongs should be 
+written, see Table 1.
+Third Step
+A work process is a process that consists 
+of a set of activities performed within a cer-
+tain department. This step deals with iden-
+tifying the activities performed within each 
+of the work processes listed in the previous 
+step.
+An activity is a micro-process that re-
+presents well-defined work performed by 
+one resource.15 An activity may consist of a 
+number of tasks.
+To identify the activities, further inter-
+views are organized with the employees in-
+volved in performing them. To do this, the 
+following procedure is used:
+•	 identify all activities that are performed 
+within the framework of each work pro-
+cess;
+•	 for each activity identified
+•	 define the activity in the Activity co-
+lumn;
+•	 indicate the resource that performs 
+the activity in a certain column of 
+the second row of the Activity Table 
+under the department in which it is 
+employed;
+•	 connect the activity to its predeces-
+sor activity or activities by vertical 
+arrow(s);
+•	 if the activity consists of tasks, then 
+list them in the next Task column and 
+use similar rules as in the previous 
+three to connect them.
+Healthcare
+analysis an
+improveme
+Zdrav Vestn  |  Healthcare process analysis and improvement
+29
+Izvirni članek/Original article
+The Activity Table technique uses a small 
+set of flowchart symbols to model a process, 
+such as: ○, 
+, □, ◊, │, →, ←, ↓, ↑. These 
+symbols have the following meanings:
+•	 symbol ○ indicates the starting point of 
+a process;
+•	 symbol 
+ indicates the end point of a 
+process or a certain path;
+•	 symbol □ in cell(i,j) means that 
+resource(j) performs activity(i), where j 
+ranges from 1 to the number of resour-
+ces and i ranges from 1 to the number of 
+activities;
+•	 symbol ◊ in cell(i,j) means that activity(i) 
+is a decision activity;
+•	 symbol │ is used to fork outputs of an 
+activity or merge inputs of different ac-
+tivities;
+•	 horizontal arrows →, ← are used to con-
+nect the activities horizontally;
+•	 vertical arrows ↓, ↑ are used to link the 
+activities vertically;
+•	 symbol * in cell(i,j) and cell(i,k) mean 
+that activity(i) could be performed by 
+resource(j) or resource(k).
+Surgery Process: Table 1 introduces the 
+Activity Table – Part 1 of the Surgery process. 
+This table represents the process’s “as-is” mo-
+del. As Table 1 shows, the process comprises 
+7 work processes, 54 activities, and 13 reso-
+urces that belong to 3 departments, and 2 
+external resources.
+2.2.2 Activity Table Development – Part 2
+Simultaneously with Part 1, Part 2 of the 
+Activity Table is developed. The purpose of 
+this part is to describe the process model 
+introduced in Part 1 by providing detailed 
+information of its activities. In the current 
+sub-phase a number of parameters that de-
+scribe the activities are defined.
+Activity Parameters
+In the columns of the Activity Table – 
+Part 2 the following parameters are defined 
+for each activity(i), where i ranges from 1 to 
+the number of activities.
+•	 Description. A short and precise descrip-
+tion of what exactly is the work carried 
+out by the activity defined in row(i) of 
+the table.
+•	 Time. The expected duration needed for 
+activity(i) to be processed and accompli-
+shed.
+•	 Rule. One or more constraints or rules 
+that must be met in order for activity(i) 
+to be performed.
+•	 Input/Ouput. Input(s) and ouput(s) of 
+activity(i) .
+Surgery Process: Table 2 shows the Activi-
+ty Table – Part 2 of the Surgery process. Due 
+to space limitations, only the activities of the 
+first work process are shown.
+2.3 Phase 3 – Process 
+improvement and innovation
+This is the key phase in process manage-
+ment. It is closely connected with customer 
+satisfaction. When the customer is satisfied 
+with the desired output of the organizati-
+on, then there is probably no need for im-
+plementing changes in the organization. 
+Otherwise, when the organization discovers 
+the customers’ dissatisfaction, then the busi-
+ness processes need to be improved or inno-
+vated as soon as possible.
+Process improvement is a complex task 
+that may function only if it is continuously 
+planned and implemented. Continuous bu-
+siness process improvement should result in 
+a 10–15 % yearly ongoing improvement in 
+the process.16
+Process improvement is done on the ba-
+sis of a precise analysis of the “as-is” process 
+model, which consequently leads to develo-
+ping a “to-be” process model that is imple-
+mented in the end instead of the old process.
+2.3.1 “as-is” Process Analysis
+The aim of this sub-phase is to examine 
+the behavior of the “as-is” model and identi-
+fy its existing problems. If making changes 
+in the process functioning solves the pro-
+blems found, then the process improvement 
+is the approach used. Otherwise, if the pro-
+cess requires radical changes, then process 
+innovation is the right solution. This sub-
+-phase consists of four steps.
+Process Simulation
+A process may accumulate many pro-
+blems that lead to its inefficiency and con-
+e process 
+nd 
+ent
+30
+Zdrav Vestn  |  januar 2015  |  Letnik 84
+Izvirni članek/Original article
+Table 1: Activity Table – Part 1
+Healthcare
+analysis an
+improveme
+Zdrav Vestn  |  Healthcare process analysis and improvement
+31
+Izvirni članek/Original article
+sequently the creation of queues within it. 
+An effective way to discover its real func-
+tioning is to use the simulation technique. 
+Furthermore, conducting a precise analysis 
+of the simulation results enables us to iden-
+tify problems and obstacles in the process.
+A simulation is the imitation of the ope-
+ration of a real-world process or system over 
+time. A discrete system is one in which the 
+state variable(s) changes only at discrete set 
+of points in time.17
+Simulation is a technique that enables us 
+to imitate a real process by developing its 
+model whose attributes are the same as the 
+attributes of the original. For this purpose, 
+real input data is used in conducting expe-
+rimentation on the overtime behavior of the 
+process.
+Surgery Process: Figure 1 shows a simu-
+lation model of the Surgery process, which 
+was created on the basis of the “as-is” process 
+model given in Table 1. The simulation of the 
+e process 
+nd 
+ent
+Table 2: Activity Table - Part 2 
+                                     Parameter
+Activity
+Description
+Time
+Business Rule
+Input/Output
+1.	 First medical check 
+Administrator registers patient 
+for first med. check
+1 min
+Check doctor’s order
+ Doctor’s order
+2.	 Get first examinition 
+appointment
+Patient gets an appointment 
+date for first medical check
+10-15 min
+Doctor’s order
+3.	 Register patient
+Administrator in Polyclinic 
+infirmary registers the patient
+10-15 min
+Check medical card 
+validity
+Doctor’s order, Medical 
+card
+4.	 Examine patient
+Surgeon examines the patient
+10-15 min
+Check patient’s medical 
+record
+Medical record
+5.	 Write report
+Surgeon records information 
+about patient’s health and 
+issues med. test orders. Admin. 
+issues a report on the basis of 
+the information  recorded
+10-15 min
+Issue medical test 
+orders
+Medical report, 
+Medical test orders
+6.	 Get medical findings
+Infirmary in Polyclinic recieves 
+patient’s medical findings
+60-100 
+min
+Medical finding
+7.	 Check patient and 
+findings
+Surgeon checks patient’s 
+medical findings
+10-15 min
+Check medical findings
+Medical findings
+8.	 Decide on surgery
+On the basis of the medical 
+findings, surgeon decides 
+whether the patient needs a 
+surgery
+10 min
+Decide for surgery if  
+needed
+ 
+9.	 Get date for 
+hospitalization
+Administrator informs 
+the patient about her/his 
+hospitalization date
+10 min
+Hospitalization date
+10.	 Pre-surgery check
+Surgeon checks patient’s 
+medical  state before 
+hospitalization 
+15-20 min
+ Medical findings
+11.	 Pre-anaesthesia 
+patient check
+Anaesthetist checks patient’s 
+staeprior to hospitalization
+15 min
+ Medical findings
+12.	 Additional tests
+Surgeon and Anaesthetist may 
+decide for additional  tests
+10 min
+13.	 Order additional tests
+Surgeon and Anaesthetist issue 
+med. orders for additional tests
+10 min
+If necessary issue 
+additional med. orders
+Medical orders
+14.	 Wait for surgery
+Patient waits for the surgery 
+until is called a day before
+1-14 days
+ 
+32
+Zdrav Vestn  |  januar 2015  |  Letnik 84
+Izvirni članek/Original article
+process was run taking into consideration 
+the following assumptions.
+•	 Outpatient service
+•	 1 patient enters the abdominal surgi-
+cal infirmary every 25 minutes;
+•	 79 % of patients are registered for a 
+first medical examination;
+•	 21 % of patients have a medical con-
+trol after surgery;
+•	 90 % of the patients who have the first 
+medical examination are scheduled 
+for surgery;
+•	 the resources in this infirmary are 1 
+administrator, 1 nurse, 1 anesthetist, 
+another department, and 2 surgeons;
+•	 waiting for surgery is defined by the 
+function TriangleDist(1, 14, 10), whi-
+ch means the minimum wait is 1, the 
+maximum 14, and the most likely 10 
+days.
+•	 Emergency Unit
+•	 1 patient enters the abdominal surgi-
+cal infirmary every 60 minutes;
+•	 25 % of these patients are sent to the 
+Department to carry out urgent sur-
+gery;
+•	 the resources in this infirmary are 1 
+administrator, 1 nurse, another de-
+partment, and 1 surgeon;
+•	 Department of Abdominal Surgery
+•	 patients are sent to the Department 
+either from the Outpatient Service or 
+Emergency Unit;
+•	 the capacity of the Department is 75 
+beds and most of the time it is com-
+pletely occupied;
+•	 the number of patients hospitalized 
+daily is equal to the number of pati-
+ents that are discharged;
+•	 prior to surgery, every patient needs 1 
+day for internal cleansing and possi-
+bly 1 day for additional medical tests;
+•	 seven resources are defined in the De-
+partment, these are 6 nurses, 6 nurses 
+in Intensive Care, 2 head nurses, 8 
+surgeons, 1 anesthetist, and 1 admini-
+strator;
+•	 recovery in Intensive Care is defined 
+by the function TriangleDist(3, 5, 4), 
+which means that the minimum stay 
+is 3, the maximum 5, and the most li-
+kely 4 days; and
+•	 recovery in the Department is defined 
+by the function TriangleDist(4, 8, 5), 
+which means the minimum stay is 4, 
+the maximum 8, and the most likely 
+5 days.
+Many interesting simulation results were 
+obtained after running this simulation, Ta-
+ble 3 shows some of them.
+Process Flow
+Process flow starts when a flow unit 
+(job or transaction) enters a process from 
+its environment, continues throughout the 
+process’s activities and buffers, and ends 
+when it leaves the process as its output. The 
+flow unit on its way through the process 
+may join other flow units at the end of one 
+or more queues waiting to be processed by 
+the process’s activities.
+To calculate the process flow, three key 
+measures are used:18
+•	 the average flow time or cycle time (T) 
+is the average of flow times (cycle times) 
+across all flow units that exit the process 
+during a specific time span;
+•	 the average inventory (I) is the number 
+of flow units within the process bounda-
+ries at any point in time; and
+•	 the average flow rate (R) is the average 
+number of flow units that flow through 
+(into and out of) the process per unit of 
+time.
+Healthcare
+analysis an
+improveme
+Table 3: Cycle Time
+Department
+Min Cycle Time
+Avg Cycle Time
+Max Cycle Time
+Avg Wait
+Avg Work
+Outpatient service
+3,13 d
+8.09 d
+12,74 d
+7.97 d
+0.12 d (2.97 h)
+Emergency Unit
+2.38 h
+3.45 h
+5.38 h
+0.70 h
+2.74 h
+Abdominal 
+Surgery
+7.93 d
+12.05 d
+15.04 d
+10.85 d
+1.36 d
+Zdrav Vestn  |  Healthcare process analysis and improvement
+33
+Izvirni članek/Original article
+Figure 1: Simulation 
+Model
+Process flow is defined by the listed vari-
+ables, which are calculated using Little’s law; 
+see formula 1. Little’s law defines the impor-
+tant relationship between average inventory, 
+average flow rate and average cycle time in a 
+stable process.
+I = R × T	
+(1)
+Surgery Process: Our main task was to ca-
+rry out process improvement in the Depart-
+ment. In addition to the simulation results 
+shown in Table 3, the rest of the calculated 
+process performance measures of the Surge-
+ry process are shown below.
+From the assumptions given in the pre-
+vious section, we know that the average 
+inventory is 75; this is the number of pati-
+ents in the Department at any point of time. 
+e process 
+nd 
+ent
+34
+Zdrav Vestn  |  januar 2015  |  Letnik 84
+Izvirni članek/Original article
+Furthermore, the simulation results showed 
+that the average cycle time in the Depart-
+ment is 12.05 days, the minimal cycle time is 
+7.93, and the maximal is 15.04 days. Therefo-
+re, the flow rate (throughput) of the process 
+is calculated using Little’s law as follows:
+Average R = 75 / 12.05 = 6.22 patients/day
+This result means that 6 patients per day 
+enter the process and the same number of 
+patients leaves it.
+Cycle Time Efficiency
+A flow unit on its way from the start to the 
+end of a process goes through a sequence of 
+activities and buffers. Thus the cycle time of 
+a flow unit within a process actually consists 
+of the times spent within the process’s acti-
+vities and the waiting times spent in buffers.
+In order to calculate the cycle time effi-
+ciency, we first need to understand the mea-
+ning of term theoretical cycle time. Theore-
+tical cycle time of a process is the minimum 
+amount of time required for processing a 
+typical flow unit without any waiting.18 The 
+cycle-time efficiency is the ratio between 
+the theoretical cycle time and the average 
+cycle time. This ratio enables us to evaluate 
+the waiting time in the process, which indi-
+cates the possibility of carrying out process 
+improvement by reducing the waiting time 
+in it.
+Cycle Time Efficiency =  
+Theoretical Cycle Time / Average Cycle Time 
+	
+(2)
+Surgery Process: The simulation results 
+show that the average theoretical cycle time 
+is equal to 1.36 days. Using formula 2 yields:
+Cycle time efficiency =  
+1.36/12.05 = 11.29 %
+This result means that the patient waiting 
+time is 88.71 % of the average cycle time of 
+the process. This is an expected result beca-
+use by waiting time we may understand a 
+patient’s waiting and recovery time.
+Process Capacity
+The capacity of a process depends on the 
+process resources that perform its activities. 
+In order to understand the process capacity, 
+let us define the following terms:
+A resource pool is a group of resources 
+that perform similar kinds of activities. Each 
+member of a resource pool represents a unit 
+of this pool.
+The unit load of a resource is the sum 
+of the times of the activities performed by 
+a certain resource unit in processing a flow 
+unit through the whole process.
+Capacity utilization measures the degree 
+to which resources are effectively utilized by 
+a process. Capacity utilization is defined for 
+each resource pool.
+Surgery Process: Table 4 shows the capa-
+city utilization of each resource pool. The-
+se values are obtained from the simulation 
+results and apply to the resources’ capacity 
+utilization in this process only.
+2.3.2 “to-be” Process Model Creation
+Improvement of the existing “as-is” pro-
+cess is done depending on the problems 
+identified by analyzing the simulation re-
+sults and the calculated process performan-
+ce measures. A number of different possibi-
+lities should be studied in order to improve 
+the process, such as removing work proces-
+ses that fit within other processes, minimi-
+zing the waiting times, shortening the times 
+of time-consuming activities, and reducing 
+the number of repetition loops.
+3  Results
+Analyzing the simulation results enabled 
+us to identify the following difficulties or 
+problems:
+a.	 a time consuming activity in the Outpa-
+tient Service that causes days of waiting, 
+this is the activity “Get Medical Findings”, 
+which is indicated by 6 and 16;
+b.	 the same activity in the Emergency Unit, 
+which is indicated by 22, causes hours of 
+delay;
+c.	 in the Department we found that the 
+cycle time of the patient’s stay in the De-
+partment is relatively long, between 7.93 
+Healthcare
+analysis an
+improveme
+Zdrav Vestn  |  Healthcare process analysis and improvement
+35
+Izvirni članek/Original article
+and 15.04 days, with an average stay of 
+12.05 days.
+In order to find ideas for improvement 
+of the “as-is” Surgery process, we did the fol-
+lowing:
+•	 Firstly, we carefully analyzed Table 1. The 
+result of this analysis was that no redun-
+dant work processes or activities exist in 
+the Surgery process and also there are no 
+activities whose duration could be shor-
+tened.
+•	 Secondly, we tried to find solutions for 
+the above given three problems:
+•	 concerning problem (a), activities 
+6 and 16 are performed in other de-
+partments of the hospital Institute of 
+Clinical Chemistry and Biochemistry, 
+Institute of Radiology, etc. and there-
+fore these activities were not accessi-
+ble to our team;
+•	 the same conclusion is valid for pro-
+blem (b);
+•	 problem (c) of the relatively long stay 
+of patients; it was found that the reco-
+very time could be shortened by a few 
+days but the leadership prefers not to 
+do so because:
+•	 most of these patient are old peo-
+ple and have nobody to take care 
+of them;
+•	 the majority of them have diffe-
+rent kinds of abdominal cancer 
+and therefore they need longer re-
+covery times.
+4  Conclusions
+There are a number of techniques that 
+are used to carry out process modeling, such 
+as the Flowchart and UML (Unified Mode-
+ling Language).
+A flowchart is commonly used to show 
+the flow of a process. It usually consists of 
+different symbols connected by lines. The di-
+sadvantage of this technique lays in its flexi-
+bility as it allows each modeler to unite va-
+rious parts of the process together to obtain 
+the whole picture as she/he feels they fit best. 
+In addition, the technique does not have any 
+mechanism for discovering gaps or defici-
+encies existing in the model developed. For 
+this reason we agree with those researchers 
+e process 
+nd 
+ent
+Table 4: Average Resource Utilization
+Department
+Resource No.
+Resource 
+Name
+Resource 
+Utilization
+Outpatient Service 
+1
+Administrator
+58.71%
+1
+Anaesthetist
+76.40%
+1
+Nurse
+57.09%
+1
+Other Department
+99.30%
+2
+Surgeon
+76.02%
+Emergency Unit
+1
+Administrator
+16.67%
+1
+Nurse
+5.05%
+Other Department
+31.95%
+1
+Surgeon
+25.09%
+Abdominal Surgery
+1
+Administrator
+23.00%
+1
+Anaesthetist
+24.63%
+6
+Nurse
+39.63%
+6
+Nurse (Intensive care)
+48.76%
+2
+Head Nurse
+45.08%
+8
+Surgeon
+35.30%
+36
+Zdrav Vestn  |  januar 2015  |  Letnik 84
+Izvirni članek/Original article
+who argue that the flowchart technique is 
+too flexible.19
+UML uses 14 types of diagrams (7 struc-
+ture diagrams and 7 behavior diagrams), 
+which makes the modeling process difficult 
+to manage. The purpose of UML is to deve-
+lop software systems.
+Meanwhile, the activity table modeling 
+technique of TAD methodology is less flexi-
+ble as it allows the modeler to define the bu-
+siness process activities only in connection 
+with resources. In addition, it has a mecha-
+nism to discover gaps or deficiencies exi-
+sting in the table. This is achieved by using 
+the vertical linkage to put the activities in a 
+determined order.
+Furthermore, the purpose of TAD me-
+thodology is to implement the process ma-
+nagement approach, which includes process 
+modeling, improvement and system deve-
+lopment.
+Implementing the first three phases of 
+TAD methodology enabled us to uncover a 
+number of findings, such as:
+a.	 BPM is an approach that has proved to 
+be an important way to carry out healt-
+hcare process improvement and is capa-
+ble of keeping processes in hospitals as 
+effective as possible.
+b.	 There is no process owner recognized in 
+the hospital, and this role is carried out 
+by the leaderships of the departments. 
+Because the healthcare process may pass 
+across different departments, we suggest 
+that the leadership of the hospital deter-
+mines a process owner for each healt-
+hcare process. The process owner is the 
+person responsible for the process, solves 
+its problems and obstacles, and takes care 
+for continuous process improvement.
+c.	 The proposed concept of TAD metho-
+dology was shown to be a consistent and 
+efficient approach that implements pro-
+cess identification, modeling and impro-
+vement in an easy manner, particularly 
+after extending it by the use of the simu-
+lation technique and process performan-
+ce measures.
+d.	 The healthcare process discussed was 
+found to be effective and the patients 
+as well as the leadership of the Depart-
+ment are satisfied with it. Nevertheless, 
+there are possibilities for further impro-
+vements such as shortening the patient’s 
+stay in the Department.
+e.	 The Surgery process is associated with 
+some time-consuming activities, whi-
+ch are performed in other departments. 
+Therefore, the Department has no influ-
+ence on accelerating their performance.
+References
+1.	
+Khan NR. Business process management, a practi-
+cal guide. Florida: Meghan-Kiffer Press; 2004.
+2.	 Laguna, M, Marklund J. Business process model-
+ling, simulation, and design. New Jersey: Pearson 
+Education Inc; 2005.
+3.	 Rončević B, Makarovič M. Societal steering in 
+theoretical perspective: social becoming as an 
+analytical solution. Polish Sociological Review. 
+2011; 176, 4: 461–472.
+4.	 Rončević B, Modic D. Regional systems of inno-
+vations as social fields. Sociologija i proctor. 2011; 
+49, 191: 313–333.
+5.	 Rončević, B, Makarovič M. Towards the strategies 
+of modern social processes. The European Journal 
+of Social Science Research. 2010; 23, 3: 223—239.
+6.	 Aguilar-Saven R, Olhager J. Integration of product, 
+process and functional orientations: principles 
+and a case study. Preprints of the International 
+Conference on Advanced Production Manage-
+ment Systems. APMS, IFIP, The Netherlands. 2002; 
+257: 375–389.
+7.	
+Šuteršič O, Rajkovič U, Dinevski D, Jereb J, Raj-
+kovič V. Evaluation of a patient’s health status is 
+an essential part of the healthcare process. Jour-
+nal of International Medical research. 2009; 37: 
+1646–1654.
+8.	 Damij N, Damij T, Grad J, Jelenc F. A methodolo-
+gy for business process improvement and IS de-
+velopment. Inf. softw. Technol. 2008; 50: 1127–1141
+9.	 Davenport TH. Process innovation: Reenginee-
+ring work through information technology. Bo-
+ston: Harvard Business School Press; 1993.
+10.	 Watson HG. Business systems engineering: mana-
+ging breakthrough changes for productivity and 
+profit. New York: John Wiley and Sons; 1994.
+11.	 Hammer M. Reengineering work: don’t automate. 
+Obliterate. Harvard Business Review. 1990; 68, 4: 
+104–112.
+12.	 Aguilar-Saven R. Business process modelling: re-
+view and framework. International Journal of Pro-
+duction Economics. 2003; 90, 2: 129–149.
+13.	 Ould MA. Business processes: modelling and 
+analysis for re-engineering and improvement. 
+Chichester, UK: John Wiley and Sons; 1995.
+Healthcare
+analysis an
+improveme
+Zdrav Vestn  |  Healthcare process analysis and improvement
+37
+Izvirni članek/Original article
+14.	 Weske M. Business process management: con-
+cepts, languages, architectures. New York: Sprin-
+ger; 2007.
+15.	 Damij N, Damij T. Process management: a multi-
+-disciplinary guide to theory, modeling, and me-
+thodology. Berlin: Springer; 2014.
+16.	 Harrington HJ, Esseling E, van Nimwegen H. Bu-
+siness process improvement workbook. New York: 
+McGraw-Hill; 1997.
+17.	 Banks J, Carson SJ, Nelson LB, Nicol MD. Discre-
+te-event system simulation. Upper Saddle River, 
+NJ: Prentice Hall; 2001.
+18.	 Anupindi R, Chopra S, Deshmukh DS, van Mie-
+ghem AJ, Zemel E. Management business process 
+flows: principles of operations management. New 
+Jersey: Pearson Education Inc; 2006.
+19.	 Damij N. Business process modelling using dia-
+grammatic and tabular technique. Business Pro-
+cess Management Journal. 2007; 13, 1: 70–90
+e process 
+nd 
+ent
+

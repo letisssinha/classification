@@ -1,0 +1,500 @@
+On the Design of
+IT Key Performance Indicators
+Dirk Draheim
+IT Service Management Division
+University of Innsbruck
+Innsbruck, Austria
+draheim@acm.org
+Abstract—Today’s successful IT service providers need to
+continuously improve the transparency of their service provi-
+sion. The selection and negotiation of key performance indica-
+tors is an important component in establishing transparency.
+In this workshop contribution we aim at characterizing the
+role of key performance indicators in management system, in
+general, and IT service management systems, in particular.
+We discuss the theoretical background of process-oriented
+quality management systems, i.e., the management school of
+cybernetic feedback-control systems. We express our opinion
+that a purely mechanical application of quality management
+systems comes at the risk of misunderstanding or overlooking
+important parts of the functioning of a successful enterprise.
+Against the background of these ﬁndings we can understand
+mainstream IT governance and IT service management systems
+as process-oriented quality management systems. As part of
+the discussion, we reconsider the mainstream IT planning
+instruments of total cost of ownership and total economic
+impact and extend them by a means to incorporate probabilistic
+risk assessment.
+Keywords-ISO 9000, ISO 20000, ISO 38500, ISO 42010,
+CoBit, ITIL, IT service management, IT governance, quality
+management systems, cybernetic management, key perfor-
+mance indicators
+I. INTRODUCTION
+Today’s successful IT service providers need to continu-
+ously improve the transparency of their service provision.
+For external IT providers, this is required by customers.
+For internal IT providers, e.g., the enterprise’s IT service
+management division, it is required by the enterprises IT
+governance stakeholders. Transparency of IT services is a
+buzzword that we can hear in many IT service management
+initiatives, as well as in smaller and larger IT sourcing
+debates in today’s companies. More concrete objectives that
+are addressed by such initiatives and debates are reliability of
+services, cost calculability and cost predictability, ﬂexibility
+of the IT infrastructure and the strategic alignment of the
+emerging future IT infrastructure with the business goals of
+the enterprise.
+The selection of appropriate performance indicators and
+their negotiation among stakeholders are important compo-
+nents in establishing transparency in IT service management.
+In practice we have experienced that stakeholders concen-
+trate and rely too much on the deﬁnition of key performance
+indicators. We believe that performance indicators are no
+silver bullet in IT service management. And so they are
+not for quality management in general. In this workshop
+paper we discuss the role of key performance indicators.
+We do so by attempting to characterize the design space for
+management systems that are based on a notion of target
+negotiation.
+II. QUALITY MANAGEMENT SYSTEMS
+Today’s quality management systems are feedback control
+systems. A feedback control system consists out of an inner
+system that is controlled, a sensor or measurement function
+that observes the controlled system and a controller or
+steering function that adjusts the behavior of the system on
+the basis of measurement data. The interplay of the system,
+its sensor and its controller is also called a feedback control
+loop.
+The plan-do-check-act cycle (PDCA), see Fig. 1 also
+known as Deming wheel [4] or Shewart cycle, is the
+established terminology for the feedback control loop in the
+discipline of quality management systems. The planning and
+acting stages correspond to the steering function, the doing
+stage corresponds to the controlled system and the checking
+stage corresponds to the measurement function.
+The notion of feedback control system is a very general
+one. Quality management systems have certain characteris-
+tics that make them special feedback control systems:
+∙Discrete. The planning stage identiﬁes and negotiates
+objectives for the processes controlled by the quality
+management life-cycle. It occurs from time to time,
+e.g., on an annual basis or a monthly basis. Further
+monitoring and reaction at ﬁner granularity is done by
+the responsible stakeholder of the process.
+∙Evolving. A mature – or let us say viable – quality
+management system is itself the subject to controlled
+change and therefore evolves in conjunction with the
+business that it aims to improve. This means that the
+action and planning stage change the process. They
+also change the objectives and the indicators that are
+monitored.
+2011 22nd International Workshop on Database and Expert Systems Applications
+1529-4188/11 $26.00 © 2011 IEEE
+DOI 10.1109/DEXA.2011.59
+9
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:09 UTC from IEEE Xplore.  Restrictions apply. 
+PLAN
+objectives
+are
+fixed
+processes
+are
+run
+DO
+objectives
+are
+monitored
+CHECK
+ACT
+improvements
+are
+made
+Figure 1.
+PDCA-like business process management life cycle
+∙Process-oriented. Established quality management sys-
+tems [8], [9] are process-oriented. For conformance
+with concrete quality management systems the deﬁni-
+tion of processes is crucial.
+A quality management system can be established in
+parallel to an existing management system. A quality man-
+agement system can become so pervasive in an enterprise
+that it actually becomes the management model of the en-
+terprise. Cybernetic management models are very elaborated
+feedback control systems [1], [2], [3]. The feedback control
+systems of cybernetic management are recursive, i.e., the
+same steering principle is repeated at the several levels of
+the enterprise.
+ITIL (IT Infrastructure Library) [19], [20] is the IT service
+management body of knowledge. As such it emerged as a
+collection of best practices in IT service management. The
+standard corresponding to ITIL is ISO 20000 [10]. Over the
+years more and more elements of IT governance emerged
+in ITIL so that it now spans both IT governance and IT
+service management. However, still it is perceived rather
+as an IT service management framework and in projects
+it is introduced as an IT service management tool in ﬁrst
+place, usually starting with establishment of a robust incident
+management process. ISO 38500 [11] and CoBit [12], [13]
+emerged as IT governance frameworks. In particular, CoBit
+also operates on the level of IT service management, how-
+ever, usually CoBit is perceives as a genuine IT governance
+tool. Actually, you may ﬁnd enterprises in which ISO
+385000 or CoBit are used in parallel with ISO 20000 or
+ITIL.
+The IT governance viewpoint onto IT management initia-
+tives is always a quality management viewpoint and all the
+arguments given in Sect. III fully apply to IT management
+scenarios.
+III. DESCRIBING AND MEASURING OBJECTIVES
+The identiﬁcation of objectives of processes and negoti-
+ation of targets is crucial for quality management. Against
+the more basic viewpoint of agent theory [15] it is a center
+pillar of management in general.
+Objectives and targets can be described by several means:
+∙Steering parameters. The steering parameters are target
+agreements between stakeholders of the steering func-
+tion and stakeholders of the process execution function.
+A steering parameter is a well-deﬁned, measurable
+ﬁgure of a deﬁned business process.
+∙Informal target agreements. Informal target agreements
+are further target agreements that cannot be deﬁned
+as measurable ﬁgures in terms of deﬁned business
+processes.
+∙Additional business improvement activities. The busi-
+ness improvement activities are all kinds of activities
+other than target agreements that are intended to im-
+prove the efﬁciency or effectiveness of the enterprise.
+The distinction between informal target agreements and
+additional business improvement activities is somehow arti-
+ﬁcial. However, we think that it is important to distinguish
+between those target agreements that can be expressed in
+terms of the objectives of the processes, on the one hand
+side, and those that address other dimensions of business
+improvement, e.g., the organizational structure or the devel-
+opment and training of staff. For the former notion we use
+the term informal target agreements and the term additional
+improvement activities for the latter. The listed means of
+objectives and targets is not complete and rather loose. For
+example, also the formal steering parameters can be reﬁned
+to those that are directly related to the process outcome and
+those that are related to other activities that inﬂuence the
+outcome of processes and services indirectly.
+Similarly, achievements can be assessed by several means:
+∙Key performance indicators. The key performance in-
+dicators are measurable ﬁgures about deﬁned business
+processes. Performance indicators correspond to steer-
+ing parameters.
+∙Informal performance reports. The performance reports
+are further information about the performance of the
+enterprise that cannot be deﬁned as measurable ﬁgures
+in terms of deﬁned business processes. Informal perfor-
+mance reports correspond to informal target agreements
+and additional business improvement activities.
+On the basis of this, we now want to distinguish between
+three different kinds of viewpoints on management systems,
+in general, and quality management systems and IT service
+management systems, in particular:
+∙Knowledge management viewpoint. The knowledge
+management viewpoint understands the existence of
+informal processes that accompany the formalizable
+10
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:09 UTC from IEEE Xplore.  Restrictions apply. 
+processes in an enterprise. It cares for the externaliza-
+tion of knowledge and its distribution [18], [6].
+∙Objective viewpoint. We call a viewpoint that tries to
+understand as much of the functioning of an enterprise
+as possible in terms of steering parameters, informal
+target agreements, key performance indicators and per-
+formance reports as objective viewpoint.
+∙Mechanical viewpoint. We call a viewpoint that tries
+to understand the functioning of an enterprise merely
+in terms of steering parameters, informal target agree-
+ments, key performance indicators and performance
+reports as mechanical viewpoint.
+∙Purely mechanical viewpoint. We call a viewpoint that
+tries to understand as much of the functioning of
+an enterprise merely in terms of steering parameters
+and key performance indicators as purely mechanical
+viewpoint.
+The difference between an objective viewpoint and me-
+chanical viewpoint lays in the role granted to the deﬁnition
+of objectives. In an objective viewpoint the deﬁnition of
+objectives is considered a crucial element, but in an me-
+chanical viewpoint the deﬁnition of objectives rules. An
+objective viewpoint is aware of the importance of the quality
+of the overall design of the management system and its
+components. It is also aware of the impact of auxiliary
+management functions the quality. The balanced scorecard
+approach [14] is example of an approach that is shows such
+awareness in the way it taught and applied in projects in
+practice.
+Against the background of this discussion, we eventually
+come up with the following statement:
+The gap between a mechanical or even purely
+mechanical viewpoint and the actual functioning
+of the enterprise should not be neglected in
+quality management system projects. The parts
+of the functioning of the enterprise that are not
+amenable to a mechanical viewpoint may con-
+tribute substantially to the targeted results and
+the success of the enterprise.
+From the above discussion we conclude that IT service
+provision, see Fig. 2, with all its facets of incident man-
+agement, problem management, service speciﬁcation and
+service control needs an objective viewpoint that should
+ideally combined with a knowledge management viewpoint.
+IV. ON THE ASSESSMENT OF IT ASSETS
+Several objectives must be met to make a successful and
+stable system: performance, scalability, availability, security,
+maintainability. If information system products have to be
+selected, eventually, total cost of ownership (TCO) [16] must
+be addressed.
+Service
+Release
+Relationship
+Management
+Incident & Problem
+Resolution
+Control
+Service Delivery
+Figure 2.
+IT service management issues according to ISO 20000.
+A. Total Cost of Ownership
+The total cost of ownership comprises costs for hardware
+and software, costs of the rollout project and costs for system
+maintenance and system administration. Therefore the total
+costs of ownership are always calculated for an assumed
+lifetime of the considered information system – it is simply
+not enough to consider the initial purchase costs of an in-
+formation system. The costs for system operations including
+costs for system maintenance and system administration
+are hard to predict and sometimes even hard to determine
+once the system is running. So, in advance, costs of an
+information system sometimes can only be estimated rather
+than calculated. This is even more true if risk management
+aspects come into play. Then the above deﬁnition of total
+costs of ownership is not completely adequate any more.
+This problem arises for all of the aforementioned driving
+forces affecting system stability. For example, with respect
+to availability you have to estimate the costs of system
+downtime; or with respect to security you have to estimate
+the costs of the case that somebody infringes your system.
+From these estimates you must then derive how much
+more you are willing to pay for extra availability and extra
+security.
+Formally, e.g., by the Gartner Group, there is a distinction
+between so-called direct and indirect costs. Direct costs are
+budgeted expenses, indirect costs are unbudgeted expenses.
+Unbudgeted expenses are those that are unforeseen or over-
+looked. They can stem from technological risks or from
+expenses hidden in overlooked cost units, residing, e.g., in
+cost centers other then the IT department. In this termi-
+nology, typical examples of indirect costs are expenses for
+end user training and support. Indirect costs can in principle
+often be made direct costs by estimating them and making
+them explicit by assigning them to an appropriate cost unit
+connected to the considered information technology.
+Only a holistic treatment of software, middleware,
+database management systems, hardware, and system ad-
+ministration can balance the several driving forces. In such
+a holistic treatment of information systems the database
+technology viewpoint on them has always proven to be a
+particular mature one in the past – both in practice and in
+research.
+11
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:09 UTC from IEEE Xplore.  Restrictions apply. 
+B. Total Beneﬁt of IT Ownership
+Care must be taken in analyses that are done to understand
+whether a certain IT strategy should be taken or a certain
+IT infrastructure should be created. Estimations of the total
+cost of ownership address only the cost side of these even
+more complicated analyses. Return on investment (ROI) is
+the widely used term in proﬁt/loss calculations. Formally, it
+is the ratio of expected proﬁt to needed capital. In practice,
+return on investment calculations are done on different levels
+of observation, i.e., ﬁnancing of a businesses, business units,
+projects, or technical equipment, e.g., new IT infrastructure.
+However, with respect to information technology even the
+viewpoint of return on investment calculations with their
+focus on measurable cash ﬂow is often to narrow to re-
+alistically evaluate the beneﬁts of an optional investment.
+New opportunities and additional ﬂexibility created by a new
+IT infrastructure are yet other criteria that often have to be
+considered. An example of an approach that addresses the
+real beneﬁts of an IT investment is Forrester Research’s Total
+Economic Impact (TEI) method [17], which considers total
+costs of ownership, the business value and the options that
+are created by IT in evaluating it.
+C. Assessment of the Total Impact of IT Ownership
+As we said in Sect. IV-A, indirect costs belong to the total
+cost of ownership. And actually, in practice stakeholders
+usually incorporate indirect costs in realistic calculations.
+The indirect costs that deal with risks of malfunction of
+information technology, i.e., unplanned down times or se-
+curity threats can be estimated. However, even if the costs
+of a single malfunction can be robustly estimated there is
+another level of indirection, i.e., the problem of estimating
+the probability of such malfunctions. So, if done correctly
+there is in general at least a worst case and a best case
+calculation of total cost of ownership; ideally, the outcome
+of the total cost of ownership analysis is actually deviation
+of costs.
+The problem of mixing certain costs with probabilistic
+costs in total costs of ownership is that it opens the door
+for obfuscation of the certain costs. Therefore, we propose
+a different viewpoint depicted in Fig. 3. Here, the total
+cost of ownership consists of certain measurable, budgeted
+costs only. All probabilistic costs – usually indirect costs of
+uncertain malfunction events but also all other probabilistic
+costs – are considered separately from the total cost of
+ownership. The probabilistic costs are considered on the side
+of the anyhow vague determination of the total beneﬁt of
+ownership. Some of the beneﬁts of information technology
+can only be roughly measured or cannot be measured at
+all. They are often nonetheless important. So it is the case
+for, e.g., an improved customer relationship on behalf of
+improved customer processes and also for an improved
+overall ﬂexibility of the enterprise gained by IT. Further-
+more, the total beneﬁt of ownership is made of assessable
+Total Impact
+of IT Ownership
+Total Cost
+of Ownership
+Total Benefit
+of Ownership
+Hardware
+Costs
+Software
+Costs
+Operations
+Costs
+Cost
+Savings
+Profit
+Quality
+of Service
+Availability
+Scalability
+Security
+Probabilistic
+Costs
+Auxiliary
+Benefits
+Figure 3.
+Total impact of IT ownership.
+proﬁt and cost savings, which are two sides of the same
+story. Usually, in the area of business process optimization
+information technology is considered to contribute to cost
+savings, if information technology is the core asset in a new
+project or production line its contribution to the proﬁt can be
+determined. Cost savings and proﬁt together make up a kind
+of direct, absolute return on investment which is lowered by
+the probabilistic costs in our model.
+Now, we want to consider the notion of total impact
+of IT ownership for the areas of business process reengi-
+neering [7] and management [5] which can be mutual
+dependent as discussed in the introductory section of this
+chapter. Business process reengineering and management
+lead to better performance and therefore have their impact.
+Often, the impacts are directly measurable in terms of cost
+savings or time savings. Often, the impacts are not as easily
+to determine. Information technology can be used as an
+enabler of business process reengineering and management.
+Now, there are two possible views on the total cost of
+ownership calculation for the supporting IT. The ﬁrst one
+sees the decision for the optimizations independently from
+the decision for a concrete IT support. Then, consequentially
+the estimated impacts cannot be incorporated into the total
+cost of ownership calculation. This case usually occurs when
+a certain kind of optimization is already standard in the sense
+of strategic benchmarking, i.e., there is no doubt that the
+enterprise will beneﬁt from the possible changes and the
+choice of technology boils down to the evaluation of existing
+products. However, if innovative optimizations that need new
+comparatively high cost technology have to be evaluated, it
+is very likely to make sense that the estimated impacts are
+included into the total cost of ownership calculations.
+12
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:09 UTC from IEEE Xplore.  Restrictions apply. 
+V. CONCLUSION
+A mature quality management system consists of two mu-
+tual dependent functions, i.e., a steering function and a pro-
+cess execution function. The steering function analyzes the
+performance of the enterprise. It analyzes the environment of
+the enterprise. It analyzes and adjusts the strategy [21] of the
+enterprise. It analyzes the key performance indicators and
+additional performance reports. It reviews the functioning
+of the business process execution function. As a result of
+this, it resets the steering parameters, negotiates further tar-
+get agreements and instructs further business improvement
+activities. Furthermore, it continuously improves the steering
+interface and the feedback interface.
+Against the background of quality management we have
+distinguished between a knowledge management viewpoint,
+an objective viewpoint, a mechanical viewpoint and a purely
+mechanical viewpoint onto management systems. We have
+identiﬁed the need of an objective viewpoint, ideally com-
+bined with a knowledge management viewpoint, for success-
+ful IT service management initiatives.
+REFERENCES
+[1] S. Beer. Fanfare for Effective Management – Cybernetic Praxis
+in Government. The 3𝑟𝑑Richard Goodman Memorial Lecture,
+Delivered at Brighton Polytechnic, Moulsecoomb, Brighton,
+14𝑡ℎFebruary 1973.
+[2] S. Beer. The Heart of Enterprise – Companion Volume to: The
+Brain of the Firm. John Wiley & Sons, 1994.
+[3] S. Beer. The Brain of the Firm – Companion Volume to:The
+Heart of Enterprise. John Wiley & Sons, 1994.
+[4] W. E. Deming. Out of the Crisis. MIT, Center for Advanced
+Educational Services, 1982.
+[5] D. Draheim. Business Process Technology – A Uniﬁed View
+on Business Processes, Workﬂows and Enterprise Applications.
+Springer, 2010.
+[6] D. Draheim. Smart Business Process Management. In (Layna
+Fisher, Herausgeber): 2011 BPM and Workﬂow Handbook,
+Digital Edition. Future Strategies, Workﬂow Management
+Coalition, 2011.
+[7] M. Hammer, J. Champy. Reengineering the Corporation: A
+Manifesto for Business Revolution. HarperCollins Publishers,
+1993.
+[8] International Organization for Standardization. International
+Standard ISO 9000:2005(E). Quality Management Systems –
+Fundamentals and Vocabulary. ISO, 2005.
+[9] International Organization for Standardization. International
+Standard ISO 9000:2005(E). Quality Management Systems –
+Guidelines for Performance Improvements. ISO, 2000.
+[10] International Organization for Standardization. International
+Standard ISO/IEC 20000-1:2005(E). Information Technology
+– Service Management – Part 1: Speciﬁcation. International
+Organization for Standardization, 2005.
+[11] International Organization for Standardization. International
+Standard ISO/IEC 38500:2008. Corporate Governance of In-
+formation Technology. ISO, 2008.
+[12] IT Governance Institute. COBIT 4.1 – Framework, Control
+Objectives, Management Guidelines, Maturity Models. ISBN
+1-933284-72-2, IT Governance Institute, 2007.
+[13] IT Governance Institute. COBIT Quickstart, IT Governance
+Institute, 2007.
+[14] R.S. Kaplan, D.P. Norton. The Balanced Scorecard: Trans-
+lating Strategy into Action. Harvard Business School Press,
+1996.
+[15] M. Jensen, W. Meckling. Theory of the Firm – Managerial
+Behavior, Agency Costs, and Ownership Structure. In: Journal
+of Financial Economics, vol. 3, no. 4, 1976, pp. 305–360.
+[16] B. Kirwin. CIO Update: To Control TCO, It Must Be Mea-
+sured and Managed. ID Number IGG-04162003-02. Gartner
+Group, April 2003.
+[17] D. Merriman. Total Economic Impact: Really Understanding
+the IT Cost/Beneﬁt Equation. Giga Information Group, 2003.
+[18] I. Nonaka. The Knowledge-Creating Company. Harvard Busi-
+ness School Press, 2008.
+[19] Ofﬁce of Government Commerce. ICT Infrastructure Man-
+agement. Bernan, 2002.
+[20] Ofﬁce of Government Commerce. Ofﬁcial Introduction to the
+ITIL Service Lifecycle. Stationery Ofﬁce Books, August 2007.
+[21] C.W. Stern, M. S. Deimler. The Boston Consulting Group
+on Strategy: Classic Concepts and New Perspectives. Wiley &
+Sons, June 2006.
+13
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:09 UTC from IEEE Xplore.  Restrictions apply.
+

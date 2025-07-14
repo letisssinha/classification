@@ -1,0 +1,600 @@
+Proceedings of the 2006 Winter Simulation Conference 
+L. F. Perrone, F. P. Wieland, J. Liu, B. G. Lawson, D. M. Nicol, and R. M. Fujimoto, eds. 
+ 
+ABSTRACT 
+Supply chain transformation is an emerging service area in 
+the market which aims at helping clients improve their op-
+erational efficiency and reduce costs. As a generic tech-
+nique for the analysis of complex and dynamic systems, 
+simulation could play an important role in this field. This 
+paper presents a case study showing how simulation could 
+be the key enablement for a supply chain transformation 
+project. A methodology and tool developed by IBM China 
+Research Lab has been applied in this joint project with a 
+world-class supplier of home improvement tools. By ap-
+plying simulation, the client is provided an insightful view 
+about their business processes and inventory allocation 
+strategy, which serves as the basis for the transformation 
+implementation. Financial results show that simulation has 
+addressed the key issues and provided the client account-
+able evaluation results for decision-making. 
+1 
+INTRODUCTION 
+Supply chain transformation is an emerging service area in 
+the market, which aims at helping clients transform their 
+supply chain to a more flexible, responsive and resilient 
+supply chain. Clients usually take transformation actions to 
+improve their forecasting accuracy, reduce warehousing 
+costs, improve on-time delivery, etc. Obviously, all trans-
+formation initiatives are finally expected to help increase 
+profitability in a short/medium/long term. However, in 
+practice most supply chain transformation efforts focused 
+on either the implementation of new IT systems or upgrad-
+ing existing IT systems. These projects generally need con-
+siderable investment and take much time to complete. Lit-
+tle attention has been paid in the past to the optimization of 
+existing supply chain operations from managerial point of 
+view. However, such optimization efforts may help firms 
+reduce costs and improve efficiency tremendously with a 
+limited investment. For example, a periodic review and 
+improvement of the inventory control policies for a manu-
+facturing firm may help reduce its inventory carrying cost 
+and improve its customer service level considerably with 
+almost no investment on infrastructure and IT systems.  
+In the field of supply chain transformation, models and 
+techniques developed by academia, especially by experts 
+from operations research, management science and indus-
+trial engineering have a lot to offer. As a generic technique, 
+simulation is very suitable for the analysis of complex and 
+dynamic systems (Towill 1991). Considering this, IBM 
+China Research Lab developed a supply chain transforma-
+tion methodology and tool to help clients transform their 
+supply chain using simulation and optimization as the core 
+enabling techniques. In this paper, we present a case study 
+to share our experiences from a transformation project with 
+a world-class manufacturer, where simulation was used as 
+the major enabling technique and demonstrated its great 
+value.  
+This study is conducted by IBM China Research Lab 
+with two other industrial partners. One partner is a global 
+leader in the design, manufacturing and sales of home im-
+provement and construction products. As one of the lead-
+ing manufacturers, the company maintains an expanding 
+stable of well-established and fast growing brands. Accord-
+ing to the product features and demand patterns, it works 
+on a mixed basis with both original equipment manufactur-
+ing (OEM) and original design manufacturing (ODM). In 
+addition to OEM, ODM further provides the company 
+flexibility in managing its product portfolio and helps it re-
+act responsively to varying customer demands. However, 
+how to control inventories along the supply chain and 
+manage the raw material procurement processes at ODMs 
+is still a quite challenging issue.  
+In such an ODM scenario, the company would like to 
+make a supply chain transformation effort and escalate its 
+supply chain to a more cost-effective, responsive, and resil-
+ient one. The objective of the project is to i) identify the 
+best inventory-holding position with optimal control, and ii) 
+evaluate the impact of central raw material procurement on 
+supply chain performance.  
+ 
+ 
+ 
+APPLYING SIMULATION IN A SUPPLY CHAIN TRANSFORMATION CASE 
+ 
+ 
+Hongwei Ding 
+Changrui Ren 
+Wei Wang 
+Jin Dong 
+ 
+IBM China Research Lab 
+Diamond Building, ZGC Software Park, Beijing 100094, P.R. China 
+ 
+ 
+ 
+614
+1-4244-0501-7/06/$20.00 ©2006 IEEE
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:01 UTC from IEEE Xplore.  Restrictions apply. 
+Ding, Ren, Wang, and Dong 
+ 
+In the remainder of the paper, Section 2 gives a brief 
+literature review of inventory control and process simula-
+tion. The supply chain transformation project background, 
+simulation model and numerical results are presented in 
+Section 3. Some conclusions and perspectives are given in 
+Section 4. 
+2 
+LITERATURE REVIEW 
+2.1 Inventory Control 
+Inventory management plays a key role in today’s business 
+environment, since clients are more and more demanding 
+about service level measures such as order cycle time, on-
+time delivery rate, etc. Due to the complexity and stochas-
+tic nature of modern supply chains, there are at least two 
+good 
+reasons 
+to 
+keep 
+inventory 
+for 
+raw 
+mate-
+rial/component/final products in a manufacturing scenario. 
+ 
+• 
+Inventory could help reduce the sourcing time of 
+various raw materials and work-in-process com-
+ponents. For unplanned orders with large volume, 
+a buffer stock could mitigate the negative impacts 
+of capacity shortage on customer service level. 
+• 
+Holding inventories may help an enterprise 
+achieve economies of scale by way of volume 
+discounts and logistics consolidation with full 
+truckloads. 
+ 
+A variety of inventory control polices have been ex-
+tensively studied, which are continuous or discrete, deter-
+ministic or dynamic. Among those, some of the policies 
+are adopted in industry to support daily business, including 
+base stock, (R, Q), (s, S), etc.   
+Two approaches are generally employed for inventory 
+analysis, respectively analytical approach and simulation-
+based approach. Each of the two approaches has its unique 
+features and advantages. Analytical methods are very use-
+ful in identifying the best position for inventory holding 
+and the optimal setting of inventory control parameters 
+(Zipkin 2000). But analytical models are often highly ab-
+stract models of business processes for the sake of simplic-
+ity and feasibility. However, to obtain detailed and accu-
+rate results, one has to include a number of realistic 
+features in the supply chain context.  
+Compared to analytical methods, simulation-based ap-
+proach has its specific advantages in providing an insight-
+ful view of complex supply chains, especially in the pres-
+ence of uncertainty and risk. Bhaskaran (1998) presented a 
+simulation analysis of supply chain inventory and instabil-
+ity. The impacts of various factors that amplify the dynam-
+ics and instability have been studied. In (Petrovic et al. 
+1998), the authors proposed several supply chain fuzzy 
+models and a corresponding simulator to assist in decision-
+making on operational parameters. Two sources of uncer-
+tainty, customer demand and external supply of raw mate-
+rial are interpreted and represented by fuzzy sets. But the 
+modeling attention is focused on a supply chain with all 
+facilities in a serial link. The customer demand is confined 
+to a single product. Jansen et al. (2001) designed a simula-
+tion model to quantify logistic and financial performances 
+in alternative logistic scenarios for multi-compartment dis-
+tribution in the catering supply chain. 
+2.2 Process Modeling and Simulation 
+Today, business process modeling has gained much atten-
+tion from both academia and industry. A variety of defini-
+tions of business process are available in the literature 
+(Hammer and Champy 1993; Davenport and Short 1990). 
+The authors (Hammer and Champy 1993) defined a busi-
+ness process as “a collection of activities that takes one or 
+more kinds of input and creates an output that is of value 
+to the customer.” A business process is not the same as a 
+business function. It may be contained within a departmen-
+tal function. But most possibly a business process may 
+cross several different departmental functions and bounda-
+ries. For example, “order fulfillment” business process 
+usually spans departments of call center, manufacturing, 
+procurement, distribution and customer service. Business 
+process re-engineering is about “fundamentally rethinking 
+the radical re-design of business processes to achieve 
+dramatic improvements in critical, contemporary measures 
+of performance such as cost, quality, service and speed.” 
+(Hammer and Champy 1993). Business process improve-
+ment has a similar definition except that it usually takes a 
+more smooth way rather than a radical approach.  
+A complete business process model with a necessary 
+level of granularity does give a clear landscape of a supply 
+chain. Given the process model, simulation is a very useful 
+means for its analysis. Process simulation is usually based 
+on token flow semantics, which is described in UML2 su-
+perstructure specification with details (UML 2005). In this 
+paradigm, the simulation model is a sequence of processes, 
+which fall into two categories: control processes and ex-
+ecutable processes. During the simulation, tokens are gen-
+erated by some processes, and then pass through the suc-
+ceeding processes. When a token reaches a control process, 
+the token is modified, copied, or directed to some selected 
+processes. When a token reaches an executable process, the 
+process is activated, and an instance of the process is cre-
+ated and executed. Tokens are disposed at the end of the 
+flow. Actually, general purpose simulation packages often 
+use similar methods. Rockwell’s Arena is a typical imple-
+mentation of token flow semantics (Altiok and Melamed 
+2001).  
+A number of commercial-off-the-shell (COTS) tools 
+are available for business process modeling and analysis 
+(Miers and Harmon 2005). Business process modeling is 
+615
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:01 UTC from IEEE Xplore.  Restrictions apply. 
+Ding, Ren, Wang, and Dong 
+ 
+the commonly supported functionality. However, few of 
+the tools provide functions beyond that, except some form 
+of simulation capabilities at business process level. Hardly 
+end users can use these tools directly to analyze supply 
+chain problems such as inventory control. For details about 
+the evaluation of different COTS tools, readers are directed 
+to Miers and Harmon (2005) and Hall and Harmon (2005). 
+3 
+THE SUPPLY CHAIN TRANSFORMATION 
+CASE 
+3.1 Project Background 
+The project is conducted at a home improvement manufac-
+turer, which a leading supplier in the world. It has encoun-
+tered some problems when dealing with unforeseen big-
+volume customer demands. These orders are sometimes 
+not fulfilled on time due to the long order-to-delivery cycle 
+time at the ODM side. This might lead to order cancella-
+tion, loss potential sales or additional cost for urgent deliv-
+ery because of the usage of expensive express transporta-
+tion. More importantly, it may reduce customer satisfaction 
+level and cause negative influence to the brand image in 
+the long run. According to our investigation, most ODMs 
+do not hold buffer stock for raw materials, which is identi-
+fied as the major reason for the long order-to-delivery time 
+for ODMs. In this case, keeping some inventory of raw 
+materials is a rather obvious approach to reduce the re-
+sponse time to customer demands. However, due to the 
+complexity of its operations, it is hard for the management 
+team to locate the most appropriate position for inventory 
+holding and to define the control policy. This is certainly 
+an ideal place where OR/MS techniques could play a role. 
+Given this understanding, the objective of this study 
+was set to evaluate and most importantly to quantify how 
+to setup buffer stocks at ODMs. According to the informa-
+tion provided, we developed a quantitative approach using 
+the simulation capability provided by our tool. The simula-
+tion models and corresponding numerical results are pre-
+sented in the following sections. Note that no real data is 
+provided in this paper due to confidentiality.  
+Besides the inventory optimization effort, another ob-
+jective of this study was to evaluate the feasibility and risk 
+of applying centralized control model for raw material pro-
+curement at ODMs. Currently the raw material procure-
+ment process is locally managed at ODMs, out of the com-
+pany’s management scope. However this sometimes results 
+in product quality failures. So the company would like to 
+first evaluate the possibility to setup a centralized pro-
+curement system and secondly to establish the correspond-
+ing business processes. The SCOR model (Supply-Chain 
+Council 2006) was used for as-is process modeling and 
+analysis. To-be processes were proposed according to the 
+SCOR model, which ensured that the to-be processes 
+would be aligned to best practice and could be easily 
+benchmarked after their implementation. Due to space 
+limitations, we focus on the presentation of the inventory 
+optimization study in the following sections.  
+3.2 Modeling  
+3.2.1 Supply Chain Structure 
+The structure of the supply chain under consideration is 
+shown in Figure 1. There are three echelons comprising 
+customers, the company, ODMs and ODMs’ tier-1 suppli-
+ers. The two most critical customers are selected and mod-
+eled, which represent the two largest revenue contributors. 
+Two major ODMs are included as the product suppliers. 
+Ten tier-1 suppliers of the two ODMs are identified and 
+taken into consideration in this study.  
+ 
+ 
+Figure 1: Supply Chain Network Model 
+Three types of final product are studied in this case. 
+Each has a one-level Bill-of-Material (BOM). Three types 
+of raw materials are included, respectively blade, display 
+box and user manual. Each has a different order-to-
+delivery lead time, which is defined as the time period 
+elapsed between the moment when a procurement order 
+(PO) is issued from ODMs and the moment when corre-
+sponding raw materials are received at ODMs. Blade has a 
+much longer order-to-delivery lead time compared to the 
+other two types. Accordingly, the inventory control policy 
+for blade represents the major effort of our study.  
+3.2.2 Business Process Mapping 
+Given the supply chain structure, the end-to-end business 
+process is shown in Figure 2, comprising four major sub-
+processes. Each block in the figure represents a sub-
+process, which consists of a series of activities. Two sub-
+processes are depicted in Figure 3 and Figure 4. 
+616
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:01 UTC from IEEE Xplore.  Restrictions apply. 
+Ding, Ren, Wang, and Dong 
+ 
+ 
+Figure 2: The End-to-End Process 
+ 
+ 
+Figure 3: Order Fulfillment Process 
+ 
+ 
+Figure 4: Order Receiving Process 
+ 
+3.2.3 Operational Policy 
+Since the manufacturing of all of the three products is out-
+sourced to ODMs, assembly only takes place at ODMs 
+where raw materials from tier-1 suppliers are transformed 
+to final products. Assembly policies are defined as follows. 
+In the as-is scenario, ODMs hold no buffer stock for raw 
+materials or finished products. When procurement orders 
+are sent to ODMs, ODMs issue POs to their tier-1 suppli-
+ers directly. ODMs start assembly activities only when all 
+BOMs are ready.  
+To improve the as-is situation, the company suggested 
+to introduce some base stock for raw materials at ODMs. 
+Base stock policy with periodical review and replenish-
+ment is assumed for inventory control. More specifically, 
+the inventory position of raw materials is reviewed peri-
+odically. Whenever the inventory position drops below a 
+preset base stock level, a replenishment order is sent out, 
+which brings the inventory position back to the base stock 
+level. 
+The limited production capacity of raw material sup-
+pliers was identified as one of the major bottlenecks in this 
+supply chain. Accordingly, the production capacity of RM 
+suppliers is taken into consideration in a flexible and com-
+plete way. The relationship between order quantity and 
+supply leadtime could be specified using any formulation, 
+rather than some restrictive assumptions such as a fixed 
+617
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:01 UTC from IEEE Xplore.  Restrictions apply. 
+Ding, Ren, Wang, and Dong 
+ 
+daily production capacity. This gives the company the 
+flexibility to define and evaluate its requirement on sup-
+plier capacity in various ways.   
+3.2.4 Performance Measures 
+Three performance measures are defined in this study with 
+respect to the scorecard provided by the SCOR model. 
+These measures represent the performance attributes in 
+term of responsiveness, reliability and cost. 
+The first performance measure is order fulfillment cy-
+cle time, representing a supply chain’s responsiveness. For 
+each individual order in this study, the cycle time is calcu-
+lated as the elapsed time between the release of a PO and 
+the delivery of the corresponding products. 
+The second performance measure is on time delivery 
+rate representing a supply chain’s reliability. It is defined 
+as the percentage of orders that were fulfilled on time, i.e. 
+products delivered within the predefined target cycle time. 
+The third measure is the average raw material inven-
+tory level, an indicator to supply chain cost. It could be cal-
+culated by the following formula:  
+T
+t
+T
+t
+Inv
+T
+t
+...,
+,2
+,1
+,0
+ 
+ ,
+)
+(
+0
+=
+∑
+=
+, 
+where Inv(t) is the inventory level at day t, T is the number 
+of days for the time horizon. 
+3.3 Data Collection and Numerical Results 
+In general, for a supply chain transformation project, it is 
+indispensable to have a good understanding of customer 
+demands, as-is supply chain operations, and as-is perform-
+ance. In this case, we’ve collected a variety of data, includ-
+ing: 
+ 
+• 
+Customer demand history 
+• 
+Demand fulfillment process 
+• 
+Time and cost required for each process  
+• 
+Production policy used at each ODM 
+• 
+Order-to-delivery lead time of tier-1 suppliers 
+ 
+ 
+Figure 5: History of Customer Demand for One Product 
+Figure 5 shows the trend of customer demand for one 
+product. We can easily discover that the customer demand 
+fluctuates very much, which represents a big challenge to 
+the company’s supply chain. Note that the real value is dis-
+guised due to confidentiality but the demand fluctuation 
+tendency remains as the same. 
+Considering the high variability of customer demands, 
+the simulation horizon was set as 5 years to cover supply 
+chain dynamics. The warm-up period was set as 300 days, 
+i.e. the simulation data was not taken into consideration 
+until the simulation clock passed 300 days. Warm-up pe-
+riod was used here in order to purge the simulation results 
+and mitigate the impact of initial simulation environment 
+setting on results.  
+We have conducted a what-if analysis using the simu-
+lation model with different parameter settings. Due to 
+space limitation, only the result of one product type is 
+shown and analyzed in the following.  
+Figure 6 shows that the relationship between the order 
+fulfillment cycle time and base stock level. As the base 
+stock level increases, the order fulfillment cycle time de-
+creases considerably. The figure clearly shows that the in-
+troduction of buffer stock for raw materials at ODMs has a 
+considerable impact on the reduction of the cycle time. In 
+this case, the company would be much more responsive to 
+customer demands. 
+ 
+ 
+Figure 6: Order Fulfillment Cycle Time Decreases with 
+Higher Base Stock Level 
+ 
+As the base stock level increases, the company would 
+benefit from the improvement of its rapid reaction to cus-
+tomer demands. However, there is no free meal in the 
+world. Figure 7 shows that the average raw material stock 
+level gets higher as the base stock level increases. This 
+means the inventory holding cost increases also. It is abso-
+lutely not wise to set a too high base stock level. As the 
+figure shows, with a lower base stock level, the average 
+raw material stock level does not change much since the 
+raw material supply lag far behind customer demands. 
+With a higher base stock level, the stock level increases 
+rapidly because of excessive raw materials supplied. Based 
+on a what-if analysis using simulation, we’ve obtained the 
+curve shown in Figure 7, where a sensitive area is identi-
+618
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:01 UTC from IEEE Xplore.  Restrictions apply. 
+Ding, Ren, Wang, and Dong 
+ 
+fied with a base stock level from 12500 to 15000. Provided 
+such a curve, the management team is able to determine 
+the most appropriate parameter setting for inventory con-
+trol at ODMs. 
+ 
+ 
+Figure 7: Relationship between Base Stock Level and Av-
+erage RM Stock Level 
+ 
+Figure 8 shows the relationship between base stock 
+level and on-time delivery rate. Based on our study, the on 
+time delivery rate is very sensitive to the target cycle time. 
+In this experiment, a unique target cycle time is set. How-
+ever in practice, different order-to-delivery lead time is 
+committed to different customers and for different prod-
+ucts. More sensitivity analysis could be conducted to pro-
+duce more insights for the management team when manag-
+ing inventory. 
+ 
+ 
+Figure 8: Relationship between Base Stock Level and On 
+Time Delivery Rate 
+3.4 Implication 
+The analysis above clearly demonstrates the influences and 
+correlation of introducing raw material buffers at ODMs. 
+With the increase of raw material base stock level, the or-
+der fulfillment cycle time will decrease considerably. On 
+the other hand, it may also bring some negative impact to a 
+firm if the base stock is kept at a wrong level, i.e., when 
+the average raw material stock level increases, it will bring 
+additional costs related to inventory holding, management 
+cost, etc. 
+Thus, keeping the right level of raw material inventory 
+is critical to the firm and overall division profitability. This 
+analysis provides an insightful view to another layer when 
+the management team designs its buffer stock strategy at 
+ODMs. A tradeoff between increased service level and ad-
+ditional costs could be reached based on the quantitative 
+analysis. 
+4 
+CONCLUSIONS 
+For a successful supply chain transformation, it’s critical to 
+understand clients’ business strength, setup an appropriate 
+goal, use the right model, and conduct the necessary analy-
+sis. Simulation is a technique which could help generate 
+insights about transformation, evaluate the to-be scenario 
+in a comprehensive context. Our study demonstrated that 
+the methods and models developed by experts from opera-
+tions research/management science may be of great help 
+for supply chain transformation and therefore have a lot to 
+offer in industry. 
+5 
+REFERENCES 
+Altiok, T., and B. Melamed. 2001. Simulation Modeling 
+and Analysis With Arena. Cyber Research Inc. and En-
+terprise Technology Solutions, Inc. 
+Bhaskaran, S. 1998. Simulation analysis of a manufactur-
+ing supply chain. Decision Sciences, Vol.29, No.3, 
+633-657. 
+Davenport, T. H., and J. E. Short. 1990. The new industrial 
+engineering: information technology and business 
+process re-design, Sloan Management Review, Sum-
+mer. 
+Hall, C., and P. Harmon. 2005. The 2005 Enterprise Archi-
+tecture, Process Modeling & Simulation Tools Report, 
+BPTrends, 
+April. 
+Available: 
+<http://www.bptrends.com>.  
+Hammer, M., and J. Champy. 1993. Re-engineering the 
+corporation: A Manifesto for business revolution, 
+Harper Colllins, New York, USA. 
+Jansen, D. R., A. Weert, A. J. M. Beulens, and R. B. M. 
+Huirne. 2001. Simulation model of multi-compartment 
+distribution in the catering supply chain. European 
+Journal of Operational Research, 133, 210-224. 
+Miers, D. and P. Harmon, “The 2005 BPM Suites Re-
+ports”, 
+BPTrends, 
+March 
+2005. 
+Available: 
+http://www.bptrends.com.  
+Petrovic, D., R. Roy, and R. Petrovic. 1998. Modelling and 
+simulation of a supply chain in an uncertain environ-
+ment. European Journal of Operational Research, 
+109, 299-309. 
+Supply-Chain Council. 2006. SCOR version 7.0 overview 
+[online]. Available via <http://www.supply-
+chain.org> [accessed May 16, 2006]. 
+619
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:01 UTC from IEEE Xplore.  Restrictions apply. 
+Ding, Ren, Wang, and Dong 
+ 
+Towill, D. R. 1991. Supply Chain Dynamics, International 
+Journal of Computer Integrated Manufacturing, Vol. 
+4, no. 4, pp. 197-208. 
+Unified Modeling Language: Superstructure, version 2.0. 
+2005. Published at <http://www.omg.org/ 
+cgi-bin/doc?formal/05-07-04>, August. 
+Zipkin P. 2000. Foundations of Inventory Management. 
+Irwin McGraw Hill, ISBN: 0-256-11379-3. 
+AUTHOR BIOGRAPHIES 
+HONGWEI DING is a Researcher at IBM China Re-
+search Laboratory. He received his Ph.D. in Automation 
+from INRIA (French National Institute of Computer Sci-
+ence & Control), France. Before he joined IBM, he was a 
+researcher at INRIA. His research interests include supply 
+chain modeling, optimization and simulation. His email 
+address is <dinghw@cn.ibm.com>. 
+CHANGRUI REN is a Researcher at IBM China Re-
+search Laboratory. He joined IBM Research in 2005 after 
+receiving his Ph.D. degree in Control Science and Engi-
+neering from Tsinghua University in Beijing, P. R. China. 
+His research interests include supply chain management, 
+logistics network design, performance management, and 
+business process management. He is currently working on 
+an end-to-end supply chain transformation methodology 
+and tool. His e-mail address is <rencr@cn.ibm.com>. 
+WEI WANG is a Researcher at IBM China Research 
+Laboratory. He joined IBM Research in 2005 after receiv-
+ing his master degree in Control Science and Engineering 
+from Tsinghua University in Beijing, P.R. China. Currently, 
+his research interests include supply chain simulation and 
+optimization, performance management, and business 
+process 
+management. 
+His 
+email 
+address 
+is 
+<wangwcrl@cn.ibm.com>. 
+JIN DONG is the Manager of Supply Chain Management 
+and Logistics research team in IBM China Research Labo-
+ratory. He received his Ph.D. in Tsinghua University from 
+China in 2001. Before he joined IBM, he was the Research 
+Assistant Professor in Industrial Engineering Department 
+of Arizona State University in USA. His email address is 
+<dongjin@cn.ibm.com>. 
+620
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:01 UTC from IEEE Xplore.  Restrictions apply.
+

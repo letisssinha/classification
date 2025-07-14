@@ -1,0 +1,581 @@
+Proceedings of the 2007 Winter Simulation Conference 
+S. G. Henderson, B. Biller, M.-H. Hsieh, J. Shortle, J. D. Tew, and R. R. Barton, eds. 
+ABSTRACT 
+The IBM Supply-chain Network Optimization Workbench 
+(SNOW) is a software tool that can help a company make 
+strategic business decisions about the design and operation 
+of its supply chain network. The tool supports supply chain 
+analysis with integrated network optimization and simula-
+tion capability. Mathematical programming models are 
+used to first help identify some cost-effective scenarios 
+from a large number of candidates. Optimization results 
+are then converted to simulation models automatically for 
+more detailed analysis with taking into account operational 
+policies and uncertainties. The tool was applied to analyze 
+both IBM’s internal supply chains and external clients’ 
+supply chains. The combination of optimization and simu-
+lation demonstrates great value in real business cases. 
+1
+INTRODUCTION 
+In 2002, American companies spent $910 billion, or about 
+8.7% of the United States gross domestic product (GDP), 
+on business logistics systems (Shi et al. 2004), which con-
+tained the warehousing, transportation costs, shipping re-
+lated costs and logistic administration costs. In Singapore, 
+the transportation and communication industry sector con-
+tributed about 10.8% of the GDP in 2003 (Cheong 2005). 
+Considering the importance and the influence of supply 
+chain management (SCM), manufacturers and retailers like 
+the IBM and Wal-Mart have paid great efforts to handle 
+the flow of products efficiently and coordinate the man-
+agement of supply chain smoothly.  
+Therefore effective and efficient supply chain man-
+agement has earned lots of research attentions in the lead-
+ing manufacturers, distributors, and retailers. Typically, 
+supply chain decisions can be categorized into three sets 
+based on the horizons of their effects (Shi et al. 2004), i.e., 
+strategic, tactical, and operational decisions. The strategic 
+decisions focus on the long-term effects on a company and 
+consider the global economic environments, e.g. supply 
+chain network configuration, strategic supplier selection, 
+etc. The tactical level decisions include selecting specific 
+locations among all the potential ones, searching for the 
+optimal allocation and transportation policies in the supply 
+chain network. The tactical decisions are made once a year 
+or more. The operational level decisions, such as schedul-
+ing, are usually made on a daily basis to handle the detailed 
+operations of a company.  
+Design of a supply chain involves determination of i) 
+the number and location of supply chain facilities, includ-
+ing plants, distribution centers, warehouses and depots, ii) 
+the transportation links and modes between facilities, and 
+iii) the policies to operate a supply chain, such as inventory 
+control policy, carrier loading policy etc. The first two 
+types of decisions are often strategic decisions, while the 
+determination of policies are more at the tactical and/or 
+operational level. These decisions are often mixed together 
+in the real business cases. For example, in a distribution 
+network rationalization scenario, clients request for deci-
+sion support on determining the number and location of 
+their distribution centers (DC) across the nation. In the 
+meantime, they need to set the inventory control policy for 
+each DC and each SKU (stock keeping unit). An integrated 
+analysis with optimization and simulation is necessary in 
+this case, where optimization is used to identify a couple of 
+most cost-effective network configurations from the huge 
+set of candidates, and simulation is then used to evaluate 
+performance of different policies for the networks identi-
+fied.
+In this paper, we present a software tool “IBM Supply-
+chain Network Optimization Workbench” (SNOW), which 
+supports integrated optimization and simulation analysis. 
+IBM SNOW is a software tool that can help a company 
+make strategic business decisions about the design and op-
+eration of its supply chain network. Mathematical pro-
+IBM SUPPLY-CHAIN NETWORK OPTIMIZATION WORKBENCH:  
+AN INTEGRATED OPTIMIZATION AND SIMULATION TOOL FOR SUPPLY CHAIN DESIGN 
+Hongwei Ding 
+Wei Wang 
+Jin Dong 
+Minmin Qiu  
+Changrui Ren 
+IBM China Research Laboratory 
+Building 19 Zhongguancun Software Park, 8 Dongbeiwang West Road, 
+Haidian District, Beijing 100094, P. R. China 
+1940
+1-4244-1306-0/07/$25.00 ©2007 IEEE
+Ding, Wang, Dong, Qiu and Ren 
+gramming models are used to first help identify some cost-
+effective scenarios from a large number of candidates. Op-
+timization results are then converted to simulation models 
+automatically for more detailed analysis with taking into 
+account operational policies and uncertainties. 
+In the remaining part of the paper, Section 2 gives a 
+brief literature review in the field of network optimization, 
+simulation and simulation-based optimization. An over-
+view of the tool is given in Section 3. Section 4 details the 
+simulation framework employed in the tool and highlights 
+some novel ideas about connecting optimization and simu-
+lation. Some conclusions and perspectives are given in 
+Section 5. 
+2
+REVIEW OF OPTIMIZATION, SIMULATION 
+AND THEIR COMBINATION 
+2.1
+Supply Chain Network Optimization 
+The supply chain network design problem have been stud-
+ied in the academia for a long time. Geoffrion and Powers 
+(1995) analyzed the evolution of distribution system design 
+in the past twenty years before 1995. A number of ele-
+ments are identified which have significantly contributed 
+to the evolution of distribution systems, including the lo-
+gistics functionalities, information systems, developed al-
+gorithms and enterprise management systems. They also 
+claimed that customer service and client requests will re-
+main as the most fundamental aspects for research. 
+Schmitdt (2000) present a state-of-the-art on various 
+modeling and optimization approaches used for supply 
+chain decision-making at strategic, tactic and operational 
+levels. In addition to a review on existing models, the au-
+thors pointed out that decisions of different levels interact 
+with each other. For example, strategic decisions usually 
+impose structural constraints on low level decisions. As 
+feedback, low level decisions and corresponding opera-
+tional performances should also be taken into account by 
+high level decision-making. 
+For supply chain optimization practitioners, one major 
+obstacle is related to supply chain uncertainties and dy-
+namics. The stochastic nature of supply chains makes most 
+analytical models either over simplistic or computationally 
+intractable.  
+2.2
+Supply Chain Simulation. 
+As pointed out by Bagchi et al. (1998): “We have found 
+that a typical strategic analysis requires a combination of 
+optimization and simulation. Optimization technology such 
+as linear or mixed integer programming is useful for solv-
+ing well-defined mathematical problems such as ware-
+house location and inventory optimization. But these prob-
+lems are rigidly defined and usually have simplifying 
+assumptions in their formulations. Such problems must be 
+solved independently and thus in a complex supply chain 
+one must decompose all of the issues into a hierarchical 
+sequence of problems. At best, a hierarchical approach is 
+awkward and introduces a second level of simplifying as-
+sumptions. At worst, this approach may not be feasible if 
+some of the problems are nonlinear or stochastic.”, opti-
+mization is hardly used independently in industries. Com-
+paring to optimization techniques, simulation is more suit-
+able for the evaluation of complex industrial systems given 
+a limited number of candidate scenarios.  
+Supply Chain Analyzer (SCA) is a comprehensive tool 
+for supply chain simulation. SCA is also developed by 
+IBM Research, originally for IBM internal use. SCA de-
+ploys a mix of simulation and optimization functions to 
+model and analyze supply chain issues such as site location, 
+replenishment policies, manufacturing policies, transporta-
+tion policies, stocking levels, lead times, and customer ser-
+vice (Bagchi et al. 1998). A simulation tool “Supply 
+Solver” is presented in (Schunk and Plott 2000). The tool 
+is connected with external modules and provides optimal 
+solution on the production and distribution allocation prob-
+lem. Supply Chain Guru, developed by Promodel Corpora-
+tion, is a commercial simulation tool for supply chain de-
+sign and planning, with a specific module for inventory 
+planning (Supply Chain Guru 2006). 
+Besides those simulation software, there are a number 
+of supply chain simulation framework/library have been 
+developed. Swaminathan (1998) describe a supply chain 
+modeling framework in which supply chain models are 
+composed from software components that represent types 
+of supply chain agents, their constituent control elements, 
+and their interaction protocols. Rossetti (2003) discusses 
+the design, development and testing of a prototype object-
+oriented framework for per-forming supply chain simula-
+tion. Rossetti (2006) discusses the design and use of an ob-
+ject-oriented framework for simulating multi-echelon in-
+ventory systems. 
+2.3
+Simulation-based Optimization 
+The conception of combining simulation and optimization 
+is not new. A general simulation-based optimization 
+method consists of an optimizer guiding the search direc-
+tion and a simulation module used performance evaluation. 
+Compared with mathematical programming techniques, 
+simulation-based optimization methods replace the analyti-
+cal objective function and constraints by one or more simu-
+lation models. The decision variables are the conditions 
+under which the simulation is run. Iteratively, the output of 
+the simulation is used by the optimizer to provide feedback 
+on the progress of the search for an optimal solution. Nev-
+ertheless, the optimality of the solution found by a simula-
+tion-based optimization method is often not guaranteed.  
+1941
+Ding, Wang, Dong, Qiu and Ren 
+Many different methods have been developed in the 
+literature for guiding the search direction in simulation-
+based optimization. These methods include gradient-based 
+approaches, response surface methodology, sample path 
+optimization, etc (Fu 2002). These methods vary essen-
+tially in their optimization strategies and each has its ad-
+vantages and disadvantages. For example, infinitesimal 
+perturbation analysis (IPA), a gradient based search 
+method which estimates all gradients of the performance 
+function in a single simulation run, possesses an advantage 
+of computational efficiency. However, the estimators de-
+rived using IPA are often biased and inconsistent (Ho and 
+Cao 1991).  
+According to an empirical comparison (Lacksonen 
+2001) of four search algorithms (pattern search, simplex, 
+simulated annealing, genetic algorithm) used for simula-
+tion-based optimization, genetic algorithms showed its ca-
+pability to robustly solve large problems with non-numeric 
+variables, and performed well over the others in solving a 
+variety of problems. A genetic algorithm based multi-
+objective optimization method has been applied to facili-
+tate decision-making on supplier selection problems (Ding 
+et al. 2004). Paul and Chanev (1998) developed a simple 
+real-coded genetic algorithm to optimizer the control pa-
+rameters of a steelworks simulation model. 
+3
+OVERVIEW OF THE IBM SUPPLY-CHAIN 
+NETWORK OPTIMIZATION WORKBENCH 
+3.1
+Tool Architecture 
+The IBM Supply-chain Network Optimization Workbench 
+is a software tool which supports integrated optimization 
+and simulation analysis. Accordingly, there are two key 
+models, respectively an optimization model and a simula-
+tion model. As shown in the software architecture over-
+view (Figure 1), the two models are connected with each 
+other directly. Actually, the approach used in IBM SNOW 
+is different from the simulation-based optimization meth-
+ods, in which the two models are usually tightly bundled. 
+More specifically, optimization and simulation are run in a 
+sequential way, i.e. firstly a network optimization will be 
+conducted, then the optimization result will be converted to 
+a simulation model automatically for evaluation. More de-
+tailed description of the connection between optimization 
+model and simulation model is given in the following sec-
+tion. 
+Figure 1: Tool architecture overview 
+In addition to the two models, the SNOW tool pro-
+vides a number of graphic user interfaces to facilitate data 
+input, network representation and parameter setting. Sup-
+ply chain data could be input manually using the tool inter-
+face, or automatically imported from Excel files or Access 
+database. Moreover, a Geographic Information System 
+(GIS) is integrated for graphical representation, which en-
+ables a flexible and precise representation of the actual 
+supply chain networks. As long as the longitude and lati-
+tude of each facility is set, the whole network can be dis-
+played in the map. Another advantage of using GIS for 
+network display is that users could zoom into very local 
+region seamlessly. Figure 2 illustrates a supply chain net-
+work modeled in the SNOW tool and displayed in the GIS 
+editor. 
+Figure 2: Network representation in the geographic infor-
+mation system 
+3.2
+Optimization Model 
+A variety of mathematical models and methods are built in 
+the SNOW tool. The key enabling component is a mixed 
+integer programming model addressing multi-commodity 
+facility location and network flow optimization problem. 
+1942
+Ding, Wang, Dong, Qiu and Ren 
+Due to confidentiality, no detailed mathematical formula-
+tion is provided in this paper. However, we focus on intro-
+ducing the supply chain design problem addressed by the 
+tool. The objective is to minimize the total supply chain 
+cost, with respect to a variety of constraints. More specifi-
+cally, the total cost function is composed of procurement 
+cost, transportation cost, assembly cost, operation cost, fa-
+cility fixed cost, facility investment cost, inventory carry-
+ing cost and tax. A large number of constraints have been 
+taken into account in the model, including supply capacity, 
+assembly capacity, transportation capacity, single sourcing 
+rule, etc. Figure 3 shows a screenshot of the data input in-
+terface for the optimization model. 
+Figure 3: Snapshot of the optimization data input interface 
+A couple of algorithms are developed and integrated 
+in the tool for problem solving, including mixed integer 
+programming, linear programming, heuristics and meta-
+heuristics. Two solvers are integrated in the tool for small 
+and medium scale problem solving. One solver is a com-
+mercial solver, called ILOG Cplex. The other is an open 
+source solve, called Lp_Solve. In addition to the two built-
+in generic solvers, we have also developed some hybrid al-
+gorithms for large-scale network optimization. 
+3.3
+Implementation
+The tool is implemented using Eclipse, an open-source 
+platform for Java application development. More specifi-
+cally, the tool is developed based on several basis provided 
+by Eclipse Foundation, including Eclipse Platform (Eclipse 
+2007), Eclipse Modeling Framework (EMF 2007) and 
+Graphical Editing Framework (GEF 2007). 
+Eclipse is an open source community whose projects 
+are focused on building an open development platform 
+comprised of extensible frameworks, tools and runtimes 
+for building, deploying and managing software across the 
+lifecycle (Eclipse 2007). Eclipse Modeling Framework 
+(EMF) is a modeling framework and code generation facil-
+ity for building tools and other applications based on a 
+structured data model. Graphical Editing Framework (GEF) 
+allows developers to create a rich graphical editor from an 
+existing application model. 
+The whole optimization and simulation model is built 
+upon EMF. User interfaces of the tool are created with 
+GEF. Since the optimization and simulation model are 
+quite complex, we built it with UML2. The power of EMF 
+is that UML2 models can be directly translated to EMF 
+model, and then the Java source code can be generated ac-
+cordingly.
+4
+COMPONENT-BASED SIMULATION 
+4.1
+Simulation Model Overview 
+The simulation model employed in the SNOW tool is a 
+component-based simulation model. Figure 4 depicts the 
+architecture of the simulation model. There is a generic 
+discrete event simulation (DES) engine for event schedul-
+ing and time processing. A simulation monitor is also de-
+veloped to monitor the simulation process and key per-
+formance indicators (KPI). Simulation report is generated 
+after simulation runs with statistics information on KPIs 
+like supply chain cost, order fill-rate, stock out rate, etc. 
+Figure 4: Architecture of the Simulation Model 
+One differentiating feature of the simulation model in 
+SNOW is that the model is a multi-period model. This fea-
+ture comes from the optimization model, because network 
+optimization problems are usually multi-period in order to 
+take into account the seasonality of demand and supply. 
+Accordingly, the whole simulation horizon is split into 
+multiple period. For each period, users could have a set of 
+parameters, such as inventory control policy and parame-
+ters, transportation lead-time. 
+4.2
+Supply Chain Facilities 
+Four types of supply chain facilities are defined in the tool, 
+respectively: Customer, Supplier, Distribution Center (DC), 
+and Plant. The class diagram is shown in Figure 5. 
+1943
+Ding, Wang, Dong, Qiu and Ren 
+Figure 5: Class diagram of supply chain facilities 
+In the era of supply chain competition, decision mak-
+ers usually would like to analyze the performance of a spe-
+cific enterprise in a supply chain which is composed of a 
+group of companies. Hence all supply chain facilities can 
+be classified into two categories: external and internal. 
+Customer and Supplier are used to model external facilities. 
+More specifically, they represent the most down-flow and 
+up-flow facilities in the supply chain respectively. DC and 
+Plant are used to model internal facilities. The difference 
+between them is that Plant can transform products but DC 
+can not. 
+More specifically, Customer represents the external 
+demand source. It can be end user, retailer, or wholesaler. 
+It can even be distribution center or plant of external com-
+pany. Supplier represents the external supplier, which has 
+no up-flow suppliers. But Supplier doesn’t always have 
+unlimited inventory, supply capacity can be specified. DC 
+represents internal warehouse, retailer or wholesaler. Prod-
+ucts are shipped into DC from up-flow facilities, and then 
+shipped out to down-flow facilities to fulfill their demands. 
+Plant could be regarded as a more comprehensive DC, with 
+the production capability.  
+4.3
+Operation Components 
+As we all know, to simulate a supply chain, it requires not 
+only the modeling of supply chain facilities, but also the 
+modeling of operational policies in order to drive order 
+flow, material flow and financial flow. Six types of com-
+ponents are defined in SNOW, including Supply compo-
+nent, Sourcing component, Inventory component, Trans-
+portation component, Manufacturing component, and 
+Finance component. Supply component and Transportation 
+component deal with down-flow facilities. Sourcing com-
+ponent deal with up-flow facilities. Inventory component 
+and Manufacturing component deal with issues inside the 
+owner facility. Finance component deals with inside and 
+outside finance related issues. 
+In terms of functionality of each component, Supply 
+component handles incoming customer orders. Sourcing 
+component generates customer orders and replenishment 
+orders. Transportation component handles transportation 
+tasks. It receives transportation requests, and then manages 
+to ship products to down-flow facilities according to re-
+quests. Inventory component holds stock of products, 
+which includes raw materials and finished goods. Manu-
+facturing component provides the capability of transform 
+products from raw materials to finished goods. Finance 
+component handles the cash flow between different facili-
+ties, and also different enterprises in a supply chain. 
+4.4
+Connection between Optimization Model to 
+Simulation Model 
+The connection between optimization model and simula-
+tion model has been a challenge during the research and 
+development of the tool. We are still developing and inte-
+grating more flexible means to enhance the connection. In 
+this paper, we introduce the mechanism that has been built 
+in the tool and verified in a couple of customer projects. 
+The essential idea behind is that once the optimization 
+result is produced by the optimizer, it is converted to a 
+simulation model automatically. After the automatic con-
+version is conducted, the additional simulation-specific at-
+tributes are specified according to some rules, which are 
+also pre-set by end user. After the simulation modeling 
+phase, we conduct the simulation, get the simulation results, 
+and compare them with the optimization results in order to 
+validate the best solution. These steps are further elabo-
+rated as follows. 
+The first step is to convert network structure. The op-
+timization model and simulation model both define facility 
+networks. These two networks are very similar, both con-
+sists of four kinds of facilities: Supplier, Plant, Distributor, 
+and Customer. Hence the network structure can be trans-
+formed directly. What’s more, the facilities suggested to be 
+shutdown in optimization results will not be mapped to 
+simulation model, and the facilities suggested to be started 
+will be. 
+The second step is to convert customer demands. In 
+the optimization model, aggregated demand quantity are 
+defined for each period and for each product. While in 
+simulation model, for generating demand event, we need to 
+know the quantity for each product in customer order, as 
+well as the interval between orders. So we split each period 
+into several segments, and the aggregate demand quantity 
+are assigned to these segments with respect to some prede-
+fined rules. For each segment, one customer order will be 
+generated. 
+The third step is to convert supplier selection policies. 
+Customer orders will be sent to up-flow facilities. In the 
+logistics network, each customer has several up-flow facili-
+ties, which can be distributors or plants. So supplier selec-
+1944
+Ding, Wang, Dong, Qiu and Ren 
+tions must be in place for routing these orders. The default 
+supplier selection policy will forward orders to all up-flow 
+facilities, but the quantity rates of orders are different. The 
+optimization results contain information about the trans-
+portation quantity on each route, which are used to deter-
+mine the related procurement quantity. 
+The fourth step is to convert product-period related at-
+tributes. There is a global calendar in the optimization 
+model. It assumes all periods have the same length, and all 
+periods with same period index have the same start date 
+and end date. Although this assumption can cover most 
+cases, we are seeking more flexibilities in the simulation 
+model. So all periods in the simulation model are inde-
+pendent with each other and their start time and end time 
+can be set freely. What’s more, in the optimization model, 
+it is a facility-period-product structure, which means first 
+we define the periods for each facility, and then within 
+each period, we define the attributes associated with each 
+product. But in the simulation model, it is a facility-
+product-period structure, so for each product, we can de-
+fine multiple periods, and then define attributes associated 
+with the periods. 
+The fifth step is to define additional attributes. The 
+simulation model needs much more attributes than optimi-
+zation model. So we need to define some default values for 
+them, such as default intervals to check customer order 
+queues, default inventory control policies, etc. The model 
+with these default values can be simulated directly, but it’s 
+expected for the analyst to modify them. Figure 6 demon-
+strates the interface of the simulation model. 
+Figure 6: Network simulation model converted from opti-
+mization results 
+5
+CONCLUSIONS AND PERSPECTIVES 
+This paper gives an overview of the software tool IBM 
+Supply-chain Network Optimization Workbench (SNOW), 
+developed by IBM Research. The IBM SNOW supports an 
+integrated optimization and simulation analysis of supply 
+chains. It has been used for the improvement of IBM’s in-
+ternal supply chains and also for the optimization of out-
+side clients’ supply chains. Practice demonstrate that the 
+combination of simulation and optimization could help de-
+cision makers gain much insights from a real supply chain 
+and finally improve its efficiency and effectiveness. 
+REFERENCES 
+Bagchi S., S. J. Buckley, M. Ettl, and G. Lin. 1998. Ex-
+perience using the IBM Supply Chain Simulator. Pro-
+ceedings of the 1998 Winter Simulation Conference,
+1387-1394. 
+Cheong Lee Fong. 2005. New Models in Logistics Net-
+work Design and Implications for 3PL Companies. 
+Ph.D. Dissertation of SINGAPORE-MIT ALLIANCE. 
+Ding H., L. Benyoucef and X. Xie. 2004. A multi-
+objective optimization method for strategic sourcing 
+and inventory replenishment. Proc. of 2004 IEEE In-
+ternational Conference on Robotics and Automation,
+2711-2716, New Orleans, U.S.A. 
+Eclipse 2007. Available via <http://www.eclipse. 
+org> [accessed March 10, 2007]. 
+EMF 2007. Available via <http://www.eclipse. 
+org/emf> [accessed March 10, 2007].Fu M. C.. 
+2002. Optimization for simulation: Theory vs. Practice. 
+INFORMS Journal on Computing 14(3): 192-215. 
+GEF 2007. Available via <http://www.eclipse. 
+org/gef> [accessed March 10, 2007]. 
+Geoffrion A. M. and R. F. Powers. 1995. Twenty years of 
+strategic distribution system design: An evolutionary 
+perspective. Interfaces 25:105-128. 
+Ho, Y. C. and X. R. Cao. 1991. Perturbation analysis of 
+discrete event dynamic systems. Kluwers Academic 
+Publishers. 
+Lacksonen T. 2001. Empirical comparison of search algo-
+rithms for discrete event simulation. Computers & In-
+dustrial Engineering. 40:133-148. 
+Manuel D. Rossetti, Mehmet Miman, Vijith Varghese, and 
+Yisha Xiang. 2006. An object-oriented framework for 
+simulating multi-echelon inventory systems. Winter 
+Simulation Conference 2006: 1452-1461.
+Paul R. J. and T. S. Chanev. 1998. Simulation optimization 
+using a genetic algorithm. Simulation Practice and 
+Theory, 6: 601-611. 
+Rossetti, M. D. and Chan H.T. 2003. A Prototype Object-
+Oriented Supply Chain Simulation Framework. Pro-
+ceedings of the 2003 Winter Simulation Conference,
+1612-1620. 
+Schunk D. and B. Plott. 2000. Using Simulation to Ana-
+lyze Supply Chains. Proceedings of the 2000 Winter 
+Simulation Conference, 1095-1100. 
+Shi L., R. R. Meyer, M. Bozbay, and A. J. Miller. 2004. A 
+nested partitions framework for solving large-scale 
+multicommodity facility location problem. Journal of 
+1945
+Ding, Wang, Dong, Qiu and Ren 
+Systems Science and Systems Engineering 13(2): 158-
+179. 
+Supply Chain Guru. 2006. Available via <http://
+www.llamasoft.com/guru.html> 
+[accessed 
+May 16, 2006]. 
+Swaminathan, J. M., Smith, S. F. and Sadeh, N. M. 1998. 
+Modeling Supply Chain Dynamics: A Multiagent Ap-
+proach.  Decision Science 29(3): 607-632. 
+AUTHOR BIOGRAPHIES 
+HONGWEI DING is a Researcher at IBM China Re-
+search Laboratory. He received his Ph.D. in Automation 
+from INRIA (French National Institute of Computer Sci-
+ence & Control), France. Before joined IBM, he was a re-
+searcher at INRIA. His research interests include supply 
+chain modeling, optimization and simulation. His e-mail 
+address is <dinghw@cn.ibm.com>.
+WEI WANG is a Researcher at IBM China Research 
+Laboratory. He joined IBM Research in 2005 after receiv-
+ing his master degree in Control Science and Engineering 
+from Tsinghua University in Beijing, P. R. China. Cur-
+rently, his research interests include supply chain simula-
+tion and optimization, performance management, and busi-
+ness process management. His e-mail address is 
+<wangwcrl@cn.ibm.com>.
+JIN DONG, Manager of Supply Chain Management and 
+Logistics Research in IBM China Research Laboratory. He 
+received his Ph.D. degree in Tsinghua University from P.R. 
+China in 2001. Before joined IBM, he was the Research 
+Assistant Professor in Industrial Engineering Department 
+of Arizona State University in USA. His e-mail address is 
+<dongjin@cn.ibm.com>.
+MINMIN QIU is a Researcher at IBM China Research 
+Laboratory. He joined IBM Research in 2006 after receiv-
+ing his Ph.D. degree in Industrial Engineering from 
+Tsinghua University in Beijing, P.R. China. His research 
+interests include inventory optimization, machine learning, 
+supply chain optimization and simulation. His e-mail ad-
+dress is <qiumm@cn.ibm.com>.
+CHANGRUI REN is a Researcher at IBM China Re-
+search Laboratory. He joined IBM Research in 2005 after 
+receiving his Ph.D. degree in Control Science and Engi-
+neering from Tsinghua University in Beijing, P. R. China. 
+His research interests include supply chain management, 
+logistics network design, performance management, and 
+business process management. He is currently working on 
+an end-to-end supply chain transformation methodology 
+and tool. His e-mail address is <rencr@cn.ibm.com>.
+1946
+

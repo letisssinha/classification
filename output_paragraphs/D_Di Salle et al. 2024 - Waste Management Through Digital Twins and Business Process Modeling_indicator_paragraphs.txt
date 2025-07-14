@@ -1,0 +1,563 @@
+Waste Management Through Digital Twins and Business Process
+Modeling
+Amleto Di Salle
+Gran Sasso Science Institute
+L’Aquila, Italy
+amleto.disalle@gssi.it
+Arianna Fedeli
+Gran Sasso Science Institute
+L’Aquila, Italy
+arianna.fedeli@gssi.it
+Ludovico Iovino
+Gran Sasso Science Institute
+L’Aquila, Italy
+ludovico.iovino@gssi.it
+Leonardo Mariani
+University of Milano-Bicocca
+Milano, Italy
+leonardo.mariani@unimib.it
+Daniela Micucci
+University of Milano-Bicocca
+Milano, Italy
+daniela.micucci@unimib.it
+Luciana Rebelo
+Gran Sasso Science Institute
+L’Aquila, Italy
+luciana.rebelo@gssi.it
+Maria Teresa Rossi
+University of Milano-Bicocca
+Milano, Italy
+maria.rossi@unimib.it
+Abstract
+Littering is an environmental problem that affects citizens’ econ-
+omy, safety, and health. Natural and rural areas are often targets
+of abandoned littering, while urban areas often accumulate more
+waste than can be disposed of in a timely manner. Minimizing lit-
+tering and waste is a critical sustainability challenge requiring the
+cooperation of different professionals and agencies. In this paper,
+we report our vision and preliminary proposal for a model-driven
+approach to address the automated localization and identification
+of abandoned waste. Our solution envisages the usage of digital
+process twins to enable the specification of cost-effective and self-
+adaptive procedures fed by data crowdsourced from the real world.
+CCS Concepts
+• Applied computing →Business process modeling; Environmen-
+tal sciences; • Information systems →Collaborative and social
+computing systems and tools; • Software and its engineering →
+Model-driven software engineering.
+Keywords
+MDE, digital process twin, sustainability, littering
+ACM Reference Format:
+Amleto Di Salle, Arianna Fedeli, Ludovico Iovino, Leonardo Mariani, Daniela
+Micucci, Luciana Rebelo, and Maria Teresa Rossi. 2024. Waste Management
+Through Digital Twins and Business Process Modeling. In ACM/IEEE 27th
+International Conference on Model Driven Engineering Languages and Systems
+(MODELS Companion ’24), September 22–27, 2024, Linz, Austria. ACM, New
+York, NY, USA, 5 pages. https://doi.org/10.1145/3652620.3687796
+MODELS Companion ’24, September 22–27, 2024, Linz, Austria
+© 2024 Copyright held by the owner/author(s).
+ACM ISBN 979-8-4007-0622-6/24/09
+https://doi.org/10.1145/3652620.3687796
+1
+Introduction
+Littering is an environmental problem that affects citizens’ econ-
+omy, safety, and health. In fact, abandoned waste can cause fire
+hazards, pollution, flooding, and poisoning of wildlife and animal
+food sources. Natural areas, which are considered tremendous as-
+sets for some regions because they are silent and isolated, are often
+targets of littering. Cleaning urban and wild areas is extremely
+expensive. For instance, the Clean Europe Network estimates that
+the total cost of cleaning up litter on the land throughout the EU is
+in the range of €10-13 billion [10].
+Minimizing littering and waste is a critical sustainability chal-
+lenge that requires the cooperation of different professionals and
+agencies. In this paper, we report our vision for a model-driven
+approach to address the automated localization and identification of
+abandoned waste and the cost-effective management of its disposal.
+Previous approaches were not entirely successful because they
+required too much effort from the community, e.g., due to the
+high volume of information that must be manually processed [8],
+or involved technical solutions that were not easily accessible by
+public authorities, e.g., requiring the access to satellite images [14].
+This paper presents an approach developed as part of the COm-
+munity –Based Organized Littering (COBOL) project [2]. It aims to
+deliver lightweight littering reporting, engaging all the stakehold-
+ers playing a role in the littering disposal process, including citizens.
+In particular, our work considers the following key challenges:
+– Abandoned waste is mainly the consequence of unethical and
+illegal behavior of citizens. Involving the citizens themselves in
+removing the waste has both short-term and long-term effects.
+In the short term, if citizens proactively engage in waste disposal,
+the environment will be cleaner. In the long term, the involvement
+of the citizens can likely increase awareness and respect for
+the environment, our cities, and our countryside, prospectively
+reducing the amount of abandoned waste through education.
+– Waste removal may involve non-trivial processes. Depending on
+the nature of the waste, different agencies and organizations
+may need to be involved and synchronized. For instance, expired
+This work is licensed under a Creative Commons Attribution International 4.0 License.
+MODELS Companion ’24, September 22–27, 2024, Linz, Austria
+Di Salle et al.
+drugs must be managed by specific operators since they can de-
+velop toxic substances, asbestos requires procedures that involve
+specific companies and protective measures, while other waste
+could be even and simply disposed of by citizens (e.g., as in the
+initiative launched by the European Environment Agency in 2018
+to remove plastic littering from beaches [1]). In a nutshell, to
+effectively handle the waste disposal process, solutions that can
+handle the design and execution of sophisticated processes involving
+multiple actors are needed.
+– To establish solutions that go beyond the straightforward capa-
+bility of submitting reports through web and mobile apps, it is
+necessary to consider that the waste disposal process is context-
+dependent, that is, the same waste might need to be handled
+differently depending, for instance, on the place where it has
+been abandoned (e.g., littering managed in big cities, towns, ru-
+ral areas, or the countryside), and on the administrations and
+organizations that will be responsible for its disposal, making
+impossible the design of a ‘one-fit-all’ solution.
+– To know how effective a process is, it is important to continu-
+ously monitor results and further incentivize both citizens and
+public authorities to participate in the waste removal process.
+Proper key performance indicators (KPIs) and publicly accessible
+dashboards must be designed.
+To address these challenges, we propose to combine a model-
+driven solution, which can manage various contexts and deal with
+unexpected events, guiding citizens and authorities in the waste
+disposal process effectively, with a digital process twin, which fa-
+cilitates the accurate development and continuous refinement of
+the littering management process. In particular, a digital process
+twin operating at runtime enables the system to adapt dynamically
+to real-time changes and unexpected events without re-deploying
+the entire system. This adaptability ensures that the system can
+maintain high efficiency and service quality, even under varying
+conditions, continuously learning from accumulating data, leading
+to progressively optimized performance.
+The concept of process digital twin has already been used to ana-
+lyze and support the waste management process, and specifically
+to analyze the performance costs and the service quality in some
+countries [3, 6]. We aim to bring this conceptualization into the
+context of littering management, where the digital process twin can
+collect and analyze real-time data coming from the environment,
+reflecting the system’s current and future states and providing
+functionalities such as process optimization and simulation to let
+the system assist stakeholders and operators in the waste disposal
+process definition and enable the self-adaptation of the processes,
+to deal with unexpected events.
+This paper is organized as follows. Section 2 discusses waste dis-
+posal processes in place in different areas, highlighting differences,
+commonalities, and complexities. Section 3 describes our Digital
+Twin Process Modeling solution. Section 4 presents related work.
+Finally, Section 5 provides concluding remarks.
+2
+On the Need of Process Modeling
+The proposed solution shall be easily applicable to different con-
+texts, which may involve multiple organizations working according
+to different (imperfect) protocols and different types of waste. Man-
+aging waste disposal procedures based on different guidelines is
+challenging due to their differing nature, making standardization
+difficult. However, among all the differences, the procedures may
+share commonalities regarding involved stakeholders, operational
+procedures, required documentation, etc. Additionally, the inher-
+ent complexity of these procedures makes it difficult to create a
+standardized approach. We will illustrate these cases below.
+Differences. As an example of a typical difference characterizing
+two or more waste disposal processes, we report two interesting
+procedures for the disposal of animal carcasses, based on guide-
+lines defined by two different authorities, namely NetRegs1 and
+the Abruzzo region in an official bulletin2. The difference here re-
+lies on the fact that the guidelines target different subjects, thus
+foreseeing different procedures. The NetRegs’ guidelines specifi-
+cally target the companies responsible of the disposal processes.
+Whereas, the Abruzzo region’s guidelines target the many stake-
+holders that might be involved in the disposal of animal carcasses
+(e.g., public administrations, citizens, disposal operators). A well-
+defined process model might serve as a common language among
+all these stakeholders [7]. This can improve communication and
+collaboration, ensuring that all participants clearly understand their
+responsibilities and the operations to be followed.
+Commonalities. Despite the different nature of the two men-
+tioned guidelines, we can observe commonalities between them.
+For instance, they both differentiate the operations by geographical
+area. NetRegs specifies different regulations for Northern Ireland
+and Scotland. Instead, the Abruzzo region distinguishes between
+non-protected and protected areas. To deal with cases like this
+one, process modeling can be used to flexibility supports adapta-
+tion of standard processes to the specific case, while maintaining
+a common operational foundation (e.g., defining a parametric pro-
+cess that works differently depending on the type of local area).
+This allows customized solutions for each area of interest without
+compromising overall uniformity and coherence of the procedure.
+Complexities. A common aspect of the reported procedures is
+that we can observe a certain level of fragmentation and intricacy
+that make the processes complex to model or describe. A sample
+waste disposal procedure that shows the complex nature of such
+processes is the one about the disposal of abandoned asbestos. It
+represents one of the major problems in Italy due to the complexity
+and costs of disposal, not to mention the possible health risks. For
+this reason, it is not unusual to find abandoned sites with asbestos
+mixed with other building materials. Disposing and cleaning a site
+with asbestos requires communication with the municipality and
+the local police department. After a visit from the representatives
+of these entities, a private company specialized in the field will
+be involved in the disposal process. However, before proceeding
+with the actual disposal, the health department must be informed to
+check for any health risks. All these operations will be assisted with
+documents, forms to be filled in, material to be sampled, and com-
+munications, to name a few3. These operations’ intricate nature and
+1https://www.netregs.org.uk/environmental-topics/waste/managing-waste-
+materials/
+2https://bit.ly/3VxMSnK
+3The complete procedure can be read at: https://sanita.regione.abruzzo.it/sites/default/
+files/SPSAL/norme/Linee%20Guida%20amianto.pdf
+Waste Management Through Digital Twins and Business Process Modeling
+MODELS Companion ’24, September 22–27, 2024, Linz, Austria
+fragmentation demonstrate the need for rigorous and well-defined
+processes that can define clear procedures and master complexity.
+Furthermore, the ability to adapt these models to accommodate the
+varying regional requirements and constraints is crucial for ensur-
+ing efficient and standardized waste disposal processes. Moreover,
+in specific contexts, there is also the need for self-adaptation of the
+procedures to dynamic conditions. For instance, the procedure de-
+fined in the bulletin provided by the Abruzzo region distinguishes
+different sub-processes depending on the condition of the carcass
+at the moment of the discovery. Specifically, if a suspect commits
+any illegal acts against animals, a specific judicial police procedure
+must be activated. However, in case of suspected infectious diseases
+or risks to public health, the handling of the carcass has to follow a
+different procedure, w.r.t. the basic one.
+3
+Digital Twin Process Modeling for Waste
+Management
+Figure 1 represents the architecture we designed (not yet imple-
+mented) to address the above-mentioned challenges. The architec-
+ture is composed of 3 platforms, namely: the Crowdsourcing, the
+Modeling, and the Runtime platforms. The crowdsourcing platform
+collects information from citizens, operators, and vehicles through
+a web app, which also implements a Mobile front-end, shares the
+collected data with the running processes, and provides a dashboard
+for data visualization (e.g., to visualize the ranks generated by the
+gamification logic, or to visualize the waste reported in the area).
+The runtime platform runs various services and processes, such as
+simulation and optimization, to effectively respond to (unexpected)
+inputs from the physical world in real time. This supports the
+process’s self-adaptation at runtime, enabling immediate problem
+resolution. To make accurate and informed decisions, the modeling
+platform hosts the digital twins of the monitored areas, mimicking
+the actual activities required for handling, managing, and disposing
+of waste.
+We describe the three platforms that constitute our architecture
+in the following sections.
+3.1
+Crowdsourcing Platform
+Citizens shall contribute to littering by reporting geo-localized pic-
+tures of waste through a dedicated mobile app, as is already possible
+with several other systems. Pictures shall include metadata, such as
+the image’s geolocation. The collected data will be anonymized on
+the fly to avoid disclosing sensitive information. The crowdsourcing
+platform involves citizens in the waste disposal process, asking and
+providing them additional information about (a) the nature of the
+waste, (b) the process that should be followed to remove and/or
+dispose of the waste, and (c) the contacts to reach the organizations
+that can dispose of the specifically detected waste when it cannot be
+simply removed and brought to a landfill. All parties participating
+in the waste management process (not only citizens) are engaged
+to be successful.
+The proposed approach also establishes gamified processes for
+both citizens and administrations. Citizens will be rewarded for
+reporting and removing waste and for confirming or disproving
+waste removal actions taken by other actors. Administrations will
+compete on their ability to keep areas clean based on citizens’
+reports. Further, the indexes derived from the collected data could
+be used by administrations to demonstrate the impact of actions
+regarding littering management, as well as in the context of the
+SDGs4.
+It is important to remark that the gamification and rewarding
+processes are modeled processes themselves. Different administra-
+tions can model these processes according to other rules (using the
+modeling platform). This guarantees that the waste management
+and reward processes are decoupled on the one hand, that is, they
+are modeled separately, but they are also interdependent on the
+other hand since the events and data generated by the waste man-
+agement process represent the most relevant source of information
+for the definition of the reward system. The modeling platform
+must guarantee the coherence of these two processes.
+Citizens and operators will exploit a dashboard populated with
+crowdsourced data, jointly with the data computed by the pro-
+cesses (e.g., the reward process and the digital process twins), to
+obtain information about the waste to be disposed of and the ranks
+generated by the gamification system.
+3.2
+Modeling Platform
+Waste disposal may include numerous processes, such as collec-
+tion, transportation, treatment, and recycling. Each contains dif-
+ferent stakeholders and a certain degree of variability caused by
+the specific context in which the disposal happens, as anticipated
+in Section 2. In this architecture, we propose to exploit process
+modeling as a fundamental element in identifying and modulariz-
+ing these processes and actors involved, making them reusable in
+different contexts and also facilitating the specification of processes
+that could be complex. This modular approach reduces duplication
+of efforts, increases operational efficiency, and allows for easier
+management of process variations.
+For this reason, the architecture will combine two technical
+facets: model-driven development and self-adaptive technologies.
+Model-driven development (MDD) is exploited to define and cus-
+tomize processes to the specific usage context. We use process mod-
+eling with a standard business process language, such as BPMN
+notation with possible extensions if needed, to rigorously specify
+our disposal processes. However, workflow automation tools can
+also be explored, being based on the same formalism. This permits
+the creation of a clear and detailed visual representation of various
+waste disposal processes while also incorporating the collaboration
+between different stakeholders.
+The modeling platform allows the management and graphical
+definition of two main types of processes: waste management pro-
+cesses, which involve the collection, transportation, and disposal
+of waste, and the rewarding processes, which define policies to
+assign incentives to citizens for proper waste reporting, waste sep-
+aration, and recycling. These processes are closely interconnected
+and communicate with each other to ensure efficient and integrated
+management. Communication between these processes is crucial, as
+the data collected from the waste management process can directly
+influence the rewards given in the rewarding process.
+Those processes are defined through a web-based modeling tool,
+persisted in a dedicated model repository, and handled by a process
+4https://sdgs.un.org/goals
+MODELS Companion ’24, September 22–27, 2024, Linz, Austria
+Di Salle et al.
+Modeling platform
+Crowdsourcing platform
+Process
+Engine
+mobile app
+Dashboard
+Digital 
+Cockpit
+Operator
+Vehicle
+Citizen
+Decision
+Maker
+Process
+Manager
+Web app
+…  
+Prediction
+Optimization
+Analysis
+Digital Process Services
+Self-adaptation
+Runtime platform
+Simulation
+Digital Process Twin
+Decision
+Maker …
+Cloud
+process 
+slicing
+process deployment
+ and execution
+process update and access to 
+digital twin
+send data
+access
+DT information
+Waste Management 
+Process
+Waste Management 
+Process
+Waste Management 
+Process
+Rewarding
+Process
+Figure 1: Digital Twin Process Modeling Architecture
+manager entity, which coordinates the various processes and a
+digital cockpit. The digital cockpit is the focal point for monitoring
+and controlling operations in real-time, ensuring a comprehensive
+and detailed view of ongoing activities. Decision makers interact
+with the digital cockpit to analyze the ongoing activities and KPIs
+trends and make informed decisions based on the insights. For
+instance, a hot area with a high frequency of abandoned sites may
+be targeted by local police, etc.
+Since decision-makers may belong to different organizations
+(e.g., the municipality or the agency waste disposal agency), they
+will have their own visibility and change rights on the processes.
+For instance, the transportation agency may define how transporta-
+tion should work but cannot change the waste disposal processes
+in the landfill, although they will also have the visibility of these
+processes. Collaborative editing of the process will be governed
+through process model slicing solutions [15] that will ensure col-
+laboration while respecting ownership of the processes.
+The modeling platform will also embed analysis routines to check
+that the final waste disposal process resulting from the composition
+of all processes provides the correct behavior; for instance, every
+abandoned waste will eventually be disposed of. Process analysis is
+crucial to guarantee that every citizen receives the proper level of
+service and that procedures are followed correctly and uniformly.
+Finally, self-adaptive technologies will be exploited to enrich
+processes with the capability to self-organize in case of unexpected
+events through a digital twin of the processes. For example, if the
+appropriate person to handle a notification is on vacation, the sys-
+tem will automatically redirect the notification to another suitable
+individual. These rules may be specified with a notation suitable
+for defining heuristics or general adaptation rules for each process.
+3.3
+Runtime Platform
+Once the processes are modeled, they can be executed at runtime
+inside the runtime platform through a process engine component.
+While being executed, these processes can invoke services such
+as prediction, optimization, simulation, and many others based on
+real-time input data from the physical world.
+For example, simulations might show the impact of adding more
+litter bins in a specific area or the effectiveness of public aware-
+ness campaigns. Meanwhile, optimization services could address
+situations where the designated cleanup crew is unavailable by
+generating a new resource allocation and task schedule. All these
+simulations and analyses may be enabled by replicating the models
+on which the system reacts. Indeed, the entire runtime platform
+communicates with the underlying models like an interpreter of
+the processes defined by decision-makers. The same processes are
+interpreted at runtime when invoked by the Crowdsourcing plat-
+form. For instance, when a new report is submitted through the
+crowdsourcing system, e.g., via the mobile app, the same report trig-
+gers moderation actions by the relevant entities. When the operator
+validates the reported littering site, the specific process activates
+the next step, and so on. Such ongoing communications between
+the process models, the runtime engine, and the actual system are
+dribbled as a digital process twin.
+This dynamic invocation of services enables the processes to be
+highly responsive and adaptive, ensuring that waste management
+processes remain effective and resilient despite unexpected events
+or changing conditions. Since the process engine can be pretty
+demanding and the workload partially unpredictable, we will deploy
+and run services on the cloud to guarantee scalability.
+Waste Management Through Digital Twins and Business Process Modeling
+MODELS Companion ’24, September 22–27, 2024, Linz, Austria
+4
+Related Work
+Several studies try to address the waste management process through
+digital process twins. Cárdenas et al. address the waste management
+problem in South Africa using a prototype digital twin [5]. They
+focus on stakeholder prioritization and citizen engagement using an
+open-source tool for identifying waste containers and disposal sites
+and waste generation simulations via a control dashboard. Burkhart
+et al. propose a process digital twin to support the decision-making
+activities to find a compromise between costs and quality of ser-
+vices using smart waste bins in Switzerland [3]. The digital twin
+provides benchmarks for implementing similar systems in other
+municipalities and presents an innovative key performance indica-
+tor to measure service quality. However, a significant drawback is
+that the proposed works do not use modeling to develop or repre-
+sent the processes or the digital twin. Without such modeling, the
+system lacks a detailed blueprint for its implementation and refine-
+ment. Further, none of the work addresses optimizing or creating a
+self-adaptive runtime environment for managing the waste disposal
+process. The lack of self-adaptation limits the system’s ability to
+dynamically adjust to changing conditions and improve efficiency
+in real-time, reducing its overall effectiveness and responsiveness.
+Modeling management processes at runtime has emerged as a
+promising approach to enhance the efficiency and effectiveness
+of handling (unexpected) events [9, 16]. These models prevent
+error-prone and time-consuming manual process adaptations, al-
+lowing systems to adapt dynamically to environmental changes.
+This makes them particularly suitable for the unpredictable nature
+of littering activities. Business processes, in particular, exhibit posi-
+tive evidence in capturing processes specification and monitoring
+activities to identify possible improvements and necessary adap-
+tations at runtime [4, 9, 11]. Traditional notation languages, such
+as BPMN, graphically support modelers through a narrow space
+of solutions for activity specification and provide a mechanism to
+specify how the system will react to expected exceptions.
+Santana et al. propose a BPMN-based business process to facil-
+itate requirements engineering in a complex waste management
+scenario, starting from material acquisition and ending with residue
+disposal. However, no specifications about the deployment of the
+actual system or possible changes in the process are discussed [13].
+Pelonero et al. present a smart citizen-rewarding process for en-
+hancing user garbage collection through an IoT-based service that
+promotes waste recycling in door-to-door urban environments [12].
+Using QR codes and IoT sensors to collect and monitor essential
+waste-related data, such as waste composition (paper, plastics, glass,
+etc.), citizens can earn tax incentives through direct recycling. The
+authors have not addressed the possibility of having a digital twin
+and the self-adaptive capabilities that derive from its adoption in the
+IoT cloud environment modeled through a BPMN-based business
+process involving citizens and garbage collectors.
+5
+Conclusions
+Littering is a significant problem affecting our society and threat-
+ening our environment, including natural, rural, and urban areas.
+In particular, the timely detection and removal of abandoned waste
+is an open challenge that requires new cost-effective solutions to
+be solved. This paper describes our vision of combining process
+modeling and digital process twins to achieve self-adaptive pro-
+cedures that can be used to control the waste disposal process. In
+addition, the integration of a crowdsourcing platform addresses
+both the need to feed the digital twin processes with actual data
+about reality and the need to enable participatory processes where
+citizens are engaged in reporting and removing waste. Future work
+concerns fostering our collaboration with municipalities to develop
+and experiment with the proposed solution in controlled scenarios
+and finally obtain insights about its effectiveness.
+6
+Acknowledgments
+This work has been supported by the COmmunity-Based Orga-
+nized Littering (COBOL) national research project funded by the
+MUR under the PRIN 2022 PNRR program (nr. P20224K9EK) and
+“Progetto PE 0000020 CHANGES, PNRR Missione 4 Componente 2
+Investimento 1.3” funded by EU - NextGenerationEU.
+References
+[1] European Environment Agency. 2024. https://www.eea.europa.eu/publications/
+marine-litter-watch/briefing. Accessed: 2024-06-27.
+[2] Luciano Baresi, Simone Bianco, Amleto Di Salle, Ludovico Iovino, Leonardo
+Mariani, Daniela Micucci, Luciana De Santos, Maria Teresa Rossi, and Raimondo
+Schettino. 2024. COBOL: COmmunity-Based Organized Littering. In Euromicro
+Conference on Software Engineering and Advanced Applications (SEAA).
+[3] Linard Barth, Lukas Schweiger, Rodolfo Benedech, and Matthias Ehrat. 2023. From
+data to value in smart waste management: Optimizing solid waste collection
+with a digital twin-based decision support system. Decision Analytics Journal 9
+(2023), 100347.
+[4] Thomas Burkhart, Christoph Dorn, Dirk Werth, and Peter Loos. 2011. A flexi-
+ble approach towards self-adapting process recommendations. Computing and
+Informatics 30, 1 (2011), 89–111.
+[5] Iván Cárdenas, Mila Koeva, Calayde Davey, and Pirouz Nourian. 2024. Solid
+Waste in the Virtual World: A Digital Twinning Approach for Waste Collection
+Planning. In Proceedings of the 3D GeoInfo Conference.
+[6] IL Cárdenas León. 2023. From Trash To Digital Treasure: Urban Digital Twining
+For Solid Waste Management. A Case Study In The City Of Tshwane, South Africa.
+Master’s thesis. University of Twente.
+[7] Jan L. G. Dietz and Hans B. F. Mulder. 2024. Enterprise Ontology - A Human-
+Centric Approach to Understanding the Essence of Organisation, Second Edition.
+Springer. https://doi.org/10.1007/978-3-031-53361-7
+[8] Enzo Falco and Reinout Kleinhans. 2018. Beyond technology: Identifying local
+government challenges for using digital platforms for citizen engagement. Journal
+of Information Management 40 (2018), 17–20.
+[9] Anat Goldstein, Thomas Johanndeiter, and Ulrich Frank. 2019. Business process
+runtime models: towards bridging the gap between design, enactment, and eval-
+uation of business processes. Information Systems and e-Business Management 17
+(2019), 27–64.
+[10] Clean Europe Network. 2024. https://cleaneuropenetwork.eu/en/facts-and-costs/
+aup/. Accessed: 2024-06-27.
+[11] Jamila Oukharijane, Imen Ben Said, Mohamed Amine Chaâbane, Rafik Bouaziz,
+and Eric Andonoff. 2018. A survey of self-adaptive business processes. In Inter-
+national Business Information Management Association Conference (IBIMA).
+[12] Leonardo Pelonero, Andrea Fornaia, and Emiliano Tramontana. 2020. From Smart
+City to Smart Citizen: Rewarding Waste Recycle by Designing a Data-Centric IoT
+based Garbage Collection Service. In Proceedings of the International Conference
+on Smart Computing (SMARTCOMP).
+[13] Fabiana Santana, Daniel Nagata, Marcelo Cursino, Claudio Barberato, and Sheila
+Leal. 2016. Using BPMN-based business processes in requirements engineering:
+the case study of sustainable design. In Proceedings of the International Conference
+on e-Learning, e-Business, Enterprise Information Systems, and e-Government (EEE).
+[14] Xian Sun, Dongshuo Yin, Fei Qin, Hongfeng Yu, Wanxuan Lu, Fanglong Yao,
+Qibin He, Xingliang Huang, Zhiyuan Yan, Peijin Wang, et al. 2023. Revealing
+influencing factors on global waste distribution via deep-learning based dumpsite
+detection from satellite imagery. Nature Communications 14, 1 (2023), 1444.
+[15] Gabriele Taentzer, Timo Kehrer, Christopher Pietsch, and Udo Kelter. 2018. A for-
+mal framework for incremental model slicing. In Proceedings of the International
+Conference on Fundamental Approaches to Software Engineering (FASE).
+[16] Moeka Tanabe, Kenji Tei, Yoshiaki Fukazawa, and Shinichi Honiden. 2017. Learn-
+ing environment model at runtime for self-adaptive systems. In Proceedings of
+the Symposium on Applied Computing (SAC).
+

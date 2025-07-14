@@ -1,0 +1,271 @@
+Deﬁning Process Performance Indicators
+by Using Templates and Patterns⋆
+Adela del–Río–Ortega, Manuel Resinas Arias de Reyna, Amador Durán Toro,
+and Antonio Ruiz–Cortés
+Universidad de Sevilla, Spain
+{adeladelrio,resinas,amador,aruiz}@us.es
+Abstract. Process Performance Indicators (PPIs) are a key asset for the
+measurement of the achievement of strategic and operational goals in process–
+oriented organisations. Ideally, the deﬁnition of PPIs should not only be unam-
+biguous, complete, and understandable to non–technical stakeholders, but also
+traceable to business processes and veriﬁable by means of automated analysis.
+In practice, PPIs are deﬁned either informally in natural language, with its well–
+known problems, or at a very low level, or too formally, becoming thus hardly
+understandable to managers and users. In order to solve this problem, in this
+paper, a novel approach to improve the deﬁnition of PPIs using templates and
+ontology–based linguistic patterns is proposed. Its main beneﬁts are that it is easy
+to learn, promotes reuse, reduces ambiguities and missing information, is under-
+standable to all stakeholders and maintains traceability with the process model.
+Furthermore, since it relies on a formal ontology based on Description Logics,
+it is possible to perform automated analysis and infer knowledge regarding the
+relationships between PPI deﬁnitions and other process elements.
+Keywords: Business Process Management, Process Performance Management,
+Key Performance Indicator, Process Performance Indicator, Templates, Patterns.
+1
+Introduction
+Many companies are adopting a process–oriented approach in their business. In order
+to measure progress towards their business goals, it is important to evaluate the perfor-
+mance of their business processes (BPs) by means of the so–called Process Performance
+Indicators (PPIs), a particular case of Key Performance Indicators (KPIs) dedicated to
+BPs. For example, for the process depicted in Fig. 1, some PPIs could be deﬁned based
+on metrics such as the average time of the Analyse RFC activity, the registered/approved
+RFC ratio, or the average delay of elevating a RFC to committee.
+PPIs are recommended to satisfy the SMART criteria [1], i.e to be Speciﬁc, Mea-
+surable, Achievable, Relevant and Time–bounded, but also to be understandable, traced
+to the related BPs and automatically analysable [2,3,4]. A notation for PPI deﬁnition
+satisfying these requirements is still a challenge, mainly because of the conﬂict be-
+tween understandability and automatic analysis. In practice, PPIs are deﬁned either in
+⋆This work has been partially supported by the European Commission (FEDER), Spanish Gov-
+ernment under the CICYT project SETI (TIN2009–07366); and projects THEOS (TIC–5906)
+and ISABEL (P07–TIC–2533) funded by the Andalusian local Government.
+A. Barros, A. Gal, and E. Kindler (Eds.): BPM 2012, LNCS 7481, pp. 223–228, 2012.
+c⃝Springer-Verlag Berlin Heidelberg 2012
+224
+A. del–Río–Ortega et al.
+
+ 
+
+
+
+
+	
+	
+
+
+
+	
+	
+
+	
+
+
+
+
+
+
+
+	
+
+	
+
+
+	
+
+
+
+
+
+Fig. 1. Sample business process: Request for Change (RFC) management
+(1) natural language, with its well–known problems of ambiguity and incompleteness;
+(2) at implementation level; or (3) too formally, becoming thus hardly understandable
+for managers and users.
+In this paper we address this challenge and propose a novel approach to improve
+the deﬁnition of PPIs using templates and linguistic patterns (L–patterns, i.e. very used
+sentences in natural language that can be reused by parametrisation), which have been
+successfully applied in the areas of Requirements Engineering [5,6] and Service Level
+Agreements [7]. The proposed notation is formally supported by the PPINOT ontology
+[3], allowing their automated analysis using Description Logics.
+2
+PPI Template
+Our proposal for PPI template, inspired by the requirements templates originally pro-
+posed in [5], is shown in Table 1 and an example is shown in Table 2. It has been
+designed in order to fulﬁl the SMART criteria [1] and is heavily based on the PPINOT
+ontology [3]. As commented in [5], using templates helps to organise the information
+in a structured form, reduces ambiguity, promotes reuse, and also serves as a guide to
+avoid missing relevant information. The notation used in the template is the follow-
+ing: words between “<” and “>” are placeholders for either literals (lower case) or
+L–patterns (upper case); words between “{” and “}” and separated by “|” are one–only
+options; words between “[” and “]” are optionals. The meaning of the template ﬁelds is
+the following:
+– Identiﬁer and descriptive name: unique PPI identiﬁer, needed for traceability, and
+a self–descriptive name for the PPI.
+Deﬁning PPIs by Using Templates and Patterns
+225
+Table 1. Template for PPI speciﬁcation
+PPI–<ID>
+<PPI descriptive name>
+Process
+<process ID the PPI is related to>
+Goals
+<strategic or operational goals the PPI is related to>
+Deﬁnition
+The PPI is deﬁned as {
+<DurationMeasure> | <CountMeasure> | <ConditionMeasure> |
+<DataMeasure> | <DerivedMeasure> | <AggregatedMeasure> }
+[ expressed in <unit of measure> ].
+Target
+The PPI value must {
+be {greater | lower} than [or equal to] <bound> |
+be between <lower bound> and <upper bound> [inclusive] |
+fulﬁl the following constraint: <target constraint> }
+Scope
+The process instances considered for this PPI are {
+the last <n> ones |
+those in the analysis period <AP–x> }
+Source
+<source from which the PPI measure can be obtained>
+Responsible { <role> | <department> | <organization> | <person>}
+Informed
+{ <role> | <department> | <organization> | <person>}
+Comments
+<additional comments about the PPI>
+– Process and goals: traces to the process for which the PPI is deﬁned and to the
+strategic or operational goals the PPI is related to (Relevant SMART criteria).
+– Deﬁnition: kind of measure and units, if needed, the PPI is based on (Speciﬁc and
+Measurable SMART criteria). Corresponding measure L–patterns are described in
+next section.
+– Target: target value of the PPI for achieving previously referenced goals (Achiev-
+able SMART criteria).
+– Scope: number of process instances or analysis period considered for computing
+the PPI value (Time–Bounded SMART criteria). Due to space limitations, analysis
+period descriptions are not included in this paper (see [3,4] for more information).
+– Source of information: source from where the required information to compute
+the PPI is gathered.
+– Responsible and Informed: resources in charge of or interested in the PPI. They
+can be persons, roles, departments or organisations.
+– Comments: any other relevant information that cannot be ﬁtted in previous ﬁelds.
+3
+L–Patterns for PPI Speciﬁcation
+Following [5,6], L–patterns are integrated in the proposed PPI template because ﬁlling
+blanks in prewritten sentences is easier, faster and less error–prone than doing it from
+scratch. The six proposed L–patterns are described in this section.
+226
+A. del–Río–Ortega et al.
+Table 2. PPI speciﬁcation example
+PPI–001
+Average time of RFC analysis
+Process
+Request for change (RFC)
+Goals
+• BG–002: Improve customer satisfaction
+• BG–014: Reduce RFC time–to–response
+Deﬁnition
+The PPI is deﬁned as the average of Duration of Analyse RFC activity.
+Target
+The PPI value must be lower than or equal to 1 working day.
+Scope
+The process instances considered for this PPI are the last 100 ones.
+Source
+Event logs of BPMS.
+Responsible Planning and quality manager
+Informed
+CIO
+Comments
+Most RFCs are created after 12:00.
+3.1
+Duration Measure L–Pattern
+In the PPI context, a duration can be deﬁned as the difference between two events,
+considering as events not only BP event triggerings but also BP element transitions.
+Following the BPMN 2.0 speciﬁcation [8], we consider activities, pools and data ob-
+jects as elements; and ready, active, withdrawn, completing, completed, failing, failed,
+terminating, terminated, compensating and compensated as states (data object states
+are user–deﬁned). Having said that, the DurationMeasure L–pattern can be
+deﬁned as:
+the duration between the time instants when <event1> and when <event2>
+where <event> is deﬁned as:
+{ <BP element> changes to state <BP state> | <BP event> is triggered }
+For example, in order to measure the duration of the Analyse RFC activity, the L–pattern
+can be instantiated as:
+the duration between the time instants when RFC analysis activity changes to state
+active and when RFC analysis activity changes to state completed
+3.2
+Count Measure L–Pattern
+A count measure for PPIs counts the number of times a speciﬁc event—as considered
+in previous section—happens. Therefore, its corresponding L–pattern is as simple as
+the number of times <event>, for example:
+the number of times Analyse RFC activity changes to state completed
+Deﬁning PPIs by Using Templates and Patterns
+227
+3.3
+Condition Measure L–Pattern
+A condition measure takes boolean values depending on either the state of a BP element
+or a condition speciﬁed on a data object. The two corresponding L–patterns are:
+<BP element> { is currently | has ﬁnished } in state <BP state>
+Data object <object> satisﬁes: <condition on object properties>
+For example:
+Activity Analyse in committee is currently in state active
+Data object RFC satisﬁes: priority = high
+3.4
+Data Measure L–Pattern
+A data measure takes the value of a speciﬁc property of a data object. The L–pattern
+is as simple as: the value of <property> of <object>. For example, assuming the RFC
+data object has a property indicating the affected departments:
+the value of affected departments of RFC.
+3.5
+Derived Measure L–Pattern
+A derived measure is a function deﬁned over other measures expressed using some of
+the previous L-patterns. For the sake of simplicity, they are referred to by means of a
+symbolic name. In this case, the L–pattern includes the expression of the function and
+a mapping from function variables to the measures of other measures:
+the function <expression over x1 . . . xn>, where { <xi> is <Measurei> }i=1..n
+For example, assuming two Measures such as Number of approved RFCs and Number
+of registered RFCs, a derived measure for the ratio of RFCs approved from registered
+could be deﬁned as:
+the function a
+r ∗100, where a is Number of approved RFCs and r is Number of
+registered RFCs
+3.6
+Aggregated Measure L–Pattern
+In a similar way to derived measures, aggregated measures are deﬁned over one of the
+previous measures by applying one aggregation function, i.e. sum, maximun, minimum,
+average, etc. The corresponding L–pattern is the following:
+the { sum | maximum | minimum | average | ... } of <Measure>
+An example of the use of an aggregated measure L–pattern can be seen in the sample
+PPI deﬁnition in Table 2.
+228
+A. del–Río–Ortega et al.
+4
+Conclusions and Future Work
+As a major conclusion we can claim that it is possible to deﬁne PPIs with a notation that
+is easy to learn, promotes reuse, reduces ambiguities and avoids missing information,
+is understandable to all stakeholders, maintains traceability with the process model,
+and can be automatically analysed. The only price to pay is to restrict the employed
+sentences to the ones allowed by the underlying PPINOT ontology [3].
+Some possible lines for future work can include adapting templates when more feed-
+back from real scenarios is available, discovering more patterns, specially for the def-
+inition of resource–aware PPIs, and developing a tool to integrate it into the PPINOT
+tool, allowing thus the deﬁnition of PPIs through either the approach presented here or
+using our graphical notation, and their subsequent analysis, enabling also the automatic
+generation of documentation.
+References
+1. Shahin, A., Mahbod, M.A.: Prioritization of key performance indicators: An integration of
+analytical hierarchy process and goal setting. International Journal of Productivity and Perfor-
+mance Management 56, 226–240 (2007)
+2. Franceschini, F., Galetto, M., Maisano, D.: Management by Measurement: Designing Key
+Indicators and Performance Measurement Systems. Springer (2007)
+3. del-Río-Ortega, A., Resinas, M., Ruiz-Cortés, A.: Deﬁning Process Performance Indicators:
+An Ontological Approach. In: Meersman, R., Dillon, T.S., Herrero, P. (eds.) OTM 2010, Part
+I. LNCS, vol. 6426, pp. 555–572. Springer, Heidelberg (2010)
+4. del Río-Ortega, A., Resinas, M., Ruiz-Cortés, A.: PPI deﬁnition and automated design-time
+analysis. Technical report, Applied Software Engineering Research Group (2012)
+5. Durán, A., Bernárdez, B., Ruiz-Cortés, A., Toro, M.: A Requirements Elicitation Approach
+based in Templates and Patterns. In: Proc. Workshop de Engenharia de Requisitos (WER
+1999), Buenos Aires, Argentina (1999)
+6. Durán, A., Ruiz-Cortés, A., Corchuelo, R., Toro, M.: Supporting Requirements Veriﬁcation
+using XSLT. In: Proc. IEEE Joint International Conference on Requirements Engineering, pp.
+165–172 (2002)
+7. Ruiz-Cortés, A., Martín-Díaz, O., Durán, A., Toro, M.: Improving the automatic procurement
+of web services using constraint programming. Int. J. Cooperative Inf. Syst. 14(4), 439–468
+(2005)
+8. OMG: Business Process Model and Notation (BPMN) Version 2.0 (January 2011)
+

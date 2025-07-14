@@ -1,0 +1,747 @@
+A Framework for Process Management in Service 
+Oriented Virtual Organizations
+Mohammad H. Danesh, Bijan Raahemi, Mohammad A. Kamali 
+IBM Center for Business Analytics and Performance Management 
+Telfer School of Management, University of Ottawa 
+55 Laurier Ave, E. Ottawa, ON.  K1N 6N5 Canada 
+{mahma023, braahemi, skama043}@uottawa.ca
+Abstract—Virtual Organization (VO) is a network of autonomous 
+organizations sharing their competitive advantage to address a 
+specific business opportunity. Due to their autonomous and 
+interdependent nature, management of collaboration among such 
+organizations is a challenging task.  In this paper, we present a 
+framework for process management in service oriented virtual 
+organizations.  We propose 6 layers for the framework with 
+multiple components within each layer.  In designing the 
+components of the framework, standard reference architecture 
+such as Open-EDI reference model and the S3 service oriented 
+architecture, as well as best practices such as ITIL V3 and 
+PMBOK are used. Further, we present a distributed SOA 
+infrastructure that facilitates peer-to-peer collaboration between 
+organizations in a virtual organization. The infrastructure is 
+based on creating specific service zone for each participating 
+organization to build a virtual ESB. Compared to collaborative 
+environment in networked organization usually supported by 
+computer networks, the loose coupling of services, and the 
+autonomous characteristics of service oriented architecture make 
+it one the best approaches for implementing virtual organization.  
+Keywords-Virtual Organization; Service Oriented Architecture; 
+Collaborative Process Management; Enterprise Service Bus 
+I.
+INTRODUCTION 
+Participation in inter organizational collaboration is 
+inevitable in today’s business environments, especially when 
+organizations need to achieve a differentiated competitive 
+advantage. This is even more essential if the organization is a 
+small or medium size enterprise (SME). Companies are 
+increasingly restructuring their process models and software 
+infrastructures to facilitate dynamic and flexible environments 
+to engage in more complex value exchanges, partnership, and 
+business ecosystems [1]. This results in appearance of 
+Collaborative Networked Organizations (CNO) and temporary 
+gathering of multiple organizations to address a specific 
+business opportunity, and eventually, creation of Virtual 
+Organizations (VO). 
+Computer aided data interchange and software interaction 
+between different organizations has been around for a long 
+time, and has evolved over time. Several frameworks and 
+standards have been developed, especially for Business-to-
+Business interactions. Also, there have been studies on agile 
+and 
+flexible 
+communications 
+within 
+networked 
+of 
+organizations.  At their early stages, these frameworks were 
+mostly relying on data interchange, but as they evolved, they 
+also attempted to address business processes between networks 
+of organizations [2]. EDI (Electronic Data Interchange), 
+RosettaNet, ebXML (Electronic Business using eXtensible 
+Markup Language) and SOA (Service Oriented Architecture)
+based solutions are examples of such interaction frameworks. 
+ In this research, a framework to form and manage VOs 
+in a distributed environment based on service oriented 
+infrastructure is proposed. The proposed framework enables 
+networks of organizations to form virtual workflows based on 
+their software infrastructures, and share and monitor their 
+performance metrics without the need for a central authority. 
+An abstraction layer for services will enable organizations to 
+share their designated services with other partners while 
+keeping their own core competency private to themselves.  
+A. Virtual Organizations 
+While 
+there 
+are 
+several 
+definitions 
+for 
+Virtual 
+Organizations, there is no definition that draws an exact line for 
+VOs. In this paper, a Virtual Organization is considered as a 
+dynamic, temporal consortium 
+of 
+autonomous 
+legally 
+independent organizations which  corporate with each other to 
+attend a business opportunity or cope with a specific need, 
+where partners share risks, costs and benefits, and whose 
+operation is achieved by a coordinating sharing of skills, 
+resources and competencies [3][4]. VOs are classified 
+differently based on their characteristics. A common 
+classification is based on VO topologies. In [4], three different 
+topologies for VOs are discussed: the supply chain topology in 
+which partners’ collaboration follows a linear pattern where 
+each partner communicates to its upper and lower neighbors; 
+the star topology, also called hub and spoke, which has a main 
+contractor  acting as the central partner, and the collaboration 
+between different partners is arranged predominantly star-like 
+between the central partner and other organizations; and 
+finally,  the peer-to-peer topology where the partners interact 
+with each other with no hierarchy or central control. The VOs 
+processes are divided into operational processes and 
+management processes. The operational topology describes the 
+physical and informational flows needed for the production of 
+a product or service while the management topology describes 
+the information and control flows of VO guidance process. The 
+VO might follow one of the topologies in its operation and 
+another one in its management [4]. As for the VOs contracting 
+and 
+costumer 
+relationship, 
+VOs 
+have 
+four 
+different 
+collaboration patterns. First, the explicit consortium in which 
+the client selects and regulates the partners involved and 
+follows a star topology managed by consumer itself. The 
+second one is the internal consortium which follows a star 
+topology but one of the VO partners regulates the 
+12
+978-1-4577-1127-5/11/$26.00 c⃝2011 IEEE
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:07 UTC from IEEE Xplore.  Restrictions apply. 
+communication and handles the contract with the costumer. 
+The third solution would be a sub-contracting solution which 
+follows a supply chain topology. The final pattern which 
+follows the peer-to-peer topology is a partnership in which all 
+partners are responsible for a legal contract, and interact with 
+the costumer directly. In this case, sometimes a legal entity is 
+formed using the partnership agreement [5]. 
+B. Management  of Virtual Organization  
+VO management denotes the organization, allocation and 
+coordination of resources and their activities, as well as their 
+inter-organizational dependencies to achieve the objectives 
+within the required time, cost and quality frame [4]. As VOs 
+aggregate several autonomous partners, and operate in a highly 
+dynamic and temporal environment, their management is 
+complex, and also critical to the success of VOs. Efficient VO 
+management faces challenges such as temporality in its nature, 
+distributed operation between different business partners, need 
+of adoption to fast changing environment which may cause 
+restructuring 
+in 
+management 
+approach 
+or 
+even 
+VO  
+configuration. In order to support dynamic and agile 
+management within the VO climate, real-time actions, and 
+consequently, efficient performance management with reliable 
+real-time indicators are required [4]. Four different approaches 
+for VO management are identified. First, managing VO as a 
+project using Project Management Body of Knowledge 
+(PMBOK) [6] which defines a project as “a temporary effort to 
+create a unique product or service”. A VO then fits in 
+PMBOKs definition of a project. However, some argue that a 
+VO management is much more complicated than a project 
+since multiple organizations are involved, and VO creation 
+requires initial preparation and continuous negotiation. The 
+second approach is to define and employ decision protocols 
+and mechanisms to manage VOs. This approach usually lacks 
+the guidelines and supporting methodologies for management 
+activities. The third approach is to use PMBOK and other 
+related project management frameworks as a reference model 
+for VO management. Finally, the fourth approach is based on 
+collaborative discussions between different VO partners [3] 
+[4]. VOs have a wide range of characteristics with respect to 
+their structure, time span, lifecycle and behavior. Therefore, it 
+is extremely difficult to define a one-size-fits-all model 
+covering all the identified requirements of VO management. 
+As such, the focus in VO management is mainly on governance 
+and management services [7]. Common organizations spend 
+only a small fraction of their lifetime in the creation and 
+dissolution stages, whereas in many varieties of CNOs these 
+two phases are complex and take up considerable efforts. Every 
+CNO has four stages in its lifecycle, namely Creation, 
+Operation, Evolution and Inheritance [8]. VO management 
+focuses on the operation and evolution stages of the lifecycle 
+which itself is divided to five phases including Initiation, 
+Operation, Collaboration, Evolution and Dissolution.  The 
+ECOLEAD project has further elaborated VO management 
+services as main components for management of virtual 
+organization [9]. 
+C. Service Oriented Archite ture (SOA) 
+SOA is more than just a flexible new technology but an 
+IT paradigm that facilitate agility and reusability in 
+organizations. From a manger’s point of view “SOA is a 
+journey that promises to reduce lifetime cost of the application 
+portfolio, maximize Return on Investment (ROI) in both 
+application and technology resources, and reduces lead times in 
+delivering solutions to the business” [10].  From a business 
+executive’s point of view “SOA is a set of services that can be 
+exposed to their customers, partners and different parts of the 
+organization” [10]. From an information systems architect’s 
+point of view “SOA is a means to create dynamic, highly 
+configurable and collaborative applications built for change 
+which reduces IT complexity and rigidity” [10]. In today’s 
+market, enterprises have to respond faster and more efficient to 
+shifting market requirements, regulations and customer needs. 
+Tight competition is forcing businesses to provide more and 
+more services to their customers to keep them satisfied. To 
+accomplish this, enterprises need to have a palette of atomic or 
+composite services that can be easily and dynamically 
+assembled into business processes [11]. Due to SOAs loose 
+coupling, policy driven, composable service architecture; it is 
+surely one the most appropriate implementation approaches for 
+such dynamic business processes [10]. A combination of a 
+SOA and Business Process Management (BPM) approach, 
+with the appropriate management focus, will facilitate a faster 
+path to IT and business alignment. Although SOA BPM 
+approach has known to be successful, failure stories have been 
+reported in this area which was mostly caused by a sole web 
+service orientation towards SOA implementation [11]. SOA 
+principles and best practices need to be used to design services 
+in three different layers, and to compose services on those three 
+layers to realize dynamic BPM. The first layer is collaborative 
+services, which include high level business processes defined 
+between enterprises. The second layer is public services which 
+are processes inside an enterprise composed of different 
+business components and orchestrated properly. Finally, the 
+private services which are internal business activities within a 
+business component [11].  
+II.
+THE PROPOSED FRAMEWORK FOR  PROCESS 
+MANAGEMENT  IN SOVO 
+As discussed in the previous section, VOs operate in a 
+very dynamic environment. They also need computer networks 
+and information systems to facilitate their collaboration while 
+maintaining each partner’s independence.  VOs’ operation 
+phase is handled through their collaborative business processes, 
+and as discussed before, one the best ways to implement and 
+manage dynamic business processes is with a SOA approach 
+[10]. As such, we   propose a framework and an 
+implementation infrastructure for Service Oriented Virtual 
+Organization (SOVO) Process Management. The proposed 
+framework is based on reference architectures and best 
+practices to ensure an effective service oriented process design 
+for SOVO. The layering of the framework is based on the 
+Open-EDI reference model [12] and the S3 Service Oriented 
+Reference Architecture [13]. Detailed descriptions of the 
+components of the framework are derived from the best 
+practices of ITIL V3 [14] and PMBOK [6]. Figure 1, shows the 
+framework and its components in six layers which will be 
+discussed further in the following sub-sections. The main 
+boxes represent the layers and the small inner boxes indicate 
+the components of each layer. 
+2011 7th International Conference on Next Generation Web Services Practices
+13
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:07 UTC from IEEE Xplore.  Restrictions apply. 
+This framework is based on a distributed service oriented 
+infrastructure which facilitates distributed management of the 
+VO, while keeping the actual organizations and their services 
+and processes completely autonomous by using service zones
+as an abstraction layer for the organizations services. The 
+service zone allows organizations share their collaborative 
+services under specific rules and policies defined by the VO 
+business processes and service choreography. The zones enable 
+VO to manage and orchestrate its services as if it is the actual 
+owner, while providing the business partners with complete 
+control and autonomy to manage or change their services 
+within the boundary of the collaborative policies and zone 
+specifications. The VO is virtually the owner of its services and 
+can enforce the rules, service choreography and orchestration 
+within its domain while the zone gateway ensures 
+organizations privacy and security restrictions. More technical 
+details of this collaboration pattern will be discussed later.
+Figure 1: The SOVO Process Management Framework 
+A. Business Value Coordination 
+This layer focuses on the business values and motivations 
+of the VO formation. It illustrates the business opportunity and 
+the values that the VO consortium will gain. The opportunity 
+discovery results in a set of business values that will be further 
+discussed as Measurable Organizational Values (MOVs) and a 
+general business model for the VO. After the business model is 
+defined, partner discovery and selection is performed. In an 
+ideal service oriented environment this is done by agent based 
+semantic oriented service matching using the UDDI registry 
+(Universal Description, Discovery and Integration). Further 
+research on VO partner search and VO creation phase can be 
+found in [15] and [5]. Partner negotiation and contracting í
+which value constellation (network of enterprises that jointly 
+creates and distributes objects of economic value) modeled by 
+e3-Value [16] [17] is the most important part of ití finalizes 
+this phase. As part of the value constellation, each partners 
+offering and competencies is identified, and their contribution 
+in VO value creation is elaborated and modeled. 
+B. Business Process Design 
+This layer focuses on business process flow and clarifies 
+different conditions and dependencies between processes and 
+their related conditions. It is also responsible for design and 
+correlation of individual services to form efficient healthy 
+business processes. The choreography modulation focuses on 
+partner collaboration and service interactions. It specifies each 
+party’s role and activities, and the sequences of service 
+invocation. It serves as an agreement between the participating 
+business partners in their collaboration [18]. This step of the 
+business process design may even alter some of the partner 
+negotiation. As such, some iteration between the two 
+components might be necessary. Due to the use of Enterprise 
+Service Buses (ESBs) and support of multiple messaging 
+patterns in SOA infrastructure, the notion of listening and 
+responding to events is embedded and supported which makes 
+SOA and event driven architecture (EDA) complementary 
+solutions [10]. Therefore, the presented SOVO infrastructure 
+(explained in sub-section E) facilitates events specifications 
+and their implementation. These events will be described in 
+this module, and modeled later using Business Process Model 
+and Notation (BPMN) [19]. The information flow is specifying 
+data flow between different services in a process. It models 
+what to be delivered to whom at what time. A combination of 
+Data Flow Diagram (DFD) and BPMN will be used to model 
+these interactions. Policy definition in VOs has two aspects, 
+first service policy definitions which further qualify capabilities 
+of interaction endpoints; simply put, a policy expresses 
+anything a service wants the world to know about it other than 
+what messages it understands. These policies will be enforced 
+by the ESBs and their collaboration [20]. The second aspect is 
+the process layer policies which indicate the collaborative 
+process rules and policies. They are implemented using 
+business rule engines (Business rule engine is further discussed 
+in sub-section E). These policies will be modeled using WS-
+Policy open standard. The zone specification is focused on how 
+each partner of the VO organizes its gateway. It indicates what 
+services are shared, and what main policies and security 
+restrictions it applies. These specifications are derived from the 
+service choreography and policy definition. Finally, the service 
+orchestration illustrates service sequences. It uses BPMN to 
+model the final process, and derive the corresponding BPEL 
+(Business Process Execution Language) according to the 
+partner zone specifications.  
+C. Performance Measurement System Design 
+Before introducing a framework for performance 
+measurement, we need to identify the different categories of 
+Key 
+Performance Indicators 
+(KPIs) 
+for 
+SOVO. The 
+ECOLEAD project [21] divides performance indicators in 
+CNOs into three different categories: 1) the performance of 
+fulfilling the given task and the contributing performance of the 
+partners, 2) the performance of the partners’ collaboration, and 
+3) the performance of the management approach. In case of a 
+service oriented virtual organization, these layers can be 
+interpreted as 1) Service Layer KPIs, 2) Services Collaboration 
+Performance, and 3) Measureable Organizational Values 
+(MOVs). These performance categories can be depicted as 
+different layers of a SOVO performance pyramid as shown in 
+Figure 2.
+The bottom-level performance indicators in a SOVO will 
+be used to assess the performance of services provided by a 
+specific partner in the collaborative process. These indicators 
+are mostly domain specific and must be agreed upon by the 
+corresponding partners. These indicators are mainly at 
+14
+2011 7th International Conference on Next Generation Web Services Practices
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:07 UTC from IEEE Xplore.  Restrictions apply. 
+operational level. The mid-level performance indicator is 
+Collaboration Performance which is used to measure the 
+effectiveness and efficiency of the independent partners’ 
+interaction. Meeting the targets in these performance indicators 
+enables merging of their processes to accomplish a common 
+task in a non-hierarchic way [22]. The collaboration 
+performance layer can be considered strategic, whereas the 
+value creation in a SOVO can be done only by smooth 
+interaction and collaboration among SOVO partners. The top 
+level of performance indicators in Figure-3 is employed to 
+measure the effectiveness of management approach and the 
+strategic level of decision making in SOVO. Considering the 
+time restriction and limited resources available, one approach 
+to manage SOVOs is the IT project management [3]. Thus, 
+using the language of IT project management, the criteria 
+indicating the success of SOVO at this level are measureable 
+organizational values (MOVs) [23]. MOVs are considered the 
+most strategic level of performance indicators as they have the 
+strongest ties with the SOVO’s strategy. In fact, the temporal 
+and dynamic nature of SOVO substitutes the long-term 
+strategic goals and objectives with short-term organizational 
+value creation. Balances Score Card (BSC) can be used to 
+establish the links among these three layers. The BSC method 
+provides a balanced approach by considering non-financial 
+metrics (customer, internal business process and learning and 
+growth), as well as financial ones. The change in non-financial 
+indicators will affect the financial ones in long-term defined by 
+mathematical relationship between the two [24]. 
+Figure 2: The SOVO Performance Indicators Pyramid 
+D. Service Level Management 
+This layer is derived from ITIL V3 service level 
+management principles [14]. It is a set of processes that are 
+responsible for defining and negotiating service level targets, 
+objectives and agreements which ensure the performance of 
+overall VO services and operations. Service level management 
+guarantees service consistency and continual improvement 
+which also facilitates better monitoring and quality assurance.  
+This layer maps the previously modeled processes and 
+performance system design to traceable services, and generates 
+manageable service level agreements from them. The value 
+target planning focuses on overall service level targets based on 
+measurable organizational values defined in the previous sub-
+section. The service collaboration requirement specifies service 
+interdependencies and their quantitative measurements derived 
+from the collaboration performance as mentioned in the 
+previous sub-section. These two components follow a top-
+down approach for definition of performance threshold, 
+whereas, a bottom-up logic is followed for the definition of the 
+performance indicators. The service zone describes the 
+gateway requirements per each partner participated in the VO. 
+It acts as an SLA for the overall policies and rules supporting 
+specific partner’s services. The service level requirement 
+(SLR) is a set of specifications and requirements for a service, 
+based on the business objectives. The main functionalities 
+expected from a service are described in SLR and operational 
+level agreements (OLA). OLA is an agreement on operational 
+support between service provider and its users. The service 
+layer KPI boundaries are set in this phase through the SLR and 
+OLA, also projected in the Service Layer Agreement (SLA). 
+The SLA describes the Service, documents service level 
+targets, and specifies the responsibilities of the IT service 
+provider and the users. The results of the negotiations and 
+performance indicators and agreements are all projected in a 
+single SLA document which is the main output of this process, 
+and is used for monitoring the service in the future. Further, 
+templates and specifications of the component in this layer will 
+be provided in the documentation of the framework.  
+E. Deployment Artifact and Implementation Infrastructure 
+This layer proposes an implementation approach to 
+virtual organizations. It consists of a set of components and 
+implementation principles for SOVO process deployment and 
+monitoring. It also embeds some guidelines for continual 
+improvement derived from ITIL, which also provides input to 
+the final supervision and governance layer. The following 
+components will fulfill their duty more effectively if they run 
+on a distributed infrastructure. Thus, we propose a model for a 
+distributed service oriented infrastructure which facilitates the 
+business process operation, monitoring and management in a 
+peer-to-peer VO topology. Depending on the configuration of 
+the infrastructure, it can support other topologies such as star 
+and supply chain as well. We believe that this approach 
+provides faster VO deployment, and enhances peer-to-peer VO 
+management and collaboration. The distributed infrastructure is 
+based on multiple ESBs collaborating with each other, while 
+creating zone gateways to guarantee specific organizational 
+rules and policies. 
+Figure 3: Virtual ESB Facilitating a Distributed SOA Infrastrcuture 
+With this zone approach, organizations have total control 
+over what services to share securely and conveniently. It is 
+easier to control competitive advantage through zones without 
+worrying about complex integration process. Generally, ESBs 
+are the enablers of service interaction, and facilitate large scale 
+implementation of the SOA principles manageable in a 
+heterogeneous world [20] [25]. In addition to providing the 
+basic infrastructure for service interactions, the ESB provides a 
+set of common patterns for construction of on demand 
+applications, and provides specific capabilities to support 
+realization of distinct service categories that play particular 
+2011 7th International Conference on Next Generation Web Services Practices
+15
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:07 UTC from IEEE Xplore.  Restrictions apply. 
+roles in those patterns [25]. We use these different 
+collaboration patterns to create a specific service zone for the 
+partner participating in the VO to build an ESB federation [26] 
+[27] (Virtual ESB) to support VO collaborations. The 
+components in the deployment artifact layer shown in Figure 1 
+facilitate VO process management above the virtual ESB as 
+shown in Figure 3
+Figure 4: A Proposed Architecture for the SOA infrastructure 
+Except the ESBs that facilitate the virtual ESB in every 
+organization, we assume that a service oriented infrastructure is 
+in place which helps organizations to implement their own 
+services.  The VO processes will then run on their service 
+oriented infrastructures. As such, no additional infrastructure 
+will be required for the VO. In an ideal service oriented world, 
+deployment of a VO would only require zone specific 
+configurations. Figure 4 illustrates the architecture of such an 
+SOA infrastructure. This architecture is based on the S3 
+reference architecture [13], IBMs web sphere SOA foundation 
+and Oracles SOA suite 11g architecture. The first layer 
+includes ESB and UDDI registry. The second layer is a 
+business process engine which mainly supports BPEL 
+executions and service compositions. At the third layer, a 
+business rule engine facilitates the enforcement of business 
+rules throughout the service execution lifetime. This layer 
+would be responsible to guarantee policies defined in the 
+higher level of the framework. And finally, at the top layer, a 
+Complex Event Processing Engine (CEP) triggers various 
+events, and facilitates an event-driven architecture in the 
+service execution environment. The Business Activity 
+Monitoring (BAM) module monitors the infrastructure, and the 
+performance of the services to facilitate the SLA management. 
+The service desk moduleí which is at the edge of the 
+infrastructure and can be considered as a part of a bigger help 
+desk solution of the owner organizationí is a necessary 
+component of ITIL. Most of the features and benefits of the 
+proposed framework is realized by employing a suitable ESB.  
+F. Supervision And Governance 
+This layer of the framework focuses on driving VO 
+towards the right direction based on performance monitoring 
+and the feedback it receives. It facilitates forecasting, planning 
+and design of future trends of the VO which result in continual 
+improvement and change management in the virtual 
+organization. Performance coaching includes the efforts taken 
+for performance appraisal, and providing appropriate feedbacks 
+to partners in order to improve their performance based on the 
+specified objectives and performance targets. In other words, 
+performance coaching is the systematic effort to link the 
+performance reviews and evaluations to the continuous training 
+and development [28]. The benefit sharing component aligns 
+VO partner benefits based on the value constellation and value 
+creation in accordance to their performance. It uses 
+performance as the criteria for assessing rewards or sharing 
+benefits [28], as well as services offered through the 
+infrastructure. These two components are both drivers for 
+moving the performance of partner organizations to desired 
+level of performance. Accounting is related to the financial 
+shared activities of the VO which is affected by the benefit 
+sharing component of this layer. This component requires 
+further specification that is not addressed in this framework, 
+and is left to the VO financial planners. Finally, the evolution 
+driver is a set of processes designed to drive appropriate 
+changes in the VO based on performance monitoring aspects 
+[3]. These changes are classified in three categories: the first 
+one is usually within a partner’s services, and only triggers 
+performance indicators; the second category is the one that 
+affects VO service choreographies, and is results in a higher 
+level change in VO; and finally, the third category which 
+involves changes in VO value creation and might even result in 
+renegotiation between partners.  
+III.
+THE SCOPE OF THE PROPOSED SOVO PROCESS 
+MANAGEMENT FRAMEWORK
+ As discussed in section I.B, there are different 
+approaches to manage a virtual organization. Our approach is 
+based on the PMBOK reference model and its nine knowledge 
+areas in combination with a peer-to-peer collaboration that uses 
+guidelines and decision protocols derived from performance 
+management.. ARCON (A Reference model for COllaborative 
+Networks) [8] which is a comprehensive modeling framework 
+for CNOs is referenced to illustrate our modeling approach in 
+the framework. ARCON reference framework divides CNO 
+modeling 
+into 
+endogenous 
+elements 
+and 
+exogenous 
+interactions. Our proposed framework focuses on modeling the 
+endogenous structural, componential, functional and behavioral 
+elements of VOs in various PMBOK knowledge areas except 
+the risk management. The framework does not intend to model 
+or provide any guidelines on exogenous interactions of VOs. 
+Since we are using a service oriented infrastructure for 
+implementing VO , ITIL foundation V3 is considered as a third 
+reference for the framework in order to define VO service 
+design and management principals, and to highlight VOs 
+governance and continual improvement [14].
+IV.
+BENEFITS OF THE FRAMEWORK
+The collaboration model and the infrastructure proposed 
+in this paper facilitate a peer-to-peer inter-organization 
+collaboration through existing SOA infrastructures in the 
+organizations. The proposed framework specifies the design 
+and management of VO business processes in a service 
+oriented environment. This offers several benefits including 1) 
+facilitating creation of global virtual organizations faster and 
+easier 
+through 
+web 
+services. 
+With 
+this 
+framework, 
+organizations in various geographical positions can form a 
+secure infrastructure for their B2B interactions with less cost 
+and easy configuration; 2) B2B interactions and VO formation 
+is done more efficiently and the total cost and effort of VO 
+formation and maintenance are reduced; 3) The framework 
+provides agile inter-organization process automation, and 
+brings dynamicity as a competitive advantage to the VO. The 
+VO will adapt and integrate with partner’s information systems 
+much easier with less cost; 4) VOs dependency to its partner 
+16
+2011 7th International Conference on Next Generation Web Services Practices
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:07 UTC from IEEE Xplore.  Restrictions apply. 
+organization is reduced because of a loosely coupled service 
+oriented infrastructure; 5) This infrastructure facilitates 
+collaboration among any network of organizations using any 
+common topologies; and 6) Since the proposed infrastructure is 
+based on current partners SOA infrastructure, and due to the 
+SOAs scalable and reusable nature, the risk of VO creation will 
+be reduced significantly because of low initial investment.  
+V.
+COLCLUSIONS 
+Inter-organizational collaboration and interactions are 
+becoming essential to businesses in today’s fierce competitive 
+environment. Thus, heterogeneous networks of organizations 
+come together to form virtual organization with peer to peer 
+topology. Managing such collaborative environments is 
+challenging and requires dynamic IT infrastructures to support 
+the variety of topologies. In this paper, (a) a framework for 
+designing and modeling SOVO processes was proposed.  The 
+framework consists of six main layers, and embeds a continual 
+improvement cycle. Further,  the various components in each 
+layer is described using standard reference models and best 
+practices.; and (b) we  provided a distributed SOA 
+infrastructure to facilitate implementation of different VO 
+collaborations. We proposed specific service zone for each 
+participating organization in the VO to build an ESB federation 
+(Virtual ESB). We also described the details of the proposed 
+architecture for the SOA infrastructure. This is an ongoing 
+research in our center. The proposed infrastructure is currently 
+being implemented using IBM WebSphere V7. The 
+implementation is done at University of Ottawa in 
+collaboration with IBM on a prototype and the results will be 
+published in future publications. Some of the PMBOK 
+knowledge areas such as risk management and human resource 
+management are not fully addressed in this framework, and are 
+left as future works. The design of agent based partner 
+discovery and negotiation for VO creation will also be 
+considered in our future works.  
+ACKNOWLEDGEMENT
+This project is jointly supported by MITACS-Accelerate 
+program and IBM center for business analytics and 
+performance management. 
+REFERENCES
+[1]
+L.M.Camarinha-Matos, H.Afsarmanesh, and M.Ollus, “ECOLEAD And CNO 
+Base Concepts”, Methods and Tools for Collaborative Networked Organizations, 
+US, pp. 3–32. Springer, May 2008 
+[2]
+U.Dorn; C.Grun; H.Werthner, and M.Zapletal; , "A Survey of B2B Methodologies 
+and Technologies: From Business Models towards Deployment Artifacts," System 
+Sciences, 2007. HICSS 2007. 40th Annual Hawaii International Conference on , 
+vol., no., pp.143a, Jan. 2007 
+[3]
+M.V.Drissen-Silva,. and R.J.Rabelo, “A model for dynamic generation of 
+collaborative decision protocols for managing the evolution of virtual enterprises”, 
+Proceedings of the 8th IFIP international conference on information technology for 
+balance automation systems –BASYS’2008, 23–25 September, Porto, Portugal. 
+New York: Springer, 105–114, 2008  
+[4]
+I.Karvonen, I.Salkari, and M.Ollus , “Characterizing virtual organizations and their 
+management”, L.M. Camarinha-Matos, H. Afsarmanesh and A. Ortiz, eds. 
+Collaborative networks and their breeding environments,193–204,Springer, 
+September 2005 
+[5]
+L.M.Camarinha-Matos, I.Silveri, and H.Afsarmanesh, “Towards a Framework For 
+Creation of Dynamic virtual Organizations”. L.M. Camarinha-Matos, H. 
+Afsarmanesh and A. Ortiz, eds. Collaborative networks and their breeding 
+environments, Springer, September 2005 
+[6]
+A guide to the project management body of knowledge (PMBOK® guide). 4th 
+edition. s.l. : Project Management Journal, 40: 104. doi: 10.1002/pmj.20125, 2009. 
+[7]
+K.Jansson, I,.Karvonen, M.Ollus, U.Negretto, “Governance and management of 
+virtual organizations”, Camarinha-Matos, L.M., Afsarmanesh, H., Ollus, M. (eds.) 
+Methods and Tools for Collaborative Networked Organizations. Springer, 
+Heidelberg , 2008 
+[8]
+L. Camarinha-Matos and H. Afsarmanesh, “A comprehensive modeling framework 
+for collaborative networked organizations,” J. Intell. Manuf,vol. 18, pp. 529–542, 
+Springer, Oct. 2007. 
+[9]
+U.Negretto, J.Hodík, L.Král, W.Mulder, M.Ollus, L.Pondrelli and I.Westphal, “VO 
+Management Solutions, VO Management e-Services”, Methods and Tools for 
+Collaborative Networked Organizations, US, pp. 257–274. Springer, May 2008 
+[10] H. Kerrie , and A.Arsanjani, “100 SOA Questions Asked and Answered”, 1st 
+edition. : Prentice Hall Press,USA, 2010. 
+[11] M.Fiammante, “Dynamic SOA and BPM: Best Practices for Business Process 
+Management and SOA Agility”, 1st edition, IBM Press, 2009. 
+[12] ISO/IEC CD 14662. Information Technology - Open EDI reference model, Draft 
+International Standard ISO/IEC JTC1/SC 30, 1998 
+[13] A.Arsanjani, Liang-Jie Zhang; M.Ellis, A.Allam, and K.Channabasavaiah, "S3: A 
+Service-Oriented Reference Architecture", IT Professional , vol.9, no.3, pp.10-17, 
+May-June 2007. 
+[14] Office of Government Commerce. ITIL V3 Core Books. UK, 2007. 
+[15] L.Camarinha-Matos, and H.Afsarmanesh, "A framework for virtual organization 
+creation in a breeding environment," Annual Reviews in Control, 2007 
+[16] C.Huemer, P.Liegl, R.Schuster, H.Werthner, and M.Zapletal, "Inter-organizational 
+systems: From business values over business processes to deployment," Digital 
+Ecosystems and Technologies, 2008
+[17] V.Pijpers, J.Gordijn , and A.Hans., “Exploring inter-organizational alignment with 
+e3alignment – An Aviation Case”,  BLED 2009 Proceedings. Paper 2., 2009 
+[18] U.Mohamed, G.Galal-Edeen, and A.El-Zoghbi, "Building Integrated Oil and Gas 
+B2B E-commerce Hub Architecture Based on SOA," e-Education, e-Business, e-
+Management, and e-Learning, 2010. IC4E '10. International Conference on , vol., 
+no., pp.599-608, 22-24 Jan. 2010 
+[19] BPMN Specification 1.0. s.l. : OMG - Object Management Group, 2006. 
+[20] M.Schmidt, B.Hutchison, P.Lambros, and R.Phippen, "The Enterprise Service Bus: 
+Making service-oriented architecture real," IBM Systems Journal , vol.44, no.4, 
+pp.781-797, 200521.  
+[21] W.Mulder, and G.R.Meijer, “Distributed Information Services Supporting 
+Collaborative 
+Network 
+Management” 
+,IFIP 
+International 
+Federation 
+for 
+Information Processing, Volume 224, Network-Centric Collaboration and 
+Supporting Fireworks, eds. Camarinlia-Matos, L., Afsarmanesh, H., Ollus, M., pp. 
+491-498. (Boston; Springer), 2006 
+[22] F.Graser, I.Westphal, J.Eschenbaecher, “Roadmap on VOPM Challenges on 
+Operational and Strategic Level”, ECOLEAD Deliverables 31.1, 2005 
+[23] J.Marchewka, 
+“Information 
+Technology 
+Project 
+Management: 
+Providing 
+Measurable Organizational Value”, John Wiley & Sons Inc, New Jersey, 2nd
+Edition, pp. 28-61, 2006 
+[24] R.S.Kaplan, and D.P.Norton, P. David, “Using the Balanced Scorecard as a 
+Strategic Management System”, Harvard Business School. Boston : Harvard 
+Business Review,pp. 150-16, 2007 
+[25] M. Keen, S. Bishop, A. Hopkins, S. Milinski, C. Hott, R. Robinson, J. Adams, P. 
+Verschueren, and A. Acharya, “Patterns: Implementing an SOA Using an 
+Enterprise 
+Service 
+Bus”, 
+IBM 
+Corporation 
+(2004), 
+http://www.redbooks.ibm.com/abstracts/sg246346.html.  
+[26] D.Bell, “Exploiting IBM WebSphere Service Registry and Repository Feature 
+Pack for Service Federation Management to Share Services Between Two 
+Domains”, 
+IBM 
+Corporation 
+(2010), 
+http://www.redbooks.ibm.com/abstracts/redp4684.html 
+[27] F.Baude, 
+I.Filali, 
+F.Huet, 
+V.Legrand, 
+E.Mathias, 
+P.Merle, 
+C.Ruz, 
+R.Krummenacher, E.Simperl, C.Hammerling, and JP.Lorre, “ESB Federation for 
+Large-scale SOA”, Proceedings of the 2010 ACM Symposium on Applied 
+Computing, SAC 2010, pp. 2459–2466. ACM, New York, 2010
+[28] R.Dransfield, Robert. “Human Resource Management: Studies in Economics & 
+Busines”, Chapter 6, Oxford : Heinemann, 2000
+2011 7th International Conference on Next Generation Web Services Practices
+17
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:18:07 UTC from IEEE Xplore.  Restrictions apply.
+

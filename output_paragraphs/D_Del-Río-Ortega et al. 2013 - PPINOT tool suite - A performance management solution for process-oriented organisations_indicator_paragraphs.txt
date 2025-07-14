@@ -1,0 +1,178 @@
+PPINOT Tool Suite: A Performance
+Management Solution for Process-Oriented
+Organisations⋆
+Adela del-R´ıo-Ortega, Cristina Cabanillas,
+Manuel Resinas, and Antonio Ruiz-Cort´es
+Universidad de Sevilla, Spain
+{adeladelrio,resinas,aruiz}@us.es, cristina.cabanillas@wu.ac.at
+Abstract. A key aspect in any process-oriented organisation is the mea-
+surement of process performance for the achievement of its strategic
+and operational goals. Process Performance Indicators (PPIs) are a key
+asset to carry out this evaluation, and, therefore, the management of
+these PPIs throughout the whole BP lifecycle is crucial. In this demo
+we present PPINOT Tool Suite, a set of tools aimed at facilitating and
+automating the PPI management. The support includes their deﬁnition
+using either a graphical or a template-based textual notation, their auto-
+mated analysis at design-time, and their automated computation based
+on the instrumentation of a Business Process Management System.
+1
+Deﬁning and Analysing PPIs with PPINOT
+Performance requirements on business processes (BPs) are usually speciﬁed in
+terms of Process Performance Indicators (PPIs), which are quantiﬁable metrics
+that can be measured directly by data that is generated within the process ﬂow
+and are aimed at evaluating the eﬃciency and eﬀectiveness of business process.
+The management of those PPIs is, thus, an important part of the BP lifecycle
+that includes at least the deﬁnition of PPIs, their analysis to ﬁnd relationships
+between them, the instrumentation of the information systems that support the
+BPs in order to take the measures that are necessary to calculate the PPIs, the
+actual calculation of the PPIs during process execution, and the monitoring of
+the PPIs fulﬁllment.
+The PPINOT Metamodel [1] provides a foundation on which an automated
+support for these activities can be built. It identiﬁes the concepts that are nec-
+essary for deﬁning Process Performance Indicators (PPIs) such as the diﬀerent
+types of measures that can be used to compute the PPI value. It was deﬁned
+to address the challenge of providing PPI deﬁnitions that are unambiguous and
+⋆This work was partially supported by the European Commission (FEDER), the
+Spanish and the Andalusian R&D&I programmes (grants TIN2009-07366 (SETI),
+TIN2012-32273 (TAPAS), TIC-5906 (THEOS)). The authors thank the PPINOT
+development team at the ISA group, for their development work; concretely Ana
+Bel´en S´anchez and Edelia Garc´ıa.
+S. Basu et al. (Eds.): ICSOC 2013, LNCS 8274, pp. 675–678, 2013.
+c
+⃝Springer-Verlag Berlin Heidelberg 2013
+676
+A. del-R´ıo-Ortega et al.
+complete, traceable to the business process elements used in their deﬁnition, in-
+dependent of the language used to model business processes (BP) and amenable
+to automated analysis.
+Two notations have been developed on top of the PPINOT Metamodel, namely
+a graphical notation and a template-based textual notation [2]. The former ex-
+tends BPMN to allow the graphical deﬁnition of PPIs together with their cor-
+responding BPs. The latter provides a template for PPIs and a set of linguistic
+patterns the user must follow to make the PPI deﬁnition easier [2]. Figure 1 shows
+an example of a PPI deﬁned using PPINOT. The left hand side corresponds to
+a template-based deﬁnition, the right hand side depicts the corresponding XML
+serialisation of the PPINOT Metamodel.
+Fig. 1. An example of a PPI deﬁned with PPINOT
+The PPINOT Metamodel is also provided with formal semantics based on
+Description Logics (DL). This enables leveraging reasoning operations imple-
+mented by oﬀ-the-shelf DL reasoners to automatically extract information from
+the relationships between PPIs and BP elements. This information can be used
+to assist process analysts in the deﬁnition and instrumentation of PPIs [1].
+In this paper, we give an overview of the PPINOT Tool Suite, which is a set
+of tools based on the PPINOT Metamodel that automate or facilitate some of
+the aforementioned PPI management activities.
+2
+PPINOT Tool Suite Overview
+Figure 2 overviews the tools that compose the PPINOT Tool Suite. Rectangles
+depict tools, their inputs and outputs are represented by documents linked with
+dashed arrows, and the possible interconnections between tools is done by using
+solid arrows. The tools can be used separately or sequentially, depending on the
+user purposes. In the following we describe a possible way to use it.
+Design. The PPINOT Tool Suite oﬀers two diﬀerent ways to deﬁne PPIs. On
+the one hand, we can deﬁne them graphically together with the BPMN repre-
+sentation of the BP using the PPINOT Graphical Editor, which is a web editor
+that has been implemented as an extension of the Oryx platform [3]. On the
+other hand, we can use the PPINOT Templates Editor to deﬁne PPIs using the
+template-based textual notation. The tool guides the user by providing linguis-
+tic patterns according to the selection performed in the diﬀerent ﬁelds. In both
+PPINOT Tool Suite: A Performance Management Solution
+677
+Business
+Process 
+Editor
+PPINOT 
+Templates 
+Editor
+PPINOT 
+Analyser
+PPINOT Graphical Editor
+BPMS
+PPINOT 
+Instrumenter
+PPINOT 
+Reporter
+CEP
+PPI Database
+BP+PPI 
+XML
+Users
+Process 
+Responsible
+Process 
+Responsible
+Process 
+Designer
+s 
+ble
+
+	
+
+
+Fig. 2. PPINOT Tool Suite Overview
+cases, an XML document with the PPI information together with the BP model
+is obtained as output.
+Analysis. After deﬁning the PPIs, the PPINOT Analyser can be used. It uses the
+DL formalisation of PPINOT metamodel to implement the analysis operations
+that obtain information about the way PPIs and BP elements inﬂuence each
+other. Concretely, two kinds of analysis operations are currently supported: (I)
+BPElements involved, which allows answering the question Given a PPI, Which
+are the process model’s elements involved?. This information is useful for instance
+when a PPI must be replaced with others (maybe because it is very costly to
+obtain its value) and it is necessary to assure that every element of the BP that
+was measured before is measured in the new case; and (II) PPIs associated to
+BPElement, which allows answering the question Given a BPElement, Which
+are the PPIs associated or applied to it?. This information can assist during the
+evolution of BPs (e.g., an activity is deleted) to identify which PPIs will be
+aﬀected and should be updated.
+Execution. The last set of tools that can be used are those focused on the
+execution of the BP. Before execution, the PPINOT Instrumenter conﬁgures
+Activiti (an open source BPMS1) to send events to a Complex Event Processor
+(CEP) and also conﬁgures the CEP to compute the values of the deﬁned PPIs
+from the events generated by Activiti during BP execution. The computed values
+of the PPIs are stored in a PPI Database. Finally, the PPINOT Reporter can
+be used to present the user these values2.
+1 http://activiti.org.
+2 In its current version this tool provides a simple list of values. An extension to
+provide a proper report is planned.
+678
+A. del-R´ıo-Ortega et al.
+Further information about PPINOT Tool Suite, the description of the tools
+and user instructions can be found at http://www.isa.us.es/ppinot.
+3
+Signiﬁcance and Features
+PPINOT Tool Suite has been developed from research results, and validated and
+extended thanks to the feedback obtained from several real scenarios, both from
+organisations and academia. To the best of our knowledge, there not exists any
+similar tool for the deﬁnition and design-time analysis of PPIs. Concretely, we
+can highlight the following features, from which the last four provide the novelty
+to our proposal:
+BPMN 2.0 compliant. PPIs can be deﬁned over BP diagrams (BPDs) pre-
+viously modelled using the de facto standard BPMN 2.0.
+PPI values computation Taking as starting point any of the aforementioned
+PPI deﬁnitions, PPINOT also provides the possibility to extract the infor-
+mation required to calculate PPI values from Activiti, an open source BP
+management platform, and to create reports with these values.
+Graphical deﬁnition of PPIs. PPINOT Tool Suite supports the graphical
+deﬁnition of PPIs using a graph-based graphical notation that is easily un-
+derstandable by non-technical users, at the same time that it is supported
+by a metamodel that assures the precise and complete deﬁnition of PPIs.
+Template-based deﬁnition of PPIs. PPIs can be deﬁned by fulﬁlling tem-
+plates written in structured natural language, where the user only has to
+properly introduce the missing information, assisted by linguistic patterns.
+PPI deﬁnition mapping Graphical deﬁnition of PPIs can be mapped to their
+corresponding templates in natural language.
+Automated analysis of PPIs. The aforementioned analysis operations can
+be automatically performed on PPI deﬁnitions.
+References
+1. del R´ıo-Ortega, A., Resinas, M., Cabanillas, C., Ruiz-Cort´es, A.: On the Deﬁni-
+tion and Design-time Analysis of Process Performance Indicators. Information Sys-
+tems 38(4), 470–490 (2012)
+2. del-R´ıo-Ortega, A., Resinas Arias de Reyna, M., Dur´an Toro, A., Ruiz-Cort´es, A.:
+Deﬁning process performance indicators by using templates and patterns. In: Barros,
+A., Gal, A., Kindler, E. (eds.) BPM 2012. LNCS, vol. 7481, pp. 223–228. Springer,
+Heidelberg (2012)
+3. Decker, G., Overdick, H., Weske, M.: Oryx - an open modeling platform for the bpm
+community. In: Dumas, M., Reichert, M., Shan, M.-C. (eds.) BPM 2008. LNCS,
+vol. 5240, pp. 382–385. Springer, Heidelberg (2008)
+

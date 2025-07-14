@@ -1,0 +1,658 @@
+117
+ 
+978 1 5090 3720 9/16/$31 00 ©2016 IEEE
+Optimization of the Business Processes Via 
+Automatic Integration with the Document 
+Management System 
+ 
+Almir Djedović, Emir Žunić 
+Info Studio Ltd, Sarajevo  
+Sarajevo, Bosnia and Herzegovina 
+almir.djedovic@infostudio.ba 
+emir.zunic@infostudio.ba 
+ 
+ 
+ 
+Dino Alić, Samir Omanović, Almir Karabegović 
+Faculty of Electrical Engineering, University of Sarajevo 
+Sarajevo, Bosnia and Herzegovina 
+alic.dino@gmail.com 
+somanovic@etf.unsa.ba 
+akarabegovic@etf.unsa.ba 
+ 
+ 
+ 
+Abstract— In today's global business environment, the 
+importance of customer service, cost-competitiveness, and quality 
+are key factors in determining an organization's success, or 
+undesirable failure. Organizations try to optimize their processes 
+to maximize their profits and make the very process faster. Users 
+usually work with documents in the process. Working with 
+documents makes the process more slowly, since the documents 
+are important to be scanned and attached to the form. This work 
+presents the optimization of such processes. It is achieved by 
+automatic integration of Business Process Management and 
+Electronic Document Management Systems. Improvements and 
+results achieved by proposed integration are presented in this 
+research. The model that is created enables monitoring of defined 
+Key Performance Indicators in the identification process of the 
+bottlenecks in the process. The process can be optimized by 
+increasing the number of resources on the activities that are a 
+bottleneck in the process. Such a solution has been tested in the 
+process of opening a bank account. 
+Keywords—business process management; business process 
+optimization; 
+document 
+management; 
+process 
+automation; 
+simulation 
+I. 
+INTRODUCTION 
+ 
+Business Process Management (BPM) is a process-oriented 
+management discipline [1]. Business Process Management is a 
+top-down methodology designed to organize, manage, analyze, 
+and reengineer the processes running in an organization. BPM is 
+defined as a discipline “supporting business processes using 
+methods, techniques and software to design, enact, control and 
+analyze operational processes involving humans, organizations, 
+applications, documents and other sources of information” [2]. 
+This means that BPM is linked with areas of Artificial 
+Intelligence (AI) as Knowledge Management (KM), Knowledge 
+Engineering (KE) and Business Intelligence (BI). 
+In the last few years, with the upcoming of the “third wave” of 
+BPM [3], the BPM lifecycle has been increasingly supported by 
+a set of software technologies, which have been bundled 
+together to a so called BPM System (BPMS) and procedures, 
+change business rules without impact on other applications 
+[4]. It means that processes involve collaboration individuals 
+and/or groups. Companies which implemented Business Process 
+Management are going to optimize their processes. Optimizing 
+business processes results in: maximization of revenue and 
+profitability, reduction of operational costs, customer service 
+improvement, 
+obsolescence 
+and 
+scrap 
+reduction, 
+risk 
+management and compliance with policy and regulations. 
+Today's companies, moving from traditional work with 
+documents and aiming to overcome technical, financial and 
+operational barriers, gravitate towards implementation of 
+Electronic Document Management System (EDMS). Benefits of 
+EDMS are widely known: increased document security and 
+control, more reliable backups, lower document management 
+and archiving costs, better version control, better knowledge 
+management and search possibilities [5]. 
+Combining these two systems together enables a connection 
+between content and processes at all levels of the enterprise. The 
+right information, to the right people, at the right time, is critical 
+in business process optimization [6]. In our work we combine 
+BPM with EDMS system and this combination helps to make 
+better and faster business decisions. Currently there are solutions 
+that integrate BPM and EDMS together such as [7, 8]. Most of 
+the solutions force users to the solutions document systems 
+which are often restrictive. A General idea of integrating 
+management systems and workflow-based electronic document 
+management is presented in [9]. The mentioned general idea 
+contains these two systems and benefits from their integration in 
+terms of the organizational aspect. Solution (DocFlow) which 
+combines these two systems is presented in [10] simple 
+workflow, along with the workflow approval, which is also 
+included. This work goes a step further and automate tasks in 
+process where users use documents from EDMS. When 
+scanned, documents are automatically attached to the process. 
+978-1-5090-3720-9/16/$31.00 ©2016 IEEE
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:55 UTC from IEEE Xplore.  Restrictions apply. 
+118
+ 
+Also, this work uses simulation to improve business process by 
+identified bottlenecks and presents data warehouse model to 
+analyze results of business process. The latter is done by using 
+Business Intelligence (BI) before and after automation, while 
+this research aditionally shows how can processes be improved 
+using BPM-EDMS-BI systems. 
+This paper is structured as follows: BPM is discussed in general 
+and an overview of BPM life cycle is given (see Sec. II). The 
+idea of optimizing business processes with simulation, 
+integration with EDMS system and automation of the steps 
+where these two systems collaborate, and usage of data 
+warehouse model to monitor process execution is presented in 
+Section III. The idea is applied in financial service industry and 
+the results are monitored using business intelligence. Evaluation 
+is given by analyzing key performance indicators (KPI) before 
+and after optimization (see Sec. IV). The paper ends with 
+concluding remarks in Sec. V. 
+II. 
+BUSINESS PROCESS MANAGEMENT 
+A Business Process is the complete and dynamically 
+coordinated set of collaborative and transactional activities that 
+deliver value to customers [3]. BPM system is a suite of 
+software applications that enable the modeling, execution, 
+technical and operational monitoring, and user representation 
+of business processes and rules, based on integration existing 
+and new information systems functionality that is orchestrated 
+and integrated via services [11]. BPM can be viewed as 
+continuous cycle comprising the following phases [12]: 
+ Process identification. This the first phase where 
+processes relevant to the problem are addressed. 
+Sometimes this is done parallel with performance 
+measure identification.  
+ 
+Process discovery. This phase is also called as-is process 
+modeling and here are current processes documented.  
+ Process analysis. In this phase issues related to as-is 
+process are identified, documented and quantified 
+whenever it is possible. Simulation is often used to 
+identify bottlenecks, resources needed in process and 
+process cost [13]. 
+ 
+Process redesign. The goal of this phase is to identify 
+changes to the process that would help to address the 
+issues from the previous phase and allow organization to 
+meet its performance objective. 
+ Process implementation. After analysis and redesign 
+comes implementation where process developers 
+perform tasks: data mapping and transformation, system 
+fault handling, designing and implementing user 
+interface, designing business rules, creating dashboards. 
+ Process monitoring and controlling. Once the process is 
+running, relevant data are collected and analyzed to 
+determine how well is the process performing to the 
+defined KPIs. New issues may then arise, and the cycle 
+needs to be repeated on the continuous basis.  
+The BPM Life Cycle helps to understand the role of technology 
+in BPM. Technology in general, and especially in Information 
+Technology (IT), is a key instrument to improve business 
+process. However, to achieve maximum efficacy, system 
+engineers need to be aware that technology is just one element 
+for managing and executing processes. System engineers need 
+to work together with process analysts in order to understand 
+what main issues affecting a process, and how to best address 
+these issues, be it by means of automation or by other means. 
+III. 
+AUTOMATIC INTEGRATION OF BPM AND EDMS SYSTEMS 
+As mention above, before and after the implementation there 
+is a way to improve process by using simulation. Simulation is 
+widely applied technique in BPM because of its flexibility. 
+Simulation is used for what-if analysis or the correctness of a 
+new design is verified using model checking. The first step in 
+the simulation is the estimation of the parameters of the 
+simulation. Parameters are estimated by recording of the real 
+process and they depend on the tools simulation is done in. 
+These are the types of the parameters for the BPM Suite [14].  
+ 
+The resource parameters: resource cost per hour, 
+availability, efficiency and number of resources. 
+ 
+Parameters of the initial activity: instances of the 
+process are being generated and defined. There are 
+following 
+distributions: 
+constant, 
+uniform, 
+exponential, normal and real. 
+ 
+The activity parameters: there are two types of such 
+parameters. The first type relates to the activities in 
+the process involving the user: the distribution tasks 
+are carried out in the process with the mean value and 
+standard deviation, resources that can be shared, 
+meaning, to be shared among numerous activities or 
+fixed ones (in this case, it is important that the number 
+of fixed resources is specified) and activity price ­ 
+which may only be the price of the resource 
+performing the activity or to include the additional 
+cost (workplace cost). The second type refers to 
+automatic activities where the number of threads is 
+being specified which demonstrates the speed of 
+finalizing the activity. 
+ 
+Parameters of the gateway elements: it is important 
+to specify the probability of the instance of the 
+process that will be continued with each branch. 
+The more precise simulation parameters, the better results will 
+be. More precise results are achieved by methods such as: 
+interviewing users involved in the process or by analysis of the 
+files which contain information about already completed 
+processes. Performances can be analyzed in three KPIs: time, 
+price and the number of instances. For each of these KPIs, there 
+is the cost analysis of resources and the activities in the process 
+(Fig. 1.), and has two components: Resource busy cost and 
+Resource total cost.  
+In most business scenarios, there will be information exchange 
+between users. Documents are often used to store necessary 
+ 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:55 UTC from IEEE Xplore.  Restrictions apply. 
+119
+ 
+information and they are often mandatory in process. In most 
+cases, documents must be reviewed by a number of individuals 
+before they can be approved and forwarded further. This can 
+extend duration of business process and directly affects the cost 
+of process, quality of service etc. Let's assume the documents 
+are manually submitted from one to the other participant in the 
+process. Usually, the users are not close to each other 
+physically, they can be in different offices, different buildings 
+or different states. Users are also usually involved in different 
+processes, deciding to treat some tasks with greater priority. 
+This results in forgetting to manage the tasks of a lesser priority 
+and loosing these very documents in the process. Additionally, 
+the duration of the process is being increased, while at the same 
+time, the efficiency of the process becomes insignificant. It 
+would be convenient if all the documents were gathered in one 
+place and users, depending on their assigned rights and 
+obligations, could perform their activities on these documents. 
+This would result in avoiding the abovementioned problem of 
+losing the documents in the process, reduction of the duration 
+of the process and increased efficiency. This brings the idea of 
+working with documents in electronic formats where the 
+documents would be stored in the folder alike structures ­ 
+introducing the Electronic Document Management.i iFoldersi 
+iarei iorganizedi in iorder ito ireduce  
+operating costs and shorten the time of searching through 
+documents searching of documents [15]. One of the main 
+advantages of the BPM and EDMS integration is that users 
+during the filling of the electronic forms, where they are 
+supposed to attach documents, do not attach the very 
+documents, but the links to the documents located on a specific 
+site in the organisation. This helps us to avoid the duplicaton od 
+the documents in the system and the process is faster, because 
+the time of the uploading of the documents is reduced. Users 
+exchange links among themselves, but have the impression of 
+exchanging the documents. 
+Tracking data from activity checkpoints of unit transactions 
+within an organization's business processes is an important data 
+resource for business analysis and decision-makers to provide 
+essential strategic and tactical business information. It's very 
+important to know how processes are executed in real time. To 
+analyze processes in real time we use Business Activity 
+Monitoring. This technique allows us to measure various 
+aspects such as time, cost, performance and many others [16]. 
+To be able to monitor activities occurred in business process in 
+detail and provide a good visibility for process monitoring there 
+should be a good data warehouse model [17]. We created an 
+activity warehouse model. This model contains an activity table 
+and set of dimension tables as shown in Fig. 2. Activity table is 
+structured as follow: 
+Activity 
+(ID, 
+ProcessID, 
+ActivityLabelID, 
+RoleID, StatusID, OrganizationID. 
+Dimension tables consist of dimensions like process, user, role 
+and time.  
+ActivityLabel 
+(ActivityLabelID, 
+Name, 
+ActivityCost) 
+Role (RoleID, Name, RoleCost, Description) 
+Organization (OrganizationID, 
+Name,Description) 
+Status (StatusID, Name, Category) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+We use this model to monitor real time execution of business 
+process with business intelligence and business activity 
+monitoring. 
+All the optimization ideas of the business processes through the 
+simulation, integration of the BPM and EDMS systems and real 
+time monitoring are presented in the following chapter on the 
+specific process from one of the banks in Bosnia and 
+Herzegovina. 
+IV. 
+CASE STUDY 
+The idea of optimizing the business processes through the 
+simulation and automatic integration with EDMS system is 
+represented in the process of opening an account in a bank in 
+Bosnia and Herzegovina, whose name is omitted for 
+anonymity.  
+A. Problem description 
+This process is chosen because it represents the process in 
+which users work with documents: they scan, submit and 
+control the documents, and it is a good example of the process 
+that can be optimized as mentioned above. Fig. 3. shows the 
+process of opening an account to legal entities. BPMN 2.0 
+(Business Process Management Notation) standard was used 
+for the presentation of the process and it is the world standard 
+for business process modeling. The process begins when a 
+client comes to the bank to open an account. The client submits 
+an appropriate request for opening an account. After that, a loan 
+officer collects the necessary documentation for opening an 
+account. Another loan officer checks the completeness of the 
+collected documentation. Then, they check if the client has 
+already had an opened account status in the registry, and his 
+account is registered. It is necessary to record if the contract is 
+generated and sent to signing. When the client signs, the 
+recording of the executed signing is made, as well as the 
+account activation. In the end, it is necessary to record again if 
+the original documents of the client have been received.  
+ 
+ 
+Fig. 1. Resource Cost analysis in BPM 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:55 UTC from IEEE Xplore.  Restrictions apply. 
+120
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+B. Problem definition     
+The performance of the process will be observed with two 
+KPIs: process time execution and the total cost of the process. 
+The execution time of the process for a single instance can be 
+calculated as the sum of the time execution of all the activities 
+in the process. This is also applied for the cost of the process. If 
+there are n activities in the process, the time execution t and the 
+cost c can be calculated in these relations (1) and (2): 
+𝑡𝑡= ∑𝑡𝑡𝑖𝑖
+𝑛𝑛
+𝑖𝑖=1
+                                          (1) 
+ 
+𝑐𝑐= ∑𝑐𝑐𝑖𝑖
+𝑛𝑛
+𝑖𝑖=1
+                                          (2) 
+Where ti is the duration of the execution of i activity in the 
+process, and ci the cost of the execution of i activity in the 
+process. It is important to emphasize that the durations ti are 
+mutually dependent. The duration of the execution of the 
+current activity in the process depends on the duration of the 
+execution of activities that come before analyzed activity, 
+which can be presented through (3): 
+𝑡𝑡𝑖𝑖= 𝑓𝑓(𝑡𝑡1, 𝑡𝑡2, … , 𝑡𝑡𝑖𝑖−2, 𝑡𝑡𝑖𝑖−1)                         (3)  
+For example, if we observe the activity Completeness check in 
+the process in Fig. 3., this activity obviously depends on activity 
+Collection of documents. Users can not perform their task in the 
+process, until documentation is collected. They can also get 
+documents for review when they are not at work, for example 
+during the break or meeting. The duration of their performance 
+of the activity will not be the same as in the case  when they are 
+available to review the documentation promptly. In the process 
+shown in Fig. 3. it is important to pay attention to Collection of 
+documents activity. In this activity starts a connection with the 
+EDMS system. In this part of the process, the users scan the 
+documents, required for opening an Scanned documents are 
+saved in the system and users attach  
+ 
+ 
+ 
+ 
+these documents in electronic format to the process. The time 
+this activity takes for execution, has 3 components (4): 
+𝑡𝑡2 = 𝑡𝑡𝑠𝑠+ 𝑡𝑡𝑎𝑎+ 𝑡𝑡𝑑𝑑                                       (4) 
+Where the ts time is necessary for scanning the documentation, 
+ta time necessary for attaching the documents to the process, td 
+time necessary for completing the task in the process (filling the 
+appropriate fields in the form, etc.). Integration is achieved as 
+described in the previous section. Documents are kept at a 
+unique place in the system, and users in the process only submit 
+links to the documents. This results in not occupying the 
+additional space on disks and the process of the attachment of 
+the documents is faster.  
+C. Data 
+Presented BPM and EDMS systems integration is realized at the 
+application level via links (Fig. 4.). BPM and EDMS use 
+separate databases. BPM database stores the information about 
+the process, users etc. and EDMS database stores documents and 
+information about the metadata documents. Data are 
+obtainedifromitheidatabaseiwhichiregistersiand 
+stores 
+all 
+occurrences of the process. Occurrences contain information 
+about: unique instance number of the process, event (activity), 
+type of event (started or completed), time of event and about the 
+user who is involved in the process. This kind of integration is 
+implemented in the process shown in Fig. 3. In order to monitor 
+performances of the process, data warehouse model is defined 
+(Fig. 2.). Using the model with the help of dimensions 
+ActivityLabelID i Duration we can get the information 
+on the duration of each activity in the process. Also using the 
+dimensions 
+ActivityLabelID, 
+ActivityCost 
+and 
+RoleCost we can get the information about the cost of the each 
+performed activity in the process. As mentioned in Section 3., 
+the cost of performing the activity includes the cost of the 
+workplace and the cost of the person performing this task. These 
+documents are sufficient for the analysis of the process by two 
+different KPIs: duration of execution of the process and the total 
+cost of the process. After defining the data warehouse model, we 
+can continue with the analysis of the process execution. Results 
+are shown in Fig. 5. The analysis was conducted in the period of 
+15 days. Fig. 5. shows the total execution time for each activity 
+in the process. Fig. 5. also shows that Collection of the 
+documents activity has the longest execution time of more than 
+one day. This means, the instances of the process are most 
+retained during the collection of the documents and this is where 
+is the bottleneck in the process. Retaining the process instances 
+in this activity directly influences the retaining in other activities 
+following this one according to relation (3). After this activity, 
+the process retains the most in the activities Completeness check 
+and Checking account status in the registry. The activity 
+Collection of documents, which is a bottleneck in the process is  
+ 
+ 
+Fig. 2. Data warehouse activity model 
+ 
+Fig. 3. Process of opening an account to legal entities 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:55 UTC from IEEE Xplore.  Restrictions apply. 
+121
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+at the same time the place where the integration with EDMS 
+have been realized. The execution time of this activity has 3 
+components according to relation (4). In order to optimize the 
+process, it is necessary to reduce the execution time of that 
+activity. The only component of the time that can be affected is 
+𝑡𝑡𝑎𝑎. The component 𝑡𝑡𝑠𝑠 is the scanning time and cannot be 
+eliminated, because it is necessary to scan the documents in 
+order for them to be available in electronic form, as well as the 
+time 𝑡𝑡𝑑𝑑, because the user has to examine filled fields in the form, 
+and possibly fill some of them. The execution time of the 
+collection of documents 𝑡𝑡2 will be reduced by minimizing the 
+component 𝑡𝑡𝑎𝑎. The measured results of proposed solution of the 
+optimization is shown in Fig. 6. Instead of existing integration 
+at the application level, integration at the database level was 
+presented. The system now uses one database instead of two. 
+User is no longer obligated to scan the document and submit it 
+again in the form. Now the system works in a instances of the 
+process as one of metadata. This data is sufficient for the system 
+to recognize the instance at the level following manner: after the 
+documents are scanned, those documents (more precisely: links 
+to the documents) are automatically attached to the 
+corresponding instance of the process. The automatic integration 
+is achieved when the user, during the scanning of the documents 
+inserts the number of instances of database, and to join links to 
+the instance (links that lead to the newly scanned documents). 
+Thus, the users do not have to attach documents at 𝑡𝑡𝑎𝑎= 0. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+D. Result 
+Fig. 7. shows the time analysis of the automated process in the 
+same period of 15 days. The process acceleration is even faster, 
+considering the fact that Collection of documents activity is 
+performed by 14 users. It is obvious that the proposed solution 
+is improved, in other words, the time execution of the Collection 
+of the documents activity is reduced. This also causes the 
+reduction of the execution time as well as other activities in the 
+process following after the Collection of the documents activity. 
+The total cost of the process is reduced too, because the cost of 
+the process depends on execution time of activities in process. 
+Fig. 7. shows that the bottleneck is in the process on the 
+Completeness check activity. For the further optimization of the 
+process the implementers suggest to increase the number of the 
+users performing the activity in the Completeness check. 
+Currently, the number of users performing this activity is 2. 
+Increasing the number of the users can result in increasing the 
+cost of the resources in that activity, because workers cost more. 
+On the other hand, the execution time of the very process will be 
+reduced as well as the total cost of the process. It is profitable to 
+increase the number of users if the reduction in prices of the 
+process will be higher than the increase of prices by adding new 
+participants to the process. Simulation shows that the cost of the 
+process decrease by 8%, with over 10000 to 9200 unit prices 
+(Fig. 8.). The total cost of the process takes 
+ 
+ 
+Fig. 4. BPM and EDMS system integration 
+ 
+ 
+Fig. 5. The total time of activities duration in process 
+ 
+ 
+         Fig. 7. The entire time execution of the activity in the process after the 
+automatic integration BPM and EDMS systems 
+Fig. 6. Automatic integration of BPM and EDMS systems 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:55 UTC from IEEE Xplore.  Restrictions apply. 
+122
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+into account the cost of resources and the cost of jobs, and 
+depends on the execution time of the process. Increasing the 
+number of resources regardless of the simultaneous increase of 
+the cost of resources, decreases the total time of the execution of 
+the process on every activity and will cause decreasing of the 
+cost of the entire process. The results of the simulation are 
+presented to the bank which will further decide on the proposal 
+of the optimization.  
+V. 
+CONCLUSION 
+This paper shows the processes that can be optimized in 
+which users work with the documents. The presented idea of 
+optimization includes the automatic integration of BPM and 
+EDMS systems. During the scanning, the documents are 
+automatically being attached to the appropriate instance of the 
+process, which helps users to avoid manual attaching of the 
+documents in the form. In this way, time of the process 
+implementation and price of process, too, were reduced. Larger 
+number of places for integration BPM and EDMS systems in 
+process, mean greater improvement of process. This approach 
+is comprehensive, and can be used in any process. Solving the 
+problem of bottleneck in the process on one activity is reflected 
+on all other activities in the process. It has also been 
+demonstrated by simulation that the increasing of the number 
+of the resources on the bottleneck in the process results in 
+reduction of the cost of the overall process, no matter of the 
+resource price increase. This improvement has been achieved 
+because the total duration of the process is effectively reduced. 
+REFERENCES 
+[1] R.K.L. Ko, “A computer scientist’s introductory guide to business process 
+management (BPM),”  ACM Crossroads, vol. 15, no. 4, pp. 11–18, 
+Summer 2009.    
+[2] W.M.P. van der Aalst, A.H.M. ter Hofstede, and M. Weske, “Business 
+process management: A survey,” in Proc. Business Process Management: 
+International Conference, BPM 2003, Eindhoven, the Netherlands, ser. 
+LNCS. Springer, June 26-27, 2003, pp. 1–12. 
+[3] H. Smith and P. Fingar, Business Process Management. The Third Wave. 
+Meghan-Kiffer, US, 2003.      
+[4] S. Cleveland. (2016, January, 14). BPM from a Business Point of View, 
+business process management, Greatest Benefit from BPM. [Online]. 
+Available: http://www.ebizq.net/blogs/bpm_business . 
+[5] P. Fenton. (2016, January, 20) 10 Benefits of Moving to Electronic  
+Document Management System (EDMS). [Online]. Available:  
+         http://blog.montrium.com/blog/10-benefits-of-moving-   
+         to-electronic-document-management-for-life-science-  
+         companies 
+[6] G. Paradapakis, Business Process Management with Document and 
+Content Management. IBM United Kingdom, 2010.        
+[7] Xerox Document Management. (2016, February, 3). [Online]. Available: 
+http://www.realbusiness.com/#/documentmanagement/service-offerings-
+dm      
+[8] HP. (2016, February,f3). JetAdvantage solutions for workflow 
+management.b[Online].vAvailable:fhttp://www8.hp.com/us/en/solutions
+/business-solutions/printingsolutions/workflow.html.       
+[9] H.T. Pho and T. Tambo, “Integrated management systems and workflow-
+based electronic document management: An empirical study,” Journal of 
+Industrial Engineering and Management (JIEM), pp. 194-217, 2014.        
+[10] B. Yimwadsana, C. Chaihirunkarn, A. Jaichoom, and A. Thawornchak, 
+“DocFlow: An Integrated Document Workflow for Business Process 
+Management,” Interntaional Journal of Digital Information and  Wireless 
+Communications (IJDIWC), pp. 219-229, 2011.  
+[11] P. Ravesteyn, R. Betenburg, and B.D. Waal. “In Search of Competencies 
+Needed in BPM Projects,” Communications of the IIM, vol 8(2), pp. 23-
+30, 2008.           
+[12] M. Dumas, M.L. Rosa, J. Mendling, and H.A. Reijers, Fundamentals of 
+Business Process Management. Springer. New York, U.S., 2013.   
+[13] G. Hook, “Business process modeling and simulation,” in Proceedings of 
+the 2011 Winter Simulation Conference, Winter 2011.  
+[14] Oracle Corporation, Modeling and Implementation Guide for Oracle 
+Business Process Management. U.S., 2013.   
+[15] K. Neal. “Driving better business performance with document 
+management processes,” The Information Management Journal vol. 42, 
+no. 6, pp. 48-49, Winter 2008.  
+[16] Oracle Corporation, Monitoring Business Activity with Oracle BAM. 
+U.S., 2015. 
+[17] O. Mangisengi, M. Pichler, D. Auer, and D. Draheim. “Activity 
+warehouse: Data management for business activity monitoring”. in 
+Proceedings of the Ninth International Conference on Enterprise 
+Information Systems, vol. DISI, June 2007 
+ 
+Fig. 8. The entire time execution in the process are minimized after the 
+automatic integration BPM and EDMS systems 
+Authorized licensed use limited to: UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL. Downloaded on July 06,2025 at 18:17:55 UTC from IEEE Xplore.  Restrictions apply.
+
